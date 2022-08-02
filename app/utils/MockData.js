@@ -81,18 +81,6 @@ export const categoriesList = [
     label: 'Women',
     Icon: () => <IconWomen fill={appColors.primary} />,
   },
-  {
-    label: 'Devices',
-    Icon: () => <IconDevices fill={appColors.primary} />,
-  },
-  {
-    label: 'Gaming',
-    Icon: () => <IconGaming fill={appColors.primary} />,
-  },
-  {
-    label: 'Gadget',
-    Icon: () => <IconGadget fill={appColors.primary} />,
-  },
 ];
 export const topBrands = [
   {

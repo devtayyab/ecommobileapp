@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import Home from '../screens/Home';
+import Add from '../screens/Add/Add';
 import ProductDetails from '../screens/ProductDetails';
 
 import WriteReview from '../screens/WriteReview';
@@ -40,6 +41,22 @@ export const RoutesList = [
         />
       ),
       tabBarLabel: 'Home',
+    },
+  },
+  {
+    name: 'Add',
+    component: Add,
+    options: {
+      //tabBarBadge: 3,
+      tabBarIcon: (props) => (
+        <Feather
+          name={'plus'}
+          size={scale(20)}
+          color={appColors.primary}
+          {...props}
+        />
+      ),
+      tabBarLabel: 'Add',
     },
   },
   {

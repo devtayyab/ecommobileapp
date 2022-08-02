@@ -37,6 +37,8 @@ function Home({getProducts$,getProductsList$, addToCart$, navigation,products:{p
   };
   return (
     <Container isScrollable style={styles.container}> 
+    <Text style={styles.appName}>WeekEnd</Text>
+    
       <SearchBox onFoucs={() => navigation.navigate('Search')} /> 
       <View style={{paddingVertical: scale(30)}}>
         <RenderTitle heading="Categories" />
@@ -123,5 +125,11 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  appName:{
+    textAlign: 'center',
+    color:appColors.primary,
+    fontSize:25,
+    marginVertical:10,
   },
 });

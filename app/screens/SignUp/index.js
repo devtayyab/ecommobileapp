@@ -17,7 +17,7 @@ export default function index({navigation}) {
 
   const onSignUp =async () => {
     const {email,password}=userInfo
-    const user = await auth().createUserWithEmailAndPassword(email,password)
+    const user = await auth().createUserWithEmailAndPassword(email.trim(),password)
     if(user?.user.uid){
       AlertHelper.show("success", "Signup Success, Welcome to Amusoftech")
       navigation.navigate("Home")
@@ -66,7 +66,7 @@ export default function index({navigation}) {
           <CustomInput
             onChangeText={(text) => onChnage('name', text)}
             label="Name"
-            placeholder="Amusoftech"
+            placeholder="John"
           />
         </View>
         <View style={{paddingVertical: scale(10)}}>
