@@ -1,4 +1,4 @@
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, ScrollView,Image} from 'react-native';
 import {
   Form,
   FormItem,
@@ -8,6 +8,8 @@ import {
 } from 'react-native-form-component';
 import React, {useState} from 'react';
 import { appColors } from '../../utils/appColors';
+import Feather from 'react-native-vector-icons/dist/Feather';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 export default function Add() {
   const [title, setTitle] = useState('');
@@ -17,11 +19,64 @@ export default function Add() {
   const [concentration, setConcentration] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
+  const [imageUri, setImageUri] = useState({});
+
+  const uploadImage = ()=>{
+    console.log("hii");
+
+    const options ={
+      storageOptions:{
+        path: 'images',
+        mediaType:'photo',
+        
+      },
+      includeBase64:true,
+    };
+
+    launchImageLibrary(options, (response)=>{
+      if (response.didCancel) {
+        console.log("User cancel image picker");
+        
+      }
+      else if (response.error) {
+        console.log("Image Picker Error", response.error);
+      }
+      else if (response.customButton) {
+        console.log("User Tapped custom button", response.customButton);
+      }
+      else{
+        // const source = {uri:'data:image/jpeg,base64'+response.base64}
+        const source = {uri:'data:image/jpeg,base64'+response.base64}
+        setImageUri(response)
+        console.log(response.uri);
+      }
+    })
+
+
+
+
+
+}
 
 
   return (
     <View style={styles.main}>
+      
       <ScrollView>
+      <View style={styles.imageContainer}>
+      <Image 
+        // resizeMode='contain'
+        style={styles.image} 
+        source={imageUri.uri}
+        />
+      <Feather
+      name={'camera'}
+      size={40}
+      color={appColors.primary}
+      onPress={uploadImage}
+      style={styles.icon} 
+      />
+      </View>
       <Form buttonText="Add Product" buttonStyle={{backgroundColor:appColors.primary,}} onButtonPress={() => console.log('do something')}>
         <FormItem
           isRequired
@@ -87,6 +142,7 @@ export default function Add() {
           placeholder="Description"
           value={description}
           onChangeText={(e) => setDescription(e)}
+          textArea
         />
       </Form>
       </ScrollView>
@@ -96,6 +152,21 @@ export default function Add() {
 const styles = StyleSheet.create({
   main:{
     margin: 20,
+  },
+  imageContainer:{
+    marginVertical:20,
+    flexDirection:'row',
+  },
+  image:{
+    height:100,
+    width:100,
+    borderColor:appColors.primary,
+    borderRadius:10,
+    borderWidth:2
+  },
+  icon:{
+    paddingLeft:10,
+    paddingTop:60,
   },
   
 });

@@ -49,7 +49,7 @@ function index({getProductsList$,loginUser$, navigation}) {
           }
           loginUser$({email:user?.email, name: user?.displayName ? user?.displayName : "User", uid: user?.uid } );
           getProductsList$()
-          AlertHelper.show('success', 'Welcome to Amusoftech');
+          AlertHelper.show('success', 'Welcome to WeekEnd');
           navigation.navigate('Home');
         }
       }else{
