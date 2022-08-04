@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "684544664590",
-    "project_id": "weekend-shopapp",
-    "storage_bucket": "weekend-shopapp.appspot.com"
+    "project_number": "260811097856",
+    "project_id": "buysell1-d3870",
+    "storage_bucket": "buysell1-d3870.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:684544664590:android:0e11e453ef92b775cfc85f",
+        "mobilesdk_app_id": "1:260811097856:android:cf7fa83c1979dcdc2195e5",
         "android_client_info": {
           "package_name": "com.amusoftech.shop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "684544664590-5cpae1asjmfoou88coarphnss247kunu.apps.googleusercontent.com",
+          "client_id": "260811097856-93p9orcpit7m8jaiemqr0vueec0rmc8d.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBcszydfKcCADNqHnf5nskdNBvoB0JFoXs"
+          "current_key": "AIzaSyCkqfNmjLLL3gPqzlZBbtaI7qSV5dBJDXk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "684544664590-5cpae1asjmfoou88coarphnss247kunu.apps.googleusercontent.com",
+              "client_id": "260811097856-93p9orcpit7m8jaiemqr0vueec0rmc8d.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

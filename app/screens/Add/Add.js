@@ -16,6 +16,7 @@ import firestore from '@react-native-firebase/firestore';
 export default function Add() {
   const [title, setTitle] = useState('');
   const [gender, setGender] = useState('');
+  const [category, setCategory] = useState('');
   const [brand, setBrand] = useState('');
   const [quantity, setQuantity] = useState('');
   const [concentration, setConcentration] = useState('');
@@ -68,6 +69,7 @@ export default function Add() {
           .add({
             title,
             gender,
+            category,
             brand,
             quantity,
             concentration,
@@ -122,6 +124,16 @@ export default function Add() {
             isRequired
             selectedValue={gender}
             onSelection={(item) => setGender(item.value)}
+          />
+          <Picker
+            items={[
+              { label: 'Men', value: 'men' },
+              { label: 'Women', value: 'women' },
+            ]}
+            placeholder="Choose Category"
+            isRequired
+            selectedValue={category}
+            onSelection={(item) => setCategory(item.value)}
           />
           <FormItem
             isRequired
