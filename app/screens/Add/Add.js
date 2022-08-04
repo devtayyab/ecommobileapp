@@ -51,7 +51,7 @@ export default function Add() {
         // const source = {uri:'data:image/jpeg,base64'+response.base64}
         const source = { uri: response?.uri };
         setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
-        console.log(response);
+        // console.log(response);
         console.log(response?.assets[0]?.uri);
 
       }
@@ -79,6 +79,16 @@ export default function Add() {
           })
           .then(() => {
             console.log('Products added!');
+            setBrand('');
+            setCategory('');
+            setConcentration('');
+            setDescription('');
+            setGender('');
+            setImageUri('');
+            setPrice('');
+            setQuantity('');
+            setTitle('');
+            
           });
       }
       ).catch((error) => {

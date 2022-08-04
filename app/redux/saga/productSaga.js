@@ -3,8 +3,8 @@ import { GET_PRODUCTS,GET_PRODUCTS_LIST,SET_PRODUCTS, SET_PRODUCTS_LIST } from '
 import RequestMake from '../../utils/RequestMake'
  import {PRODUCTS_BY_CATEGORY, PRODUCTS_LIST} from '../../utils/ApiList'
 
- 
-
+ import firestore from '@react-native-firebase/firestore';
+import { useState } from 'react';
 
 
 
@@ -12,10 +12,22 @@ import RequestMake from '../../utils/RequestMake'
 
 
 export function* workerGetProducts(action) {
+
+  const getProducts = async ()=>{
+    const product = await firestore().collection('Products').get();
+
+    console.log(product._docs[0]._data);
+  }
+ 
   if (action) {
       const category =action.payload
       // const URL=`${PRODUCTS_BY_CATEGORY}/${category}`
       // console.log({URL});
+      getProducts();
+      
+
+      
+     
 
       const products =[{
         id:1,
@@ -47,7 +59,6 @@ export function* workerGetProducts(action) {
 export function* watcherGetProducts() {
   yield takeLatest(GET_PRODUCTS,workerGetProducts)
 }
-// https://static-01.daraz.pk/p/e90dcc4c91fb264ab1872a0a7e5b7130.jpg
 
 
 export function* workerGetProductsList(action) {
