@@ -4,7 +4,6 @@ import RequestMake from '../../utils/RequestMake'
  import {PRODUCTS_BY_CATEGORY, PRODUCTS_LIST} from '../../utils/ApiList'
 
  import firestore from '@react-native-firebase/firestore';
-import { useState } from 'react';
 
 
 
@@ -12,18 +11,23 @@ import { useState } from 'react';
 
 
 export function* workerGetProducts(action) {
+  
 
   const getProducts = async ()=>{
     const product = await firestore().collection('Products').get();
 
     console.log(product._docs[0]._data);
+    return product._docs[0]._data;
+
   }
  
   if (action) {
       const category =action.payload
       // const URL=`${PRODUCTS_BY_CATEGORY}/${category}`
       // console.log({URL});
-      getProducts();
+      const data = getProducts();
+      console.log(data);
+      
       
 
       
