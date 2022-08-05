@@ -9,6 +9,7 @@ import {appColors, shadow} from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/Feather';
 import auth from '@react-native-firebase/auth';
  import {AlertHelper} from '../../utils/AlertHelper'
+ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function index({navigation}) {
   const [userInfo, setUserInfo] = useState({});
   const onChnage = (name, text) => {
@@ -16,14 +17,17 @@ export default function index({navigation}) {
   };
 
   const onSignUp =async () => {
+     console.log(userInfo);
     const {email,password}=userInfo
     const user = await auth().createUserWithEmailAndPassword(email.trim(),password)
     if(user?.user.uid){
-      AlertHelper.show("success", "Signup Success, Welcome to Amusoftech")
+      AlertHelper.show("success", "Signup Success, Welcome to WeekEnd")
       navigation.navigate("Home")
+      await AsyncStorage.setItem('user', JSON.stringify(userInfo))
     }else{
       AlertHelper.show("error", "Signup Failed, Please Retry")
     } 
+    
 
   };
   return (
@@ -64,7 +68,7 @@ export default function index({navigation}) {
         </View>
         <View style={{paddingVertical: scale(10)}}>
           <CustomInput
-            onChangeText={(text) => onChnage('name', text)}
+            onChangeText={(text) => onChnage('displayName', text)}
             label="Name"
             placeholder="John"
           />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, Text, StyleSheet, Pressable, FlatList} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import Container from '../../components/Container';
@@ -8,11 +8,44 @@ import Label from '../../components/Label';
 import {profileKeys} from '../../utils/MockData';
 import AvatarImage from '../../components/AvatarImage' 
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 //auth().signOut()
 export default function index({navigation}) {
 
-  const onLogout = ()=>{ 
+  const [userdata, setUserData] = useState({})
+
+  const getData = async () => {
+    try {
+      const user = await AsyncStorage.getItem('user')
+      const Data = JSON.parse(user)
+      setUserData(Data)
+      console.log("user Data",userdata.email);
+      
+    } catch(e) {
+      console.log(e);
+    }
+  }
+  const removeUser = async () => {
+    try {
+     await AsyncStorage.removeItem('user')
+      
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getData ();
+    
+  }, [])
+
+  const {email, displayName} = userdata;
+  
+
+  const onLogout =  ()=>{ 
      auth().signOut()
+     removeUser();
+  
   }
   const ItemCard = ({item}) => {
     const {lebel, icon,isNew,route} = item;
@@ -39,8 +72,8 @@ export default function index({navigation}) {
         <View style={{paddingVertical:scale(20), flexDirection:'row', justifyContent:'flex-start', alignItems:'center'}}>
             <AvatarImage  size={scale(110)}/>
             <View style={{marginLeft:scale(20)}}> 
-                <Label text="Amusoftech" style={{fontSize:scale(28)}} />
-                <Label text="amusoftech@gmail.com" style={{fontSize:scale(12)}} />
+                <Label text={displayName} style={{fontSize:scale(28)}} />
+                <Label text={email} style={{fontSize:scale(12)}} />
             </View>
         </View>
       <FlatList

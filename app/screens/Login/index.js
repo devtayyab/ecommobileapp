@@ -13,6 +13,7 @@ import {CommonActions} from '@react-navigation/native';
 import googleLogin from '../../services/googleLogin';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function index({getProductsList$,loginUser$, navigation}) {
   const [credentials, setCredentials] = useState({});
@@ -41,6 +42,7 @@ function index({getProductsList$,loginUser$, navigation}) {
           password?.toLowerCase(),
         );
         console.log(user);
+        await AsyncStorage.setItem('user', JSON.stringify(user))
         if (user?.uid) {
           if(additionalUserInfo?.isNewUser){
             const {providerId,profile} =additionalUserInfo
