@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "260811097856",
+    "project_id": "buysell1-d3870",
+    "storage_bucket": "buysell1-d3870.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260811097856:android:cf7fa83c1979dcdc2195e5",
+        "android_client_info": {
+          "package_name": "com.amusoftech.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260811097856-0vogth8fgdld5bkodn8q0kjs3fkgf7re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amusoftech.shop",
+            "certificate_hash": "d3aeff898caea7ff65959e2aaf85c2321645abdb"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkqfNmjLLL3gPqzlZBbtaI7qSV5dBJDXk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260811097856-93p9orcpit7m8jaiemqr0vueec0rmc8d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
