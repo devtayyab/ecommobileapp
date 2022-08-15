@@ -20,7 +20,7 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, imageuri, n
            borderRadius:  scale(noBg ? 5 : 0),
           //backgroundColor:appColors.darkGray
         }}
-        source={{uri:imageuri} }
+        source={{uri:imageuri}}
       />
 
       <View

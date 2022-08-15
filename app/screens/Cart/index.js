@@ -43,8 +43,9 @@ function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,remov
  
 
   const ItemCard = ({item}) => {
-    const {title, description, price, image} = item;
-    return ( <CheckOutItem name={title} image={image} price={price} /> );
+    // console.log(item.imageuri);
+    const {title, description, price, imageuri} = item;
+    return ( <CheckOutItem name={title} imageuri={imageuri} price={price} /> );
   };
   return (
     <>
