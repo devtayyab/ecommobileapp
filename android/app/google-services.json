@@ -14,8 +14,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "260811097856-93p9orcpit7m8jaiemqr0vueec0rmc8d.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "260811097856-0vogth8fgdld5bkodn8q0kjs3fkgf7re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amusoftech.shop",
+            "certificate_hash": "d3aeff898caea7ff65959e2aaf85c2321645abdb"
+          }
         }
       ],
       "api_key": [

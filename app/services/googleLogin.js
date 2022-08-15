@@ -3,7 +3,9 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 export default async function  () {
     GoogleSignin.configure({
-        webClientId: '1015972329649-kdmpvmdagf6f3ndqnmqqpp7svgoe699e.apps.googleusercontent.com',
+        // webClientId: '1015972329649-kdmpvmdagf6f3ndqnmqqpp7svgoe699e.apps.googleusercontent.com',
+           webClientId: '421115147426-if1o90jn2gtsatsuqe0mgi0k0bi5mvtj.apps.googleusercontent.com',
+        
       });
   // Get the users ID token
   const { idToken } = await GoogleSignin.signIn();
