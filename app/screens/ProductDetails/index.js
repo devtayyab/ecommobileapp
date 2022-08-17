@@ -6,6 +6,7 @@ import Label from '../../components/Label';
 import CustomButton from '../../components/CustomButton';
 import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo';
 import TitleComp from '../../components/TitleComp';
 import { productDetail } from '../../utils/MockData';
 import ReviewComp from '../../components/ReviewComp';
@@ -13,6 +14,7 @@ import BottomButtons from '../../components/BottomButtons';
 import { connect } from 'react-redux';
 import { addToCart } from '../../redux/cartAction';
 import ReduxWrapper from '../../utils/ReduxWrapper';
+import Chat from '../Chat/Chat';
 
 function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList$, addToCart$, navigation, route: { params } }) {
 
@@ -35,6 +37,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
   };
   return (
     <>
+    
       <Container bodyStyle={{ paddingHorizontal: scale(0) }} isScrollable>
         <View>
           <ImageBackground
@@ -114,6 +117,20 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
               />
             </View>
           </View>
+          <View >
+          <TitleComp heading={'Contact'} />
+          <Pressable style={styles.chat}
+              onPress={() => navigation.navigate(Chat)}
+              >
+            <Label text="Contact with Supplier" style={styles.chatLabel} />
+              <Entypo
+                    name={'chat'}
+                    size={scale(25)}
+                    color={appColors.primary}
+                  />
+            </Pressable>
+          
+          </View>
           <View>
             <TitleComp heading={'Reviews'} />
             <Pressable
@@ -162,5 +179,14 @@ const styles = StyleSheet.create({
     paddingVertical: scale(10),
     fontSize: scale(14),
     color: appColors.primary,
+  },
+  chatLabel:{
+    color: appColors.primary,
+    fontSize: scale(14),
+    paddingRight: scale(10),
+  },
+  chat:{
+    flexDirection:"row",
+    // paddingHorizontal: scale(10),
   },
 });
