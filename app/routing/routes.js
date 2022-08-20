@@ -1,5 +1,4 @@
 /**
- * @author Amusoftech <er.amudeep@gmail.com>
  * @description List of routes for Tabs Navigator and Stack navigator, Along addational  Option for Tabs
  */
 import React from 'react';
