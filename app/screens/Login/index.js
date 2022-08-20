@@ -7,6 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import Label from '../../components/Label';
 import {appColors, shadow} from '../../utils/appColors';
 import auth from '@react-native-firebase/auth';
+import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
 import {AlertHelper} from '../../utils/AlertHelper';
 import {CommonActions} from '@react-navigation/native';
   
@@ -30,6 +31,32 @@ function index({getProductsList$,loginUser$, navigation}) {
    getProductsList$()
    loginUser$({email , name: displayName  , uid ,photoURL} );
   }
+
+
+  const onFacebookLogin  =async ()=>{
+    const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+
+  if (result.isCancelled) {
+    throw 'User cancelled the login process';
+  }
+
+  // Once signed in, get the users AccesToken
+  const data = await AccessToken.getCurrentAccessToken();
+
+  console.log("Successfully Login with Facebook:",data);
+
+  if (!data) {
+    throw 'Something went wrong obtaining access token';
+  }
+
+  // Create a Firebase credential with the AccessToken
+  const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
+
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(facebookCredential);
+
+  }
+  
   const onLogin = async () => {
     //auth().signOut()
     const {email, password} = credentials;
@@ -163,7 +190,7 @@ function index({getProductsList$,loginUser$, navigation}) {
         label="Sign in"
         unFilled
       />
-      <CustomButton    onPress={onLogin} icon="twitter" label="Sign in" unFilled />
+      <CustomButton    onPress={onFacebookLogin} icon="facebook" label="Sign in" unFilled />
     </Container>
   );
 }

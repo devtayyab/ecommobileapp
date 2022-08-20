@@ -34,13 +34,13 @@ function index(props) {
     const {email, name} = user;
     await paymentHelper(
       {
-        description: 'Order at Amusoftech-Shop',
+        description: 'Order at WeekEnd',
         currency: 'INR',
         amount: '5000',
         name: 'foo',
         prefill: {
           email: email,
-          contact: '9464145008',
+          contact: '123456789',
           name: name,
         },
       },

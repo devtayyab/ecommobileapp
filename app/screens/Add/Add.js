@@ -1,4 +1,4 @@
-import {  View, StyleSheet, ScrollView,  Image, Platform  } from 'react-native';
+import {  View, StyleSheet, ScrollView,  Image, Platform } from 'react-native';
 import {
   Form,
   FormItem,
@@ -7,7 +7,7 @@ import {
   Modal,
 } from 'react-native-form-component';
 import storage from '@react-native-firebase/storage';
-
+// import storage from '@react-native-firebase/storage';
 import React, {  useState  } from 'react';
 import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
