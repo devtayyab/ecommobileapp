@@ -120,7 +120,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <View >
           <TitleComp heading={'Contact'} />
           <Pressable style={styles.chat}
-              onPress={() => navigation.navigate(Chat)}
+              onPress={() => navigation.navigate('Chat')}
               >
             <Label text="Contact with Supplier" style={styles.chatLabel} />
               <Entypo

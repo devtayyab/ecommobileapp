@@ -21,12 +21,12 @@ import WishList from '../screens/WishList';
 import Orders from '../screens/Orders';
 import Address from '../screens/Address';
 import Feather from 'react-native-vector-icons/dist/Feather';
-import {appColors} from '../utils/appColors';
-import {scale} from 'react-native-size-matters';
+import { appColors } from '../utils/appColors';
+import { scale } from 'react-native-size-matters';
 import Category from '../screens/Category';
-
+import Chat from '../screens/Chat/Chat';
 export const RoutesList = [
- 
+
   {
     name: 'Home',
     component: Home,
@@ -213,7 +213,16 @@ export const RoutesList = [
       tabBarLabel: 'Address',
     },
   },
-
+  {
+    name: 'Chat',
+    component: Chat,
+    options: {
+      tabBarButton: (props) => null,
+      //tabBarVisible: false,
+      //tabBarBadge: 3,
+      tabBarLabel: 'Chat',
+    },
+  },
   {
     name: 'WishList',
     component: WishList,
