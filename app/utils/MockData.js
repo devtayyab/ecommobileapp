@@ -4,8 +4,8 @@ import IconWomen from '../Icons/IconWomen';
 import IconDevices from '../Icons/IconDevices';
 import IconGadget from '../Icons/IconGadget';
 import IconGaming from '../Icons/IconGaming';
-import {appColors} from './appColors';
-
+import { appColors } from './appColors';
+import Icon from 'react-native-vector-icons/FontAwesome';
 export const features = [
   'Always up-to-date React Native scaffolding',
   'Modular and well-documented structure for application code',
@@ -59,7 +59,7 @@ export const productDetail = {
 
 export const reviews = [
   {
-    name: 'Amusoftech',
+    name: 'Weekend',
     detail: 'Wonderful jean, perfect gift for my girl for our anniversary!',
     count: 4,
     image: require('../static/images/rate/1.png'),
@@ -75,27 +75,27 @@ export const reviews = [
 export const categoriesList = [
   {
     label: 'Men',
-    Icon: () => <IconMen fill={appColors.primary} />,
+    Icon: () => <Icon name='male' size={30} color='#81b8e6'></Icon>,
   },
   {
     label: 'Women',
-    Icon: () => <IconWomen fill={appColors.primary} />,
+    Icon: () => <Icon name='female' size={30} color='#81b8e6'></Icon>,
   },
 ];
 export const topBrands = [
   {
-    label: 'Apple Inc',
+    label: 'Perfume',
     products: '5693 Products',
     icon: 'logo-apple',
   },
   {
-    label: 'Google Llc',
+    label: 'Perfume',
     products: '6613 Products',
     icon: 'logo-google',
   },
 ];
 export const recentSearches = [
-  'Amusoftech',
+  'Weekend',
   'Shoes',
   'Caps',
   'Apple',
@@ -125,48 +125,45 @@ export const deliveryTypes = [
 ];
 export const paymentMethods = ['dollar-sign', 'credit-card', 'layout'];
 
-export const profileKeys=[
+export const profileKeys = [
+
   {
-    lebel:"Edit Profile",
-    icon:"edit-3"
+    lebel: "Shipping Address",
+    icon: "map-pin",
+    route: "Address"
   },
   {
-    lebel:"Shipping Address",
-    icon:"map-pin",
-    route:"Address"
+    lebel: "Wishlist",
+    icon: "heart",
+    isNew: true,
+    route: "WishList"
   },
   {
-    lebel:"Wishlist",
-    icon:"heart",
-    isNew:true,
-    route :"WishList"
-  },
-  {
-    lebel:"Order History",
-    icon:"clock",
+    lebel: "Order History",
+    icon: "clock",
     route: "Orders"
   },
   {
-    lebel:"Track Order",
-    icon:"package",
+    lebel: "Track Order",
+    icon: "package",
     route: "Orders"
   },
   {
-    lebel:"Cards",
-    icon:"credit-card"
+    lebel: "Cards",
+    icon: "credit-card"
   },
   {
-    lebel:"Notifications",
-    icon:"bell"
+    lebel: "Notifications",
+    icon: "bell"
   },
   {
-    lebel:"Sign Out",
-    icon:"log-out",
+    lebel: "Sign Out",
+    icon: "log-out",
     route: "Login"
   }
 ]
 
-export const orderList =[
+export const orderList = [
   {
     label: 'AMU - 9249296 - N',
     amount: '$3503',
@@ -174,23 +171,23 @@ export const orderList =[
     color: 'yellow',
   },
   {
-    label:"OD - 424923192 - N",
-    amount:"$3453",
-    status:"Delivered",
-    color:"primary"
+    label: "OD - 424923192 - N",
+    amount: "$3453",
+    status: "Delivered",
+    color: "primary"
   },
   {
-    label:"OD - 424923192 - N",
-    amount:"$3503",
-    status:"Delivered",
-    color:"primary"
+    label: "OD - 424923192 - N",
+    amount: "$3503",
+    status: "Delivered",
+    color: "primary"
   },
   {
-    label:"OD - 424923192 - N",
-    amount:"$4453",
-    status:"Delivered",
-    color:"primary"
-  }, 
+    label: "OD - 424923192 - N",
+    amount: "$4453",
+    status: "Delivered",
+    color: "primary"
+  },
   /* {
     label:"",
     amount:"",

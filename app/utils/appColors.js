@@ -1,5 +1,5 @@
 export const appColors={
-    primary:'#00C569',
+    primary:'#81b8e6',
     secondary:"#fff",
     white:"#ffffff",
     black:"#000",
@@ -9,7 +9,7 @@ export const appColors={
     darkGray:"#929292",
     lightGray:'#DDDDDD',
     gray:"#BEBEBE",
-    lightGreen:"rgba(0,197,105, 0.2)"
+    lightGreen:"#81b8e6"
 }
 export const shadow = {
     shadowColor: "#000",
@@ -17,7 +17,6 @@ export const shadow = {
         width: 0,
         height: 2,
     },
-    //shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 2,
 }

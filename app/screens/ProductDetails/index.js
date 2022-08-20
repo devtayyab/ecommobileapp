@@ -37,7 +37,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
   };
   return (
     <>
-    
+
       <Container bodyStyle={{ paddingHorizontal: scale(0) }} isScrollable>
         <View>
           <ImageBackground
@@ -118,18 +118,18 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             </View>
           </View>
           <View >
-          <TitleComp heading={'Contact'} />
-          <Pressable style={styles.chat}
+            <TitleComp heading={'Contact'} />
+            <Pressable style={styles.chat}
               onPress={() => navigation.navigate('Chat')}
-              >
-            <Label text="Contact with Supplier" style={styles.chatLabel} />
+            >
+              <Label text="Contact with Supplier" style={styles.chatLabel} />
               <Entypo
-                    name={'chat'}
-                    size={scale(25)}
-                    color={appColors.primary}
-                  />
+                name={'chat'}
+                size={scale(25)}
+                color={appColors.primary}
+              />
             </Pressable>
-          
+
           </View>
           <View>
             <TitleComp heading={'Reviews'} />
@@ -180,13 +180,13 @@ const styles = StyleSheet.create({
     fontSize: scale(14),
     color: appColors.primary,
   },
-  chatLabel:{
+  chatLabel: {
     color: appColors.primary,
     fontSize: scale(14),
     paddingRight: scale(10),
   },
-  chat:{
-    flexDirection:"row",
+  chat: {
+    flexDirection: "row",
     // paddingHorizontal: scale(10),
   },
 });

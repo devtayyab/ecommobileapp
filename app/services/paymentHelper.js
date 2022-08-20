@@ -20,10 +20,12 @@ export default async (info, callBack) => {
   RazorpayCheckout.open(options)
     .then((data) => {
       // handle success
+      console.log(data);
       callBack && callBack({error: false, data});
       //alert(`Success: ${data.razorpay_payment_id}`);
     })
     .catch((error) => {
+      console.log(error);
       // handle failure
       callBack && callBack({error: true, data: null});
       //alert(`Error: ${error.code} | ${error.description}`);
