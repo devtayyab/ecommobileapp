@@ -791,7 +791,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amusoftech.shop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.shop;
 				PRODUCT_NAME = Amusoftech;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -813,7 +813,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.amusoftech.shop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.shop;
 				PRODUCT_NAME = Amusoftech;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

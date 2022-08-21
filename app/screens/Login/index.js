@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, Platform } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import CustomInput from '../../components/CustomInput';
@@ -15,25 +15,43 @@ import googleLogin from '../../services/googleLogin';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+GoogleSignin.configure({
+  webClientId: '814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com',
+})
 function index({ getProductsList$, loginUser$, navigation }) {
   const [credentials, setCredentials] = useState({});
   const [isloading, setisloading] = useState(false)
 
   const onGoogleLogin = async () => {
+
+
     try {
-      const { user, additionalUserInfo } = await googleLogin()
-      const { email, displayName, uid, photoURL } = user
-      if (additionalUserInfo?.isNewUser) {
-        const { providerId, profile } = additionalUserInfo
-        //create new user and login
-        await writeData('users', { email, name: displayName, uid, photoURL, providerId, profile })
-      }
-      getProductsList$()
-      loginUser$({ email, name: displayName, uid, photoURL });
+
+      // Get the users ID token
+      const { idToken } = await GoogleSignin.signIn();
+      console.log(idToken)
+      // Create a Google credential with the token
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      console.log(googleCredential)
+      // Sign-in the user with the credential
+      await auth().signInWithCredential(googleCredential).then(async (data) => {
+        await AsyncStorage.setItem('user', JSON.stringify(data?.user))
+        console.log(data)
+
+        if (data?.additionalUserInfo?.isNewUser) {
+
+          //create new user and login
+          await writeData('users', { email: data?.user?.email, name: data?.user.displayName, uid: data?.user?.uid, photoURL: data?.user?.photoURL, providerId: data.user?.providerId, profile: data?.additionalUserInfo?.profile })
+        }
+        getProductsList$()
+        loginUser$({ email: data?.user?.email, name: data?.user.displayName, uid: data?.user?.uid, photoURL: data?.user?.photoURL });
+
+      })
+
+
     } catch (error) {
       console.log(error)
-
     }
   }
 
@@ -41,8 +59,10 @@ function index({ getProductsList$, loginUser$, navigation }) {
   const onFacebookLogin = async () => {
 
     try {
-      const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
+      LoginManager.setLoginBehavior('NATIVE_ONLY');
 
+      const result = await LoginManager.logInWithPermissions(['public_profile', 'email', "user_friends"])
+      console.log(result)
       if (result.isCancelled) {
         throw 'User cancelled the login process';
       }

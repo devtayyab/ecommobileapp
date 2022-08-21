@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.amusoftech.shop</string>
+	<string>com.weekend.shop</string>
 	<key>PROJECT_ID</key>
 	<string>annusoftech-shop</string>
 	<key>STORAGE_BUCKET</key>

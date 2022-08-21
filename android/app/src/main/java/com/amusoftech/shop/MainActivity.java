@@ -1,4 +1,4 @@
-package com.amusoftech.shop;
+package com.weekend.shop;
 
 import com.facebook.react.ReactActivity;
 

@@ -1,12 +1,12 @@
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-
+GoogleSignin.configure({
+  webClientId: '814196118506-0dnalgas4raan9p50rkc244vr53r4gm0.apps.googleusercontent.com',
+});
 export default async function () {
   console.log('googleLogin');
   try {
-    GoogleSignin.configure({
-      webClientId: '260811097856-0vogth8fgdld5bkodn8q0kjs3fkgf7re.apps.googleusercontent.com',
-    });
+   
     // Get the users ID token
     const { idToken } = await GoogleSignin.signIn();
     console.log(idToken)

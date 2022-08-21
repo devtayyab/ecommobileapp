@@ -12,12 +12,10 @@ const persistConfig = {
   //blacklist:[ 'wishList'/*  'cart' */] //Add reducer if you don`t want to presist it
 }
 const middleWares = [sagaMiddleware];
-
 //1
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const store = createStore(persistedReducer, applyMiddleware(...middleWares))
 let persistor = persistStore(store)
 sagaMiddleware.run(rootSaga)
-
 export default { store, persistor }
