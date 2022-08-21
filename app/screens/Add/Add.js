@@ -1,4 +1,4 @@
-import {  View, StyleSheet, ScrollView,  Image, Platform } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Platform } from 'react-native';
 import {
   Form,
   FormItem,
@@ -8,7 +8,7 @@ import {
 } from 'react-native-form-component';
 import storage from '@react-native-firebase/storage';
 // import storage from '@react-native-firebase/storage';
-import React, {  useState  } from 'react';
+import React, { useState } from 'react';
 import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
 import { launchImageLibrary } from 'react-native-image-picker';
@@ -26,18 +26,18 @@ export default function Add() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [imageUri, setImageUri] = useState('');
-  const id = uuid.v4();
-  console.log(id);
+
+
   const uploadImage = () => {
     console.log("hii");
 
-    const options =  {
-      storageOptions:  {
+    const options = {
+      storageOptions: {
         path: 'images',
         mediaType: 'photo',
 
       },
-      includeBase64:  true,
+      includeBase64: true,
     };
 
     launchImageLibrary(options, (response) => {
@@ -51,7 +51,7 @@ export default function Add() {
       else if (response.customButton) {
         console.log("User Tapped custom button", response.customButton);
       }
-      else  {
+      else {
         // const source = {uri:'data:image/jpeg,base64'+response.base64}
         const source = { uri: response?.uri };
         setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
@@ -64,6 +64,7 @@ export default function Add() {
   }
   const Submit = async () => {
     try {
+      const id = uuid.v4();
       const refrence = storage().ref(`images/${imageUri?.name}`)
       refrence.putFile(imageUri?.uri).then(async (res) => {
         console.log("Image Uploaded", res.metadata.fullPath);
@@ -188,42 +189,42 @@ export default function Add() {
             onSelection={(item) => setConcentration(item.value)}
           />
 
-            <FormItem
-              isRequired
-              placeholder="Price"
-              value={price}
-              onChangeText={(e) => setPrice(e)}
-            />
-            <FormItem
-              isRequired
-              placeholder="Description"
-              value={description}
-              onChangeText={(e) => setDescription(e)}
-              textArea
-            />
-          </Form>
+          <FormItem
+            isRequired
+            placeholder="Price"
+            value={price}
+            onChangeText={(e) => setPrice(e)}
+          />
+          <FormItem
+            isRequired
+            placeholder="Description"
+            value={description}
+            onChangeText={(e) => setDescription(e)}
+            textArea
+          />
+        </Form>
       </ScrollView>
     </View>
   );
 }
 const styles = StyleSheet.create({
-  main:  {
+  main: {
     margin: 20,
   },
-  imageContainer:   {
-    marginVertical:   20,
-    flexDirection:   'row',
+  imageContainer: {
+    marginVertical: 20,
+    flexDirection: 'row',
   },
-  image:   {
-    height:   100,
-    width:   100,
-    borderColor:   appColors.primary,
-    borderRadius:   10,
-    borderWidth:   2
+  image: {
+    height: 100,
+    width: 100,
+    borderColor: appColors.primary,
+    borderRadius: 10,
+    borderWidth: 2
   },
-  icon:   {
-    paddingLeft:   10,
-    paddingTop:   60,
+  icon: {
+    paddingLeft: 10,
+    paddingTop: 60,
   },
 
 });

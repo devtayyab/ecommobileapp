@@ -7,7 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import Label from '../../components/Label';
 import { appColors, shadow } from '../../utils/appColors';
 import auth from '@react-native-firebase/auth';
-import { LoginManager, AccessToken } from 'react-native-fbsdk-next';
+import { LoginManager, AccessToken, Settings } from 'react-native-fbsdk-next';
 import { AlertHelper } from '../../utils/AlertHelper';
 import { CommonActions } from '@react-navigation/native';
 
@@ -59,7 +59,8 @@ function index({ getProductsList$, loginUser$, navigation }) {
   const onFacebookLogin = async () => {
 
     try {
-      LoginManager.setLoginBehavior('NATIVE_ONLY');
+      Settings.setAppID('415356417129010');
+      LoginManager.setLoginBehavior('native_only');
 
       const result = await LoginManager.logInWithPermissions(['public_profile', 'email', "user_friends"])
       console.log(result)
@@ -80,7 +81,21 @@ function index({ getProductsList$, loginUser$, navigation }) {
       const facebookCredential = auth.FacebookAuthProvider.credential(data.accessToken);
 
       // Sign-in the user with the credential
-      return auth().signInWithCredential(facebookCredential);
+      await auth().signInWithCredential(facebookCredential).then(
+        async (data) => {
+          await AsyncStorage.setItem('user', JSON.stringify(data?.user))
+          console.log(data)
+
+          if (data?.additionalUserInfo?.isNewUser) {
+
+            //create new user and login
+            await writeData('users', { email: data?.user?.email, name: data?.user.displayName, uid: data?.user?.uid, photoURL: data?.user?.photoURL, providerId: data.user?.providerId, profile: data?.additionalUserInfo?.profile })
+          }
+          getProductsList$()
+          loginUser$({ email: data?.user?.email, name: data?.user.displayName, uid: data?.user?.uid, photoURL: data?.user?.photoURL });
+
+        })
+
     } catch (error) {
 
       console.log(error)
