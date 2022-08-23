@@ -8,12 +8,13 @@ import {
 } from 'react-native-form-component';
 import storage from '@react-native-firebase/storage';
 // import storage from '@react-native-firebase/storage';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
 import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Add() {
   const [title, setTitle] = useState('');
@@ -26,6 +27,26 @@ export default function Add() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [imageUri, setImageUri] = useState('');
+
+  const [sellerId, setSellerId] = useState('')
+
+  const getData = async () => {
+    try {
+      const user = await AsyncStorage.getItem('user')
+      const Data = JSON.parse(user)
+
+      console.log("user Data", Data.uid);
+      setSellerId(Data.uid)
+
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+
+  }, [])
 
 
   const uploadImage = () => {
@@ -73,6 +94,7 @@ export default function Add() {
           .collection('Products')
           .add({
             id: id,
+            productSellerId: sellerId,
             title,
             gender,
             category,
