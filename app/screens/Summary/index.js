@@ -1,28 +1,28 @@
 import React from 'react';
-import {View, FlatList} from 'react-native';
-import {scale} from 'react-native-size-matters';
+import { View, FlatList } from 'react-native';
+import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import ScreenHeader from '../../components/ScreenHeader';
 import SelectAble from '../../components/SelectAble';
 import Divider from '../../components/Divider';
 import CustomButton from '../../components/CustomButton';
 import ProductCard from '../../components/ProductCard';
-import {bestSellersList} from '../../utils/MockData';
+import { bestSellersList } from '../../utils/MockData';
 import TitleComp from '../../components/TitleComp';
 import Feather from 'react-native-vector-icons/Feather';
 import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
-import {AlertHelper} from '../../utils/AlertHelper';
+import { AlertHelper } from '../../utils/AlertHelper';
 import paymentHelper from '../../services/paymentHelper';
 import ReduxWrapper from '../../utils/ReduxWrapper';
- 
+import writeData from '../../utils/writeData';
 
-function index(props) { 
-  const {auth: {user}, navigation} = props
-  console.log({user});
+function index(props) {
+  const { auth: { user }, navigation } = props
+  console.log({ user });
 
   const onPaymentDone = (info) => {
-    const {error} = info;
+    const { error } = info;
     if (!error) {
       AlertHelper.show('success', 'Your Order Placed Successfully');
       navigation.navigate('Home');
@@ -31,7 +31,16 @@ function index(props) {
     }
   };
   const onPay = async () => {
-    const {email, name} = user;
+    const { email, name } = user;
+
+    writeData('Orders', {
+      name: 'tayyab',
+      BuyerId: '1234566',
+      SellerId: 'Hello',
+      ProductId: 'Products123',
+      Orderid: 'ord24mwdfd2e'
+    })
+
     await paymentHelper(
       {
         description: 'Order at WeekEnd',
@@ -55,10 +64,10 @@ function index(props) {
         <View style={{}}>
           <FlatList
             showsHorizontalScrollIndicator={false}
-            ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
+            ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
             horizontal
             data={bestSellersList}
-            renderItem={({item, index}) => (
+            renderItem={({ item, index }) => (
               <ProductCard key={index} item={item} />
             )}
           />
@@ -72,7 +81,7 @@ function index(props) {
           selected
         />
         <Divider isDark />
-        <View style={{paddingVertical: scale(20)}}>
+        <View style={{ paddingVertical: scale(20) }}>
           <TitleComp heading="Payment" />
           <View
             style={{
@@ -85,9 +94,9 @@ function index(props) {
             <View style={{}}>
               <Label
                 text="Master Card"
-                style={{fontSize: scale(13), opacity: scale(0.5)}}
+                style={{ fontSize: scale(13), opacity: scale(0.5) }}
               />
-              <Label text="**** **** **** 1234" style={{fontSize: scale(17)}} />
+              <Label text="**** **** **** 1234" style={{ fontSize: scale(17) }} />
             </View>
             <CheckBox isChecked />
           </View>

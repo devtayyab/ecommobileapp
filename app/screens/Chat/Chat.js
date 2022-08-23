@@ -23,9 +23,17 @@ function Chat() {
   }, [])
 
   return (
+    
     <GiftedChat
       messages={messages}
       onSend={messages => onSend(messages)}
+      isTyping = {true}
+      placeholder = "Enter Message"
+      scrollToBottom
+      quickReplyTextStyle={{
+        fontWeight: '200',
+      }}
+      infiniteScroll
       user={{
         _id: 1,
       }}
