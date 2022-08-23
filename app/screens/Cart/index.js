@@ -1,63 +1,68 @@
-import React from 'react';
-import {View, Text, Image, Pressable} from 'react-native';
-import {scale} from 'react-native-size-matters';
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image, Pressable } from 'react-native';
+import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Label from '../../components/Label';
-import {appColors} from '../../utils/appColors';
-import {SimpleStepper} from 'react-native-simple-stepper';
-import {bestSellersList} from '../../utils/MockData';
+import { appColors } from '../../utils/appColors';
+import { SimpleStepper } from 'react-native-simple-stepper';
+import { bestSellersList } from '../../utils/MockData';
 import BottomButtons from '../../components/BottomButtons';
-import {SwipeListView} from 'react-native-swipe-list-view';
+import { SwipeListView } from 'react-native-swipe-list-view';
 import Feather from 'react-native-vector-icons/Feather';
 import CheckOutItem from '../../components/CheckOutItem';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import { APP_CURRENY } from '../../utils/appConfig';
 import Empty from '../../components/Empty';
+import { useSelector } from 'react-redux'
+function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$, removeFromCart$, navigation }) {
+  const [cartItem, setCartItem] = useState([])
+  const { cartItems } = useSelector(state => state?.cart)
 
-function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,removeFromCart$,cart:{cartItems} ,navigation}) {
+  useEffect(() => {
+    setCartItem(cartItems)
+  }, [cartItems])
+  const getAmount = () => {
+    let amount = 0
+    cartItems?.map(item => {
+      const { price } = item
+      amount += Number(price);
+    })
+    return `${APP_CURRENY.symbol} ${amount}`
 
- const getAmount = ()=>{
-   let amount =0
-   cartItems?.map(item=>{
-     const {price} =item
-     amount+= Number( price );
-   })
-   return  `${APP_CURRENY.symbol} ${amount}`
-    
- }
- const onDeletePress = (item)=>{ 
-  removeFromCart$(item?.name)
- }
- const isInWishList = (item)=>{
-  return wishItemNames?.includes( item?.name)
- }
- const onAddToWishListPress = (item)=>{ 
-   if(!isInWishList(item) ){
-    addToWishList$(item)
-   }else{
-    removeToWishList$(item?.name)
-   }
-    
- }
- 
+  }
+  const onDeletePress = (item) => {
+    removeFromCart$(item?.id)
+  }
+  const isInWishList = (item) => {
+    return wishItemNames?.includes(item?.name)
+  }
+  const onAddToWishListPress = (item) => {
+    if (!isInWishList(item)) {
+      addToWishList$(item)
+    } else {
+      removeToWishList$(item?.name)
+    }
 
-  const ItemCard = ({item}) => {
+  }
+
+
+  const ItemCard = ({ item }) => {
     // console.log(item.imageuri);
-    const {title, description, price, imageuri} = item;
-    return ( <CheckOutItem name={title} imageuri={imageuri} price={price} /> );
+    const { title, description, price, imageuri, itemQuantity } = item;
+    return (<CheckOutItem name={title} imageuri={imageuri} price={price} itemQuantity={itemQuantity} />);
   };
   return (
     <>
       <Container >
-        <View style={{flex: 1, paddingVertical: scale(30)}}>
+        <View style={{ flex: 1, paddingVertical: scale(30) }}>
           <SwipeListView
-          ListEmptyComponent={()=> <Empty  label={"Your Cart is empty"}/> }
-          showsVerticalScrollIndicator={false}
-            keyExtractor={(item) => `${item.name}_${new Date().getTime()}`}
-            ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
+            ListEmptyComponent={() => <Empty label={"Your Cart is empty"} />}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => `${item.id}_${new Date().getTime()}`}
+            ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
             data={cartItems || []}
-            renderItem={({item, index}) => <ItemCard item={item} />}
+            renderItem={({ item, index }) => <ItemCard item={item} />}
             renderHiddenItem={(data, rowMap) => (
               <View
                 style={{
@@ -67,7 +72,7 @@ function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,remov
                   alignItems: 'center',
                 }}>
                 <Pressable
-                  onPress={()=>onAddToWishListPress(data?.item)}
+                  onPress={() => onAddToWishListPress(data?.item)}
                   style={{
                     left: scale(-15),
                     flex: scale(0.3),
@@ -77,13 +82,13 @@ function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,remov
                     alignItems: 'center',
                   }}>
                   <Feather
-                    name={'star' }
+                    name={'star'}
                     size={scale(25)}
-                    color={isInWishList(data?.item) ? appColors.primary :  appColors.white}
+                    color={isInWishList(data?.item) ? appColors.primary : appColors.white}
                   />
                 </Pressable>
                 <Pressable
-                onPress={()=>onDeletePress(data?.item)}
+                  onPress={() => onDeletePress(data?.item)}
                   style={{
                     left: scale(15),
                     flex: scale(0.3),
@@ -103,10 +108,10 @@ function index({wishList:{wishItemNames},removeToWishList$, addToWishList$,remov
             leftOpenValue={scale(85)}
             rightOpenValue={scale(-85)}
           />
-        </View> 
+        </View>
       </Container>
-      <View style={{backgroundColor: 'red', bottom: scale(-15)}}>
-        <BottomButtons onPress={()=> navigation.navigate("Checkout") } buttonLabel={'CHECKOUT'} price={getAmount()} />
+      <View style={{ backgroundColor: 'red', bottom: scale(-15) }}>
+        <BottomButtons onPress={() => navigation.navigate("Checkout")} buttonLabel={'CHECKOUT'} price={getAmount()} />
       </View>
     </>
   );

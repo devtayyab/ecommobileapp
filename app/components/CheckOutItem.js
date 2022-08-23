@@ -1,26 +1,27 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
-import {scale} from 'react-native-size-matters';
-import {appColors} from '../utils/appColors';
+import { View, Text, Image } from 'react-native';
+import { scale } from 'react-native-size-matters';
+import { appColors } from '../utils/appColors';
 import Label from './Label';
-import {SimpleStepper} from 'react-native-simple-stepper';
+import { SimpleStepper } from 'react-native-simple-stepper';
 
-export default function CheckOutItem({ renderBagge, hideSteper,noBg, imageuri, name, price}) {
+export default function CheckOutItem({ renderBagge, hideSteper, noBg, imageuri, name, price, itemQuantity }) {
+  console.log('itemQuantity', itemQuantity)
   return (
     <View
       style={{
         flexDirection: 'row',
-        backgroundColor:  noBg ?  'transparent':   appColors.lightGray,
+        backgroundColor: noBg ? 'transparent' : appColors.lightGray,
         //borderRadius: scale(  5 )
       }}>
       <Image
         style={{
           height: scale(130),
           width: scale(130),
-           borderRadius:  scale(noBg ? 5 : 0),
+          borderRadius: scale(noBg ? 5 : 0),
           //backgroundColor:appColors.darkGray
         }}
-        source={{uri:imageuri}}
+        source={{ uri: imageuri }}
       />
 
       <View
@@ -29,7 +30,7 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, imageuri, n
           justifyContent: 'space-between',
           paddingVertical: scale(10),
         }}>
-        <Label text={name?.substring(0,20)} style={{fontWeight: '600' ,}} />
+        <Label text={name?.substring(0, 20)} style={{ fontWeight: '600', }} />
         <Label
           text={price}
           style={{
@@ -38,7 +39,7 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, imageuri, n
             color: appColors.primary,
           }}
         />
-        {!hideSteper&& <SimpleStepper
+        {!hideSteper && <SimpleStepper
           containerStyle={{
             backgroundColor: appColors.lightGray,
             flexDirection: 'row',
@@ -46,17 +47,17 @@ export default function CheckOutItem({ renderBagge, hideSteper,noBg, imageuri, n
             overflow: 'hidden',
             alignItems: 'center',
             paddingHorizontal: scale(20),
-            height: scale(35), 
+            height: scale(35),
           }}
-          incrementStepStyle={{padding: scale(10), opacity: scale(0.4)}}
-          decrementStepStyle={{padding: scale(10), opacity: scale(0.4)}}
-          incrementImageStyle={{height: scale(20), width: scale(20)}}
-          decrementImageStyle={{height: scale(20), width: scale(20)}}
+          incrementStepStyle={{ padding: scale(10), opacity: scale(0.4) }}
+          decrementStepStyle={{ padding: scale(10), opacity: scale(0.4) }}
+          incrementImageStyle={{ height: scale(20), width: scale(20) }}
+          decrementImageStyle={{ height: scale(20), width: scale(20) }}
           showText
-          renderText={() => <Label text="1" />}
-          separatorStyle={{}} 
+          renderText={() => <Label text={itemQuantity} />}
+          separatorStyle={{}}
         />}
-        {renderBagge&&renderBagge()}
+        {renderBagge && renderBagge()}
       </View>
     </View>
   );

@@ -1,15 +1,27 @@
 import React from 'react';
-import {View, Text, FlatList, TextInput,KeyboardAvoidingView } from 'react-native';
+import { View, Text, FlatList, TextInput, KeyboardAvoidingView } from 'react-native';
 import Container from '../../components/Container';
-import {bestSellersList} from '../../utils/MockData';
+import { bestSellersList } from '../../utils/MockData';
 import CheckOutItem from '../../components/CheckOutItem';
-import {scale} from 'react-native-size-matters';
-import {appColors} from '../../utils/appColors';
+import { scale } from 'react-native-size-matters';
+import { appColors } from '../../utils/appColors';
 import Label from '../../components/Label';
 import CustomButton from '../../components/CustomButton';
-export default function index({navigation}) {
+import { useSelector } from 'react-redux';
+export default function index({ navigation }) {
+
+  const { cartItems } = useSelector(state => state?.cart)
+  console.log('Final Products', cartItems)
+  const getAmount = () => {
+    let amount = 0
+    cartItems?.map(item => {
+      const { price, itemQuantity } = item
+      amount += Number(price * itemQuantity);
+    })
+    return amount;
+  }
   return (
-    <KeyboardAvoidingView style={{flex:1}}>
+    <KeyboardAvoidingView style={{ flex: 1 }}>
       <Container
         isScrollable
         bodyStyle={{
@@ -18,17 +30,18 @@ export default function index({navigation}) {
           paddingVertical: scale(20),
         }}>
         <View
-          style={{paddingHorizontal: scale(20), paddingVertical: scale(20)}}>
+          style={{ paddingHorizontal: scale(20), paddingVertical: scale(20) }}>
           <FlatList
-          showsVerticalScrollIndicator={false}
-            data={bestSellersList}
-            ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
-            renderItem={({item, index}) => (
+            showsVerticalScrollIndicator={false}
+            data={cartItems}
+            ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
+            renderItem={({ item, index }) => (
               <CheckOutItem
                 noBg
                 name={item.name}
-                image={item.image}
+                imageuri={item.imageuri}
                 price={item.price}
+                itemQuantity={item.itemQuantity}
               />
             )}
           />
@@ -49,7 +62,7 @@ export default function index({navigation}) {
             }}>
             <Label
               text="Sub Total"
-              style={{fontWeight: '400', fontSize: scale(18)}}
+              style={{ fontWeight: '400', fontSize: scale(18) }}
             />
             <View
               style={{
@@ -59,7 +72,7 @@ export default function index({navigation}) {
                 width: '60%',
               }}
             />
-            <Label text="$4500" style={{fontWeight: '800'}} />
+            <Label text={getAmount()} style={{ fontWeight: '800' }} />
           </View>
 
           <View
@@ -72,7 +85,7 @@ export default function index({navigation}) {
             }}>
             <Label
               text="Tax"
-              style={{fontWeight: '400', fontSize: scale(18)}}
+              style={{ fontWeight: '400', fontSize: scale(18) }}
             />
             <View
               style={{
@@ -82,11 +95,11 @@ export default function index({navigation}) {
                 width: '60%',
               }}
             />
-            <Label text="$40" style={{fontWeight: '800'}} />
+            <Label text="$40" style={{ fontWeight: '800' }} />
           </View>
         </View>
 
-        <View style={{flex:1, paddingHorizontal: scale(20)}}>
+        <View style={{ flex: 1, paddingHorizontal: scale(20) }}>
           <View
             style={{
               borderRadius: scale(5),
@@ -99,7 +112,7 @@ export default function index({navigation}) {
               alignItems: 'center',
               height: scale(50),
             }}>
-            <TextInput  placeholder="Enter Voucher Code" style={{flex:1, fontSize:scale(16)}} />
+            <TextInput placeholder="Enter Voucher Code" style={{ flex: 1, fontSize: scale(16) }} />
             <Label text="APPLY" />
           </View>
         </View>
@@ -111,7 +124,7 @@ export default function index({navigation}) {
             paddingHorizontal: scale(20),
             paddingVertical: scale(30),
           }}>
-          <CustomButton label="CHECKOUT" onPress={()=> navigation.navigate("CheckOutSteper")} />
+          <CustomButton label="CHECKOUT" onPress={() => navigation.navigate("CheckOutSteper")} />
         </View>
       </Container>
     </KeyboardAvoidingView>
