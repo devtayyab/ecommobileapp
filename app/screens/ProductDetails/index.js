@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
@@ -15,11 +15,43 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../redux/cartAction';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import Chat from '../Chat/Chat';
+import firestore from '@react-native-firebase/firestore';
 
 function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList$, addToCart$, navigation, route: { params } }) {
 
+
+
   const { id, title, name, description, detail, price, quantity, concentration, image, isFav, rating, imageuri } = params.item;
   //console.warn({cartItems});
+
+  const [receiverId, setReceiverId] = useState('');
+
+  const getProducts = async () => {
+    const product = await firestore().collection('Products').get();
+
+const value = product.docs.filter(doc => doc.data().id == id);
+const SID = value[0].data().productSellerId;
+// console.log(SID);
+setReceiverId(SID)
+return SID
+
+  }
+
+  useEffect(async() => {
+    const r_ID = await getProducts();
+    console.log("product Seller ID:",r_ID);
+    setReceiverId(r_ID)
+    // console.log("product Seller ID2:",receiverId);
+
+
+
+  },[])
+
+
+
+
+
+
   const onAddToCart = () => {
     addToCart$({ ...params.item, quantity: 1 });
   };
@@ -35,6 +67,8 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
       />
     );
   };
+
+
   return (
     <>
 
@@ -120,7 +154,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <View >
             <TitleComp heading={'Contact'} />
             <Pressable style={styles.chat}
-              onPress={() => navigation.navigate('Chat')}
+              onPress={() => navigation.navigate('Chat', {receiverId})}
             >
               <Label text="Contact with Supplier" style={styles.chatLabel} />
               <Entypo
@@ -131,7 +165,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             </Pressable>
 
           </View>
-          <View>
+          {/* <View>
             <TitleComp heading={'Reviews'} />
             <Pressable
               onPress={() => navigation.navigate('WriteReview', { name })}>
@@ -139,7 +173,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             </Pressable>
 
             <ReviewComp />
-          </View>
+          </View> */}
         </View>
       </Container>
       {_renderBottom()}
