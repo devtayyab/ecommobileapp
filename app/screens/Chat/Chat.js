@@ -1,22 +1,21 @@
-import React, {useState, useCallback, useEffect, useLayoutEffect} from 'react';
-import {GiftedChat} from 'react-native-gifted-chat';
+import React, { useState, useCallback, useEffect, useLayoutEffect } from 'react';
+import { GiftedChat } from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function Chat({navigation, route: {params}}) {
+function Chat({ navigation, route: { params } }) {
   const [messages, setMessages] = useState([]);
-  // const [senderId, setSenderId] = useState('');
+
   const [userdata, setUserData] = useState({});
 
-  const {receiverId} = params;
+  const { productSellerId } = params;
 
-  console.log(receiverId);
+  console.log(params, 'params');
 
   const getData = async () => {
     try {
       const user = await AsyncStorage.getItem('user');
       const Data = JSON.parse(user);
-
       setUserData(Data);
       console.log('Current User', Data);
     } catch (e) {
@@ -24,21 +23,7 @@ function Chat({navigation, route: {params}}) {
     }
   };
 
-  // useEffect(() => {
-  //   getData();
-  //   setMessages([
-  //     {
-  //       _id: userdata.uid,
-  //       text: 'Hello developer',
-  //       createdAt: new Date(),
-  //       user: {
-  //         _id: receiverId,
-  //         name: 'React Native',
-  //         avatar: 'https://placeimg.com/140/140/any',
-  //       },
-  //     },
-  //   ])
-  // }, [])
+
   useLayoutEffect(() => {
     getData();
     const unsubscribe = firestore()
@@ -52,6 +37,7 @@ function Chat({navigation, route: {params}}) {
             createdAt: doc.data().createdAt.toDate(),
             text: doc.data().text,
             user: doc.data().user,
+            reciever: doc.data()?.reciever
           })),
         ),
       );
@@ -62,18 +48,19 @@ function Chat({navigation, route: {params}}) {
     setMessages((previousMessages) =>
       GiftedChat.append(previousMessages, messages),
     );
-    const {_id, createdAt, text, user} = messages[0];
+    const { _id, createdAt, text, user } = messages[0];
     firestore().collection('chats').add({
       _id,
       createdAt,
       text,
       user,
+      reciever: productSellerId
     });
   }, []);
 
   return (
     <GiftedChat
-      messages={messages}
+      messages={messages.filter((v) => v.reciever == userdata?.uid || v.user?._id == userdata?.uid) ?? []}
       onSend={(messages) => onSend(messages)}
       isTyping={true}
       placeholder="Enter Message"

@@ -112,7 +112,7 @@ export const deliveryTypes = [
   },
   {
     label: 'Card Payment',
-    subLabel:'Want to pay via PayPal',
+    subLabel: 'Want to pay via PayPal',
     selected: false,
   },
 ];
@@ -120,34 +120,39 @@ export const paymentMethods = ['dollar-sign', 'credit-card', 'layout'];
 
 export const profileKeys = [
 
+  // {
+  //   lebel: "Shipping Address",
+  //   icon: "map-pin",
+  //   route: "Address"
+  // },
+  // {
+  //   lebel: "Wishlist",
+  //   icon: "heart",
+  //   isNew: true,
+  //   route: "WishList"
+  // },
+  // {
+  //   lebel: "Order History",
+  //   icon: "clock",
+  //   route: "Orders"
+  // },
+  // {
+  //   lebel: "Track Order",
+  //   icon: "package",
+  //   route: "Orders"
+  // },
+  // {
+  //   lebel: "Cards",
+  //   icon: "credit-card"
+  // },
+  // {
+  //   lebel: "Notifications",
+  //   icon: "bell"
+  // },
   {
-    lebel: "Shipping Address",
-    icon: "map-pin",
-    route: "Address"
-  },
-  {
-    lebel: "Wishlist",
-    icon: "heart",
-    isNew: true,
-    route: "WishList"
-  },
-  {
-    lebel: "Order History",
-    icon: "clock",
-    route: "Orders"
-  },
-  {
-    lebel: "Track Order",
-    icon: "package",
-    route: "Orders"
-  },
-  {
-    lebel: "Cards",
-    icon: "credit-card"
-  },
-  {
-    lebel: "Notifications",
-    icon: "bell"
+    lebel: 'All Chat',
+    icon: 'bell',
+    route: 'Allchats'
   },
   {
     lebel: "Sign Out",

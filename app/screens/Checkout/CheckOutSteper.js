@@ -1,23 +1,58 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Container from '../../components/Container';
 import Stepper from 'react-native-stepper-ui';
 import CheckoutDelivery from './CheckoutDelivery';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import CustomButton from '../../components/CustomButton';
-import {scale} from 'react-native-size-matters';
+import { scale } from 'react-native-size-matters';
 import ScreenHeader from '../../components/ScreenHeader';
 import CheckoutAddress from './CheckoutAddress';
 import CheckoutPayment from './CheckoutPayment';
+import { AddOrderDetail } from '../../redux/wishListAction'
+import writeData from '../../utils/writeData';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSelector } from 'react-redux';
+const { height } = Dimensions.get('window');
 
-const {height} = Dimensions.get('window');
-
-export default function CheckOutSteper({navigation}) {
+export default function CheckOutSteper({ navigation }) {
   const [active, setActive] = useState(0);
+  const user = AsyncStorage.getItem('user')
+  const products = useSelector(state => state.cart)
+  
+  const [address, setAddress] = useState({
+    street1: '',
+    street2: '',
+    city: '',
+    state: '',
+    country: ''
+  })
+  const [cardinfo, setcardInfo] = useState({
+    cardname: '',
+    cardnumber: '',
+    expirydate: '',
+    cvv: ''
+  })
+  const [dileveryMethod, setDileveryMethod] = useState({})
 
   const onFinish = () => {
+    AddOrderDetail({
+      address,
+      cardinfo,
+      product: products,
+      dileveryMethod
+    })
+    writeData('Orders', {
+      address: address,
+      cardinfo: cardinfo,
+      products: products,
+      dileveryMethod: dileveryMethod,
+      buyer: user
+    })
     navigation.navigate("Summary")
-     //Summary
+
+
+    //Summary
   };
   return (
     <Container>
@@ -28,9 +63,9 @@ export default function CheckOutSteper({navigation}) {
         active={active}
         onFinish={onFinish}
         content={[
-          <CheckoutDelivery />,
-          <CheckoutAddress />,
-          <CheckoutPayment />,
+          <CheckoutDelivery dileveryMethod={dileveryMethod} setDileveryMethod={(v) => setDileveryMethod(v)} />,
+          <CheckoutAddress address={address} setAddress={(address) => setAddress(address)} />,
+          <CheckoutPayment cardinfo={cardinfo} setcardInfo={(info) => setcardInfo(info)} />,
         ]}
         //showButton={false}
         onNext={() => setActive((p) => p + 1)}
@@ -77,8 +112,8 @@ const styles = StyleSheet.create({
     marginVertical: scale(10),
     paddingHorizontal: scale(50),
     //position:'absolute',
-    bottom: scale( -30)
-    
+    bottom: scale(-30)
+
 
   },
   wrapperStyle: {},

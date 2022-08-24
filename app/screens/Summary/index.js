@@ -16,16 +16,22 @@ import { AlertHelper } from '../../utils/AlertHelper';
 import paymentHelper from '../../services/paymentHelper';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import writeData from '../../utils/writeData';
+import { useSelector } from 'react-redux';
 
 function index(props) {
   const { auth: { user }, navigation } = props
-  console.log({ user });
+
+  const orders = useSelector(state => state?.orders)
+  console.log('orders', orders)
 
   const onPaymentDone = (info) => {
     const { error } = info;
     if (!error) {
       AlertHelper.show('success', 'Your Order Placed Successfully');
       navigation.navigate('Home');
+      writeData('Payment', {
+        done: true,
+      })
     } else {
       AlertHelper.show('error', 'Oops !! Something went wrong !');
     }
@@ -33,13 +39,7 @@ function index(props) {
   const onPay = async () => {
     const { email, name } = user;
 
-    writeData('Orders', {
-      name: 'tayyab',
-      BuyerId: '1234566',
-      SellerId: 'Hello',
-      ProductId: 'Products123',
-      Orderid: 'ord24mwdfd2e'
-    })
+
 
     await paymentHelper(
       {

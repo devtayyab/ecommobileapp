@@ -21,31 +21,32 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
 
 
 
-  const { id, title, name, description, detail, price, quantity, concentration, image, isFav, rating, imageuri } = params.item;
+  const { id, title, name, description, detail, price, quantity, concentration, image, isFav, rating, imageuri , productSellerId } = params.item;
   //console.warn({cartItems});
+  
 
   const [receiverId, setReceiverId] = useState('');
 
-  const getProducts = async () => {
-    const product = await firestore().collection('Products').get();
+//   const getProducts = async () => {
+//     const product = await firestore().collection('Products').get();
 
-const value = product.docs.filter(doc => doc.data().id == id);
-const SID = value[0].data().productSellerId;
-// console.log(SID);
-setReceiverId(SID)
-return SID
+// const value = product.docs.filter(doc => doc.data().id == id);
+// const SID = value[0].data().productSellerId;
+// // console.log(SID);
+// setReceiverId(SID)
+// return SID
 
-  }
+//   }
 
-  useEffect(async() => {
-    const r_ID = await getProducts();
-    console.log("product Seller ID:",r_ID);
-    setReceiverId(r_ID)
-    // console.log("product Seller ID2:",receiverId);
+  // useEffect(async() => {
+  //   const r_ID = await getProducts();
+  //   console.log("product Seller ID:",r_ID);
+  //   setReceiverId(r_ID)
+  //   // console.log("product Seller ID2:",receiverId);
 
 
 
-  },[])
+  // },[])
 
 
 
@@ -154,7 +155,7 @@ return SID
           <View >
             <TitleComp heading={'Contact'} />
             <Pressable style={styles.chat}
-              onPress={() => navigation.navigate('Chat', {receiverId})}
+              onPress={() => navigation.navigate('Chat', {productSellerId})}
             >
               <Label text="Contact with Supplier" style={styles.chatLabel} />
               <Entypo

@@ -37,7 +37,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
       // Sign-in the user with the credential
       await auth().signInWithCredential(googleCredential).then(async (data) => {
         await AsyncStorage.setItem('user', JSON.stringify(data?.user))
-        console.log(data)
+
 
         if (data?.additionalUserInfo?.isNewUser) {
 

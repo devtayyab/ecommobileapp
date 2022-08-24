@@ -10,3 +10,9 @@ export const removeToWishList = (itemInfo) => ({
   type: REMOVE_TO_WISH_LIST,
   payload: itemInfo,
 });
+
+
+export const AddOrderDetail = (iteminfo) => ({
+  type: 'ADD',
+  payload: iteminfo
+})
