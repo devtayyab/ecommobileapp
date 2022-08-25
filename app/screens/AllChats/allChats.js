@@ -1,8 +1,20 @@
-import { View, Text } from 'react-native'
+import { View, Text, } from 'react-native'
 import React, { useState, useLayoutEffect } from 'react'
 import firestore from '@react-native-firebase/firestore';
+import {
+    Container,
+    Card,
+    UserInfo,
+    UserImgWrapper,
+    UserImg,
+    UserInfoText,
+    UserName,
+    PostTime,
+    MessageText,
+    TextSection,
+  } from './MessageStyle';
 
-export default function AllChats() {
+export default function AllChats({navigation}) {
     const [users, SetUser] = useState([])
     
     useLayoutEffect(() => {
@@ -16,16 +28,30 @@ export default function AllChats() {
             );
         return unsubscribe;
     }, []);
-    // console.log('users', users[0]['user']['email'])
+    console.log('users', users)
     return (
-        <View>
-            <Text>Hello</Text>
+        <Container>
+            {/* <Text>Hello</Text> */}
             {users.map((user) =>
-                <View>
-                    <Text>{user?.user?.displayName}</Text>
-                </View>
+                // <View>
+                //     <Text>{user?.user?.name}</Text>
+                // </View>
+                <Card onPress={() => navigation.navigate('Messages',{receiverID: user?.user?.uid})}>
+              <UserInfo>
+                {/* <UserImgWrapper>
+                  <UserImg source={user?.user?.photoURL} />
+                </UserImgWrapper> */}
+                  <TextSection>
+                  <UserInfoText>
+                    <UserName>{user?.user?.name}</UserName>
+                    {/* <PostTime>{item.messageTime}</PostTime> */}
+                  </UserInfoText>
+                  {/* <MessageText>{item.messageText}</MessageText> */}
+                </TextSection>
+              </UserInfo>
+            </Card>
             )}
 
-        </View>
+        </Container>
     )
 }

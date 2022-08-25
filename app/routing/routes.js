@@ -25,6 +25,7 @@ import { scale } from 'react-native-size-matters';
 import Category from '../screens/Category';
 import Chat from '../screens/Chat/Chat';
 import AllChats from '../screens/AllChats/allChats';
+import Messages from '../screens/AllChats/messages';
 export const RoutesList = [
 
   {
@@ -241,6 +242,16 @@ export const RoutesList = [
       //tabBarVisible: false,
       //tabBarBadge: 3,
       tabBarLabel: 'Allchats',
+    },
+  },
+  {
+    name: 'Messages',
+    component: Messages,
+    options: {
+      tabBarButton: (props) => null,
+      //tabBarVisible: false,
+      //tabBarBadge: 3,
+      tabBarLabel: 'Messages',
     },
   },
 ];

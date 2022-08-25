@@ -3,14 +3,14 @@ import { GiftedChat } from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-function Chat({ navigation, route: { params } }) {
+function Messages({ navigation, route: { params } }) {
     const [messages, setMessages] = useState([]);
 
     const [userdata, setUserData] = useState({});
 
-    const { productSellerId } = params;
+    const { receiverID } = params;
 
-    console.log(params, 'params');
+    // console.log(params, 'params');
 
     const getData = async () => {
         try {
@@ -54,7 +54,7 @@ function Chat({ navigation, route: { params } }) {
             createdAt,
             text,
             user,
-            reciever: productSellerId
+            reciever: receiverID
         });
     }, []);
 
@@ -78,4 +78,4 @@ function Chat({ navigation, route: { params } }) {
     );
 }
 
-export default Chat;
+export default Messages;

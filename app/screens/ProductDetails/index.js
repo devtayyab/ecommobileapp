@@ -25,7 +25,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
   //console.warn({cartItems});
   
 
-  const [receiverId, setReceiverId] = useState('');
+  // const [receiverId, setReceiverId] = useState('');
 
 //   const getProducts = async () => {
 //     const product = await firestore().collection('Products').get();
