@@ -10,14 +10,14 @@ function Chat({ navigation, route: { params } }) {
 
   const { productSellerId } = params;
 
-  console.log(params, 'params');
+  // console.log(params, 'params');
 
   const getData = async () => {
     try {
       const user = await AsyncStorage.getItem('user');
       const Data = JSON.parse(user);
       setUserData(Data);
-      console.log('Current User', Data);
+      // console.log('Current User', Data);
     } catch (e) {
       console.log(e);
     }
@@ -56,11 +56,11 @@ function Chat({ navigation, route: { params } }) {
       user,
       reciever: productSellerId
     });
-  }, []);
+  }, [productSellerId]);
 
   return (
     <GiftedChat
-      messages={messages.filter((v) => v.reciever == userdata?.uid || v.user?._id == userdata?.uid) ?? []}
+      messages={messages.filter((v) => (v.reciever == userdata?.uid && v.user?._id == productSellerId) || (v.reciever == productSellerId && v.user?._id == userdata?.uid)) ?? []}
       onSend={(messages) => onSend(messages)}
       isTyping={true}
       placeholder="Enter Message"

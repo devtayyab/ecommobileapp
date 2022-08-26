@@ -11,7 +11,8 @@ import auth from '@react-native-firebase/auth';
 import { AlertHelper } from '../../utils/AlertHelper'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import writeData from '../../utils/writeData';
-export default function index({ navigation, loginUser$, getProductsList$ }) {
+import ReduxWrapper from '../../utils/ReduxWrapper';
+function index({ getProductsList$, loginUser$, navigation }) {
   const [userInfo, setUserInfo] = useState({});
   const onChnage = (name, text) => {
     setUserInfo({ ...userInfo, [name]: text });
@@ -20,23 +21,29 @@ export default function index({ navigation, loginUser$, getProductsList$ }) {
   const onSignUp = async () => {
     console.log(userInfo);
     const { email, password } = userInfo
-    const user = await auth().createUserWithEmailAndPassword(email.trim(), password)
-    console.log(user)
-    if (user?.user.uid) {
-      AlertHelper.show("success", "Signup Success, Welcome to WeekEnd")
-      navigation.navigate("Home")
-      await AsyncStorage.setItem('user', JSON.stringify(user?.user))
-      if (user?.additionalUserInfo?.isNewUser) {
+    await auth().createUserWithEmailAndPassword(email.trim(), password).then(async (user) => {
+      console.log(user)
+      if (user?.user?.uid) {
+
+        await AsyncStorage.setItem('user', JSON.stringify(user?.user))
+        console.log('new user', user)
+
 
         //create new user and login
-        await writeData('users', { email: user?.user?.email, name: user?.user.displayName, uid: user?.user?.uid, photoURL: user?.user?.photoURL, providerId: user.user?.providerId, profile: user?.additionalUserInfo?.profile })
-      }
-      getProductsList$()
-      loginUser$({ email: user?.user?.email, name: user?.user.displayName, uid: user?.user?.uid, photoURL: user?.user?.photoURL });
+        await writeData('users', { email: user?.user?.email, name: user?.user.displayName ? user?.user?.displayName : userInfo?.displayName, uid: user?.user?.uid, photoURL: user?.user?.photoURL, providerId: user?.user?.providerId, profile: user?.additionalUserInfo?.profile ? user?.additionalUserInfo?.profile : user?.user?.metadata })
+        AlertHelper.show("success", "Signup Success, Welcome to WeekEnd")
+        navigation.navigate("Home")
 
-    } else {
-      AlertHelper.show("error", "Signup Failed, Please Retry")
-    }
+        loginUser$({ email: user?.user?.email, name: user?.user.displayName ? user?.user?.displayName : userInfo?.displayName, uid: user?.user?.uid, photoURL: user?.user?.photoURL });
+
+
+      } else {
+        AlertHelper.show("error", "Signup Failed, Please Retry")
+      }
+
+
+    })
+
   };
   return (
     <Container isScrollable>
@@ -102,3 +109,4 @@ export default function index({ navigation, loginUser$, getProductsList$ }) {
     </Container>
   );
 }
+export default ReduxWrapper(index);

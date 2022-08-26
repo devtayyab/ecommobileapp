@@ -39,7 +39,7 @@ export default function CheckOutItem({ renderBagge, hideSteper, noBg, imageuri, 
             color: appColors.primary,
           }}
         />
-        {!hideSteper && <SimpleStepper
+        {/* {!hideSteper && <SimpleStepper
           containerStyle={{
             backgroundColor: appColors.lightGray,
             flexDirection: 'row',
@@ -56,7 +56,7 @@ export default function CheckOutItem({ renderBagge, hideSteper, noBg, imageuri, 
           showText
           renderText={() => <Label text={itemQuantity} />}
           separatorStyle={{}}
-        />}
+        />} */}
         {renderBagge && renderBagge()}
       </View>
     </View>

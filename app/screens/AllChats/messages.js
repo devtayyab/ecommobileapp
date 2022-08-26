@@ -17,7 +17,7 @@ function Messages({ navigation, route: { params } }) {
             const user = await AsyncStorage.getItem('user');
             const Data = JSON.parse(user);
             setUserData(Data);
-            console.log('Current User', Data);
+            // console.log('Current User', Data);
         } catch (e) {
             console.log(e);
         }
@@ -56,11 +56,11 @@ function Messages({ navigation, route: { params } }) {
             user,
             reciever: receiverID
         });
-    }, []);
+    }, [receiverID]);
 
     return (
         <GiftedChat
-            messages={messages.filter((v) => v.reciever == userdata?.uid || v.user?._id == userdata?.uid) ?? []}
+            messages={messages.filter((v) => (v.reciever == userdata?.uid && v.user?._id == receiverID) || (v.reciever == receiverID && v.user?._id == userdata?.uid)) ?? []}
             onSend={(messages) => onSend(messages)}
             isTyping={true}
             placeholder="Enter Message"
