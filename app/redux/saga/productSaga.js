@@ -10,6 +10,7 @@ const getProducts = async () => {
   console.log(product.size);
   const value = product.docs.map(doc => {
     return {
+      id: doc.id,
       ...doc.data()
     }
   })

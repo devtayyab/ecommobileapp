@@ -8,6 +8,7 @@ import CustomInput from '../../components/CustomInput';
 import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
 import { color } from 'react-native-reanimated';
+import functions from '@react-native-firebase/functions';
 export default function CheckoutPayment({ cardinfo, setcardInfo }) {
   const [selectedMethod, setSelectedMethod] = useState("credit-card")
   const hanndleChange = (name, value) => {
@@ -15,6 +16,15 @@ export default function CheckoutPayment({ cardinfo, setcardInfo }) {
     setcardInfo({ ...cardinfo, [name]: value })
 
   }
+
+  useEffect(() => {
+    functions()
+      .httpsCallable('stripeCreateAccount')()
+      .then(response => {
+        setProducts(response.data);
+        setLoading(false);
+      });
+  }, []);
 
   const SquareCard = ({ item }) => {
     return (

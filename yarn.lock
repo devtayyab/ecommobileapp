@@ -1672,6 +1672,11 @@
   resolved "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-12.9.3.tgz"
   integrity sha512-vz7gPbb7eFxjKTRTe/XFsFq+feL1ngg8ukKNzxs/X7dj9SZ9iuOeqzLOFBBl6xcUS2adKkp8pfIIN9JeWUZmLA==
 
+"@react-native-firebase/functions@^12.9.3":
+  version "12.9.3"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/functions/-/functions-12.9.3.tgz#ae8ae56c2be9dcf12bc0c8c140d5285afe843538"
+  integrity sha512-K3s6CSbbu6C1q1fQobEIHhLARAr1hl94fYR7zbkkZrKbGjC1ETHRBf4FbkJUO1UIXKCxGjYkscqHdrTctl3/EA==
+
 "@react-native-firebase/storage@^12.9.3":
   version "12.9.3"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-12.9.3.tgz#40370726acf1c7ee97aaae792ad74083d86d1a6e"

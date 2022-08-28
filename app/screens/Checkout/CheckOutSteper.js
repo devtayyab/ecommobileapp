@@ -13,13 +13,16 @@ import { AddOrderDetail } from '../../redux/wishListAction'
 import writeData from '../../utils/writeData';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 const { height } = Dimensions.get('window');
 
 export default function CheckOutSteper({ navigation }) {
+
+  const dispatch = useDispatch()
   const [active, setActive] = useState(0);
   const user = AsyncStorage.getItem('user')
   const products = useSelector(state => state.cart)
-  
+
   const [address, setAddress] = useState({
     street1: '',
     street2: '',
@@ -36,12 +39,12 @@ export default function CheckOutSteper({ navigation }) {
   const [dileveryMethod, setDileveryMethod] = useState({})
 
   const onFinish = () => {
-    AddOrderDetail({
+    dispatch(AddOrderDetail({
       address,
       cardinfo,
       product: products,
       dileveryMethod
-    })
+    }))
     writeData('Orders', {
       address: address,
       cardinfo: cardinfo,
@@ -57,23 +60,44 @@ export default function CheckOutSteper({ navigation }) {
   return (
     <Container>
       <ScreenHeader label="Checkout" navigation={navigation} />
+      {
+        dileveryMethod == 'Cash On Delivery' ?
 
-      <Stepper
-        stepStyle={styles.stepStyle}
-        active={active}
-        onFinish={onFinish}
-        content={[
-          <CheckoutDelivery dileveryMethod={dileveryMethod} setDileveryMethod={(v) => setDileveryMethod(v)} />,
-          <CheckoutAddress address={address} setAddress={(address) => setAddress(address)} />,
-          <CheckoutPayment cardinfo={cardinfo} setcardInfo={(info) => setcardInfo(info)} />,
-        ]}
-        //showButton={false}
-        onNext={() => setActive((p) => p + 1)}
-        onBack={() => setActive((p) => p - 1)}
-        buttonStyle={styles.buttonStyle}
-        buttonTextStyle={styles.buttonTextStyle}
-        wrapperStyle={styles.wrapperStyle}
-      />
+          <Stepper
+            stepStyle={styles.stepStyle}
+            active={active}
+            onFinish={onFinish}
+            content={[
+              <CheckoutDelivery dileveryMethod={dileveryMethod} setDileveryMethod={(v) => setDileveryMethod(v)} />,
+              <CheckoutAddress address={address} setAddress={(address) => setAddress(address)} />,
+              // <CheckoutPayment cardinfo={cardinfo} setcardInfo={(info) => setcardInfo(info)} />,
+            ]}
+
+            //showButton={false}
+            onNext={() => setActive((p) => p + 1)}
+            onBack={() => setActive((p) => p - 1)}
+            buttonStyle={styles.buttonStyle}
+            buttonTextStyle={styles.buttonTextStyle}
+            wrapperStyle={styles.wrapperStyle}
+          />
+          : <Stepper
+            stepStyle={styles.stepStyle}
+            active={active}
+            onFinish={onFinish}
+            content={[
+              <CheckoutDelivery dileveryMethod={dileveryMethod} setDileveryMethod={(v) => setDileveryMethod(v)} />,
+              <CheckoutAddress address={address} setAddress={(address) => setAddress(address)} />,
+              <CheckoutPayment cardinfo={cardinfo} setcardInfo={(info) => setcardInfo(info)} />,
+            ]}
+
+            //showButton={false}
+            onNext={() => setActive((p) => p + 1)}
+            onBack={() => setActive((p) => p - 1)}
+            buttonStyle={styles.buttonStyle}
+            buttonTextStyle={styles.buttonTextStyle}
+            wrapperStyle={styles.wrapperStyle}
+          />
+      }
     </Container>
   );
 }
