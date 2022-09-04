@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
   label: {
     fontSize: scale(16),
     fontWeight: '300',
+    fontFamily: 'BOD_R',
     color: appColors.white,
     letterSpacing: scale(2),
     fontfamily : 'Bodoni MT'

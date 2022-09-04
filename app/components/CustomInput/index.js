@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: scale(10),
     // flex: 1,
     fontSize: scale(14),
+    fontFamily: 'BOD_R',
   },
   blurBorder: {
     borderColor: appColors.darkGray,

@@ -77,6 +77,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text="Sign in to Continue"
             style={{
               fontSize: scale(16),
+              fontFamily: 'BOD_R',
               //fontWeight: '500',
               color: appColors.darkGray,
               fontfamily : 'Bodoni MT'
@@ -106,7 +107,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             placeholder="Password"
           />
         </View>
-        <CustomButton onPress={onSignUp} label="Sign up" />
+        <CustomButton style={{ fontFamily: 'BOD_R' }} onPress={onSignUp} label="Sign up" />
       </View>
     </Container>
   );
