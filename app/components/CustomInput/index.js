@@ -27,7 +27,7 @@ export default function CustomInput({
       ]}>
       {label && (
         <View style={{paddingVertical: scale(10)}}>
-          <Label style={{color: appColors.darkGray}} text={label} />
+          <Label style={{color: appColors.darkGray, fontFamily: 'BOD_R'}} text={label} />
         </View>
       )}
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     paddingVertical: scale(10),
     // flex: 1,
     fontSize: scale(14),
+    fontFamily: 'BOD_R',
   },
   blurBorder: {
     borderColor: appColors.darkGray,

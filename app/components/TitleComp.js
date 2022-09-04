@@ -14,7 +14,7 @@ export default function TitleComp({heading, rightLabel, renderRight, subLabel}) 
         <View style={{}}>
         <Label
           text={heading}
-          style={{fontSize: scale(20), fontWeight: '600'}}
+          style={{fontSize: scale(20), fontWeight: '600',fontFamily: 'BOD_R'}}
         />
         {subLabel && <Label text={subLabel}  style={{fontSize:scale(12), opacity:scale(.5), marginTop:scale(10)}}/> }
         </View>

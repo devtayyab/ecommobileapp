@@ -68,7 +68,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           }}>
           <Label
             text="Sign Up"
-            style={{ fontSize: scale(30), fontWeight: '700' }}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'BOD_R' }}
           />
         </View>
         <View style={{ paddingVertical: scale(15) }}>
@@ -76,6 +76,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text="Sign in to Continue"
             style={{
               fontSize: scale(16),
+              fontFamily: 'BOD_R',
               //fontWeight: '500',
               color: appColors.darkGray,
             }}
@@ -104,7 +105,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             placeholder="Password"
           />
         </View>
-        <CustomButton onPress={onSignUp} label="Sign up" />
+        <CustomButton style={{ fontFamily: 'BOD_R' }} onPress={onSignUp} label="Sign up" />
       </View>
     </Container>
   );

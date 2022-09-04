@@ -131,5 +131,6 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     fontSize: 25,
     marginVertical: 10,
+    fontFamily: 'BOD_R'
   },
 });
