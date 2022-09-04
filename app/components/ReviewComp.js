@@ -17,7 +17,7 @@ export default function ReviewComp() {
           <View style={styles.labelNStarC}>
             <Label
               text={name}
-              style={{fontSize: scale(16), fontWeight: '600'}}
+              style={{fontSize: scale(16), fontWeight: '600' , fontfamily : 'Bodoni MT'}}
             />
             <AirbnbRating
               size={15}
@@ -29,7 +29,7 @@ export default function ReviewComp() {
               //style={{paddingVertical: 10,  }}
             />
           </View>
-          <Text style={{flexWrap: 'wrap'}}>{detail}</Text>
+          <Text style={{flexWrap: 'wrap' , fontfamily : 'Bodoni MT'}}>{detail}</Text>
         </View>
       </View>
     );

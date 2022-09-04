@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     label:{
         fontSize:scale(16),
         color:appColors.black,
+        fontfamily : 'Bodoni MT'
         
     }
 })

@@ -14,11 +14,11 @@ export default function TitleComp({heading, rightLabel, renderRight, subLabel}) 
         <View style={{}}>
         <Label
           text={heading}
-          style={{fontSize: scale(20), fontWeight: '600'}}
+          style={{fontSize: scale(20), fontWeight: '600' , fontfamily : 'Bodoni MT'}}
         />
         {subLabel && <Label text={subLabel}  style={{fontSize:scale(12), opacity:scale(.5), marginTop:scale(10)}}/> }
         </View>
-        {!renderRight &&rightLabel&&  <Label text={rightLabel} style={{fontSize: scale(14)}} />}
+        {!renderRight &&rightLabel&&  <Label text={rightLabel} style={{fontSize: scale(14) , fontfamily : 'Bodoni MT'}} />}
         {renderRight&&renderRight()}
       </View>
     )

@@ -62,7 +62,7 @@ export default function index({ navigation }) {
             }}>
             <Label
               text="Sub Total"
-              style={{ fontWeight: '400', fontSize: scale(18) }}
+              style={{ fontWeight: '400', fontSize: scale(18) ,fontfamily : 'Bodoni MT' }}
             />
             <View
               style={{
@@ -72,7 +72,7 @@ export default function index({ navigation }) {
                 width: '60%',
               }}
             />
-            <Label text={getAmount()} style={{ fontWeight: '800' }} />
+            <Label text={getAmount()} style={{ fontWeight: '800' , fontfamily : 'Bodoni MT' }} />
           </View>
 
           <View
@@ -85,7 +85,7 @@ export default function index({ navigation }) {
             }}>
             <Label
               text="Tax"
-              style={{ fontWeight: '400', fontSize: scale(18) }}
+              style={{ fontWeight: '400', fontSize: scale(18) , fontfamily : 'Bodoni MT'}}
             />
             <View
               style={{
@@ -95,7 +95,7 @@ export default function index({ navigation }) {
                 width: '60%',
               }}
             />
-            <Label text="$40" style={{ fontWeight: '800' }} />
+            <Label text="$40" style={{ fontWeight: '800' , fontfamily : 'Bodoni MT' }} />
           </View>
         </View>
 

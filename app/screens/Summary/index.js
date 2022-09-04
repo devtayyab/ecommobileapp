@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
@@ -17,21 +17,30 @@ import paymentHelper from '../../services/paymentHelper';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import writeData from '../../utils/writeData';
 import { useSelector } from 'react-redux';
-
+import functions from '@react-native-firebase/functions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 function index(props) {
-  const { auth: { user }, navigation } = props
+  const { navigation } = props
 
   const orders = useSelector(state => state?.orders)
-  console.log('orders', orders)
+  
+  const user = AsyncStorage.getItem('user')
+  console.log('userid', user?.user?.uid)
+  useEffect(() => {
+    functions()
+      .httpsCallable('stripeCreateAccount')({ userid: user?.user?.uid })
+      .then(response => {
+        console.log('ready', response)
 
+      })
+
+  }, []);
   const onPaymentDone = (info) => {
     const { error } = info;
     if (!error) {
       AlertHelper.show('success', 'Your Order Placed Successfully');
       navigation.navigate('Home');
-      writeData('Payment', {
-        done: true,
-      })
+     
     } else {
       AlertHelper.show('error', 'Oops !! Something went wrong !');
     }
@@ -94,9 +103,9 @@ function index(props) {
             <View style={{}}>
               <Label
                 text="Master Card"
-                style={{ fontSize: scale(13), opacity: scale(0.5) }}
+                style={{ fontSize: scale(13), opacity: scale(0.5) , fontfamily : 'Bodoni MT' }}
               />
-              <Label text="**** **** **** 1234" style={{ fontSize: scale(17) }} />
+              <Label text="**** **** **** 1234" style={{ fontSize: scale(17)  , fontfamily : 'Bodoni MT'}} />
             </View>
             <CheckBox isChecked />
           </View>

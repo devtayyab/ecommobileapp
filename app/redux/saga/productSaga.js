@@ -10,7 +10,7 @@ const getProducts = async () => {
   console.log(product.size);
   const value = product.docs.map(doc => {
     return {
-      id: doc.id,
+      rid: doc.id,
       ...doc.data()
     }
   })
@@ -28,28 +28,7 @@ export function* workerGetProducts(action) {
     const data = yield getProducts();
 
 
-    const products = [{
-      id: 1,
-      title: 'Perfume',
-      price: '100',
-      category: `${category}`,
-      description: 'best Perfume for Men',
-      image: 'https://static-01.daraz.pk/p/9479998380b91cac805f5953c291df75.jpg'
-    }, {
-      id: 2,
-      title: 'Body Spray',
-      price: '200',
-      category: `${category}`,
-      description: 'Best Body spray for Men',
-      image: 'https://static-01.daraz.pk/p/9f3337af1fd449afdaead1dbd8246fd0.png'
-    }, {
-      id: 3,
-      title: 'Blue Men Body Spray',
-      price: '300',
-      category: `${category}`,
-      description: 'Best Body spray for Men',
-      image: 'https://static-01.daraz.pk/p/e90dcc4c91fb264ab1872a0a7e5b7130.jpg'
-    }]
+
 
     // const result = yield RequestMake(URL)    
     yield put({ type: SET_PRODUCTS, payload: data })
@@ -66,28 +45,7 @@ export function* workerGetProductsList(action) {
     const URL = `${PRODUCTS_LIST}`
     // console.log({URL});
     // const result = yield RequestMake(URL)    
-    const products = [{
-      id: 1,
-      title: 'Perfume',
-      price: '100',
-      category: `${category}`,
-      description: 'best Perfume for Men',
-      image: 'https://static-01.daraz.pk/p/9479998380b91cac805f5953c291df75.jpg'
-    }, {
-      id: 2,
-      title: 'Body Spray',
-      price: '200',
-      category: `${category}`,
-      description: 'Best Body spray for Men',
-      image: 'https://static-01.daraz.pk/p/9f3337af1fd449afdaead1dbd8246fd0.png'
-    }, {
-      id: 3,
-      title: 'Blue Men Body Spray',
-      price: '300',
-      category: `${category}`,
-      description: 'Best Body spray for Men',
-      image: 'https://static-01.daraz.pk/p/e90dcc4c91fb264ab1872a0a7e5b7130.jpg'
-    }]
+
     const data = yield getProducts();
     console.log(data);
     // console.log({result});

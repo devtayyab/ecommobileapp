@@ -7,7 +7,7 @@ const orderIntialState = {
 
 export default function (state = orderIntialState, action) {
     const { type, payload } = action;
-
+    console.log(payload)
     switch (type) {
         case 'ADD':
             return {

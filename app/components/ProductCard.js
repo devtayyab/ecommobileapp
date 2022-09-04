@@ -32,18 +32,18 @@ export default function ProductCard({ navigation, item }) {
               paddingHorizontal: scale(10),
             }}>
 
-            <Label text="New" style={{ fontSize: scale(10), color: appColors.white }} />
+            <Label text="New" style={{ fontSize: scale(10), color: appColors.white , fontfamily : 'Bodoni MT' }} />
           </View>
         )}
       </View>
       <View style={{ paddingVertical: scale(3) }}>
-        <Label text={title?.substring(0, 20)} style={{ fontSize: scale(18), fontWeight: '500' }} />
+        <Label text={title?.substring(0, 20)} style={{ fontSize: scale(18), fontWeight: '500' , fontfamily : 'Bodoni MT' }} />
       </View>
 
       <View style={{ paddingVertical: scale(2) }}>
         <Label
           text={description?.substring(0, 24)}
-          style={{ fontSize: scale(13), color: appColors.darkGray }}
+          style={{ fontSize: scale(13), color: appColors.darkGray  , fontfamily : 'Bodoni MT'}}
         />
       </View>
 
@@ -54,6 +54,7 @@ export default function ProductCard({ navigation, item }) {
             fontSize: scale(18),
             color: appColors.primary,
             fontWeight: '500',
+            fontfamily : 'Bodoni MT'
           }}
         />
       </View>

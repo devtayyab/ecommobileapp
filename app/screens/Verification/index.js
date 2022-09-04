@@ -29,7 +29,7 @@ export default function index({navigation}) {
           }}>
           <Label
             text="Verification"
-            style={{fontSize: scale(30), fontWeight: '700'}}
+            style={{fontSize: scale(30), fontWeight: '700' , fontfamily : 'Bodoni MT'}}
           />
         </View>
         <View style={{paddingVertical: scale(15)}}>
@@ -39,6 +39,7 @@ export default function index({navigation}) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
+              fontfamily : 'Bodoni MT'
             }}
           />
         </View>

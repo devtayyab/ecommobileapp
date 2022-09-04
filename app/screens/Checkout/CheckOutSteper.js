@@ -14,7 +14,9 @@ import writeData from '../../utils/writeData';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { AlertHelper } from '../../utils/AlertHelper';
 const { height } = Dimensions.get('window');
+
 
 export default function CheckOutSteper({ navigation }) {
 
@@ -36,14 +38,14 @@ export default function CheckOutSteper({ navigation }) {
     expirydate: '',
     cvv: ''
   })
-  const [dileveryMethod, setDileveryMethod] = useState({})
+  const [dileveryMethod, setDileveryMethod] = useState('Cash On Delivery')
 
   const onFinish = () => {
     dispatch(AddOrderDetail({
-      address,
-      cardinfo,
+      address: address,
+      cardinfo: cardinfo,
       product: products,
-      dileveryMethod
+      dileveryMethod: dileveryMethod
     }))
     writeData('Orders', {
       address: address,
@@ -52,7 +54,14 @@ export default function CheckOutSteper({ navigation }) {
       dileveryMethod: dileveryMethod,
       buyer: user
     })
-    navigation.navigate("Summary")
+    if (dileveryMethod == 'Cash On Delivery') {
+      AlertHelper.show('success', 'Your Order Placed Successfully');
+      navigation.navigate('Home');
+
+    } else {
+      navigation.navigate("Summary")
+    }
+
 
 
     //Summary

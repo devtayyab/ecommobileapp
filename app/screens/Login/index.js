@@ -160,7 +160,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           }}>
           <Label
             text="Welcome,"
-            style={{ fontSize: scale(30), fontWeight: '700' }}
+            style={{ fontSize: scale(30), fontWeight: '700' , fontfamily : 'Bodoni MT' }}
           />
           <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Label
@@ -169,6 +169,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
                 fontSize: scale(14),
                 fontWeight: '500',
                 color: appColors.primary,
+                fontfamily : 'Bodoni MT'
               }}
             />
           </Pressable>
@@ -180,6 +181,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
+              fontfamily : 'Bodoni MT'
             }}
           />
         </View>
@@ -211,7 +213,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text="Forgot password"
             style={{
               fontSize: scale(14),
-              // fontWeight: '500',
+              fontfamily : 'Bodoni MT'
             }}
           />
         </Pressable>
@@ -227,7 +229,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           text="-OR-"
           style={{
             fontSize: scale(18),
-            //fontWeight: '500',
+            fontfamily : 'Bodoni MT'
           }}
         />
       </View>

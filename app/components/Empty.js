@@ -7,7 +7,7 @@ import ICEmpty from '../Icons/ICEmpty';
 export default function Empty({label}) {
   return (
     <View style={{flex:1, justifyContent:'center', alignItems:'center' }}>
-    { label&& <Label style={{fontSize:scale(23), paddingVertical:scale(20)}} text={label} />}
+    { label&& <Label style={{fontSize:scale(23), paddingVertical:scale(20) , fontfamily : 'Bodoni MT'}} text={label} />}
         
       <ICEmpty height={scale( 250)}  />  
     </View>
