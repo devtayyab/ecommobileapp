@@ -106,20 +106,13 @@ export const recentSearches = [
 
 export const deliveryTypes = [
   {
-    label: 'Standard Delivery',
-    subLabel: 'Order will be delivered between 3 - 5 business days',
+    label: 'Cash On Delivery',
+    subLabel: 'Are you want to pay on dilever',
     selected: true,
   },
   {
-    label: 'Next Day Delivery',
-    subLabel:
-      'Place your order before 6pm and your items will be delivered the next day',
-    selected: false,
-  },
-  {
-    label: 'Nominated Delivery',
-    subLabel:
-      'Pick a particular date from the calendar and order will be delivered on selected date',
+    label: 'Card Payment',
+    subLabel: 'Want to pay via PayPal',
     selected: false,
   },
 ];
@@ -127,34 +120,39 @@ export const paymentMethods = ['dollar-sign', 'credit-card', 'layout'];
 
 export const profileKeys = [
 
+  // {
+  //   lebel: "Shipping Address",
+  //   icon: "map-pin",
+  //   route: "Address"
+  // },
+  // {
+  //   lebel: "Wishlist",
+  //   icon: "heart",
+  //   isNew: true,
+  //   route: "WishList"
+  // },
+  // {
+  //   lebel: "Order History",
+  //   icon: "clock",
+  //   route: "Orders"
+  // },
+  // {
+  //   lebel: "Track Order",
+  //   icon: "package",
+  //   route: "Orders"
+  // },
+  // {
+  //   lebel: "Cards",
+  //   icon: "credit-card"
+  // },
+  // {
+  //   lebel: "Notifications",
+  //   icon: "bell"
+  // },
   {
-    lebel: "Shipping Address",
-    icon: "map-pin",
-    route: "Address"
-  },
-  {
-    lebel: "Wishlist",
-    icon: "heart",
-    isNew: true,
-    route: "WishList"
-  },
-  {
-    lebel: "Order History",
-    icon: "clock",
-    route: "Orders"
-  },
-  {
-    lebel: "Track Order",
-    icon: "package",
-    route: "Orders"
-  },
-  {
-    lebel: "Cards",
-    icon: "credit-card"
-  },
-  {
-    lebel: "Notifications",
-    icon: "bell"
+    lebel: 'All Chat',
+    icon: 'bell',
+    route: 'Allchats'
   },
   {
     lebel: "Sign Out",

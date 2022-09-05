@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
@@ -15,11 +15,44 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../redux/cartAction';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import Chat from '../Chat/Chat';
+import firestore from '@react-native-firebase/firestore';
 
 function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList$, addToCart$, navigation, route: { params } }) {
 
-  const { id, title, name, description, detail, price, quantity, concentration, image, isFav, rating, imageuri } = params.item;
+
+
+  const { id, title, name, description, detail, price, quantity, concentration, image, isFav, rating, imageuri , productSellerId } = params.item;
   //console.warn({cartItems});
+  
+
+  // const [receiverId, setReceiverId] = useState('');
+
+//   const getProducts = async () => {
+//     const product = await firestore().collection('Products').get();
+
+// const value = product.docs.filter(doc => doc.data().id == id);
+// const SID = value[0].data().productSellerId;
+// // console.log(SID);
+// setReceiverId(SID)
+// return SID
+
+//   }
+
+  // useEffect(async() => {
+  //   const r_ID = await getProducts();
+  //   console.log("product Seller ID:",r_ID);
+  //   setReceiverId(r_ID)
+  //   // console.log("product Seller ID2:",receiverId);
+
+
+
+  // },[])
+
+
+
+
+
+
   const onAddToCart = () => {
     addToCart$({ ...params.item, quantity: 1 });
   };
@@ -35,6 +68,8 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
       />
     );
   };
+
+
   return (
     <>
 
@@ -79,7 +114,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <View style={{ paddingVertical: scale(20) }}>
             <Label
               text={title}
-              style={{ fontWeight: '700', fontSize: scale(30) }}
+              style={{ fontWeight: '700', fontSize: scale(30)  , fontfamily : 'Bodoni MT'}}
             />
           </View>
 
@@ -94,7 +129,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
               {/* <Label text="quantity" style={{ fontSize: scale(15) }} /> */}
               <Label
                 text={quantity}
-                style={{ fontWeight: '700', fontSize: scale(15) }}
+                style={{ fontWeight: '700', fontSize: scale(15) , fontfamily : 'Bodoni MT'}}
               />
             </View>
 
@@ -102,7 +137,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
               {/* <Label text="concentration" style={{ fontSize: scale(15) }} /> */}
               <Label
                 text={concentration}
-                style={{ fontWeight: '700', fontSize: scale(15) }}
+                style={{ fontWeight: '700', fontSize: scale(15) , fontfamily : 'Bodoni MT'}}
               />
 
             </View>
@@ -113,14 +148,14 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             <View style={{ paddingVertical: scale(20) }}>
               <Label
                 text={description}
-                style={{ fontSize: scale(14), lineHeight: scale(25) }}
+                style={{ fontSize: scale(14), lineHeight: scale(25) ,  }}
               />
             </View>
           </View>
           <View >
             <TitleComp heading={'Contact'} />
             <Pressable style={styles.chat}
-              onPress={() => navigation.navigate('Chat')}
+              onPress={() => navigation.navigate('Chat', {productSellerId})}
             >
               <Label text="Contact with Supplier" style={styles.chatLabel} />
               <Entypo
@@ -131,7 +166,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             </Pressable>
 
           </View>
-          <View>
+          {/* <View>
             <TitleComp heading={'Reviews'} />
             <Pressable
               onPress={() => navigation.navigate('WriteReview', { name })}>
@@ -139,7 +174,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
             </Pressable>
 
             <ReviewComp />
-          </View>
+          </View> */}
         </View>
       </Container>
       {_renderBottom()}
@@ -179,11 +214,13 @@ const styles = StyleSheet.create({
     paddingVertical: scale(10),
     fontSize: scale(14),
     color: appColors.primary,
+    fontfamily : 'Bodoni MT'
   },
   chatLabel: {
     color: appColors.primary,
     fontSize: scale(14),
     paddingRight: scale(10),
+    fontfamily : 'Bodoni MT'
   },
   chat: {
     flexDirection: "row",

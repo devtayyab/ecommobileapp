@@ -5,7 +5,7 @@ export default function TestComp({name,onPress}) {
     return (
         <View style={{justifyContent:'center', alignItems:'center'}}>
             <Pressable onPress={onPress}>
-                <Text>{name}</Text>
+                <Text style={{fontfamily : 'Bodoni MT'}}>{name}</Text>
              </Pressable>
         </View>
     )
