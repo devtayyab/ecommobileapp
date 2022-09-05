@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "814196118506",
+    "project_id": "weekend-b8c51",
+    "storage_bucket": "weekend-b8c51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814196118506:android:a366a8e36cbd3503f95893",
+        "android_client_info": {
+          "package_name": "com.weekend.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814196118506-0dnalgas4raan9p50rkc244vr53r4gm0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.weekend.shop",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeXlGt50hvEzQfQzlQs1CbAnzPwUSmums"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
