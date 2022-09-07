@@ -1,35 +1,42 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { StyleSheet, Text, View, FlatList, Image, Pressable } from 'react-native';
-import { } from 'react-native-gesture-handler';
-import { categoriesList, bestSellersList } from '../../utils/MockData';
-import { appColors, shadow } from '../../utils/appColors';
+import React, {useRef, useEffect, useState} from 'react';
+import {StyleSheet, Text, View, FlatList, Image, Pressable} from 'react-native';
+import {} from 'react-native-gesture-handler';
+import {categoriesList, bestSellersList} from '../../utils/MockData';
+import {appColors, shadow} from '../../utils/appColors';
 import TouchableRipple from 'react-native-touch-ripple';
 import Label from '../../components/Label';
 import Container from '../../components/Container';
 import Product from '../../components/ProductCard';
-import { addToCart } from '../../redux/cartAction';
-import { scale } from 'react-native-size-matters';
+import {addToCart} from '../../redux/cartAction';
+import {scale} from 'react-native-size-matters';
 import SearchBox from '../../components/SearchBox';
 import TitleComp from '../../components/TitleComp';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import auth from '@react-native-firebase/auth';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import TestComp from '../../components/TestComp';
 import NativeAdView from 'react-native-admob-native-ads';
-import { ANDROID_FULL_PAGE_AD_ID } from '../../utils/appConfig';
+import {ANDROID_FULL_PAGE_AD_ID} from '../../utils/appConfig';
 import useListners from '../../hooks/useListners';
+// import String from '../../constants/lng/LocalizedString';
 
-function Home({ getProducts$, getProductsList$, addToCart$, navigation, products: { products } }) {
+function Home({
+  getProducts$,
+  getProductsList$,
+  addToCart$,
+  navigation,
+  products: {products},
+}) {
   const nativeAdViewRef = useRef();
   useEffect(() => {
     nativeAdViewRef.current?.loadAd();
-    getProductsList$()
+    getProductsList$();
   }, [nativeAdViewRef]);
 
-  const RenderTitle = ({ heading, rightLabel }) => {
+  const RenderTitle = ({heading, rightLabel}) => {
     return <TitleComp heading={heading} rightLabel={rightLabel} />;
   };
-  const ProductCard = ({ item }) => {
+  const ProductCard = ({item}) => {
     return <Product navigation={navigation} item={item} />;
   };
   const onPress = () => {
@@ -40,22 +47,22 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
       <Text style={styles.appName}>WeekEnd</Text>
 
       <SearchBox onFoucs={() => navigation.navigate('Search')} />
-      <View style={{ paddingVertical: scale(30) }}>
+      <View style={{paddingVertical: scale(30)}}>
         <RenderTitle heading="Categories" />
         <FlatList
-          style={{ marginTop: scale(40) }}
+          style={{marginTop: scale(40)}}
           showsHorizontalScrollIndicator={false}
           horizontal
           data={categoriesList}
-          ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
-          renderItem={({ item, index }) => {
-            const { label, Icon } = item;
+          ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
+          renderItem={({item, index}) => {
+            const {label, Icon} = item;
             return (
-              <View key={index} style={{ alignItems: 'center' }}>
+              <View key={index} style={{alignItems: 'center'}}>
                 <TouchableRipple
                   onPress={() => {
                     getProducts$(label);
-                    navigation.navigate('Category', { item });
+                    navigation.navigate('Category', {item});
                   }}
                   rippleColor={appColors.primary}
                   rippleContainerBorderRadius={scale(40)}
@@ -71,8 +78,11 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
                   }}>
                   <Icon />
                 </TouchableRipple>
-                <View style={{ marginTop: scale(15) }}>
-                  <Label text={label} style={{ fontSize: scale(14)  , fontfamily : 'Bodoni MT'}} />
+                <View style={{marginTop: scale(15)}}>
+                  <Label
+                    text={label}
+                    style={{fontSize: scale(14), fontFamily: 'Bodoni MT'}}
+                  />
                 </View>
               </View>
             );
@@ -80,16 +90,16 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
         />
       </View>
       <View>
-        <View style={{ paddingVertical: scale(25) }}>
+        <View style={{paddingVertical: scale(25)}}>
           <RenderTitle heading="Best Selling" rightLabel="See All" />
         </View>
 
         <FlatList
           showsHorizontalScrollIndicator={false}
-          ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
+          ItemSeparatorComponent={() => <View style={{padding: scale(10)}} />}
           horizontal
           data={products}
-          renderItem={({ item, index }) => (
+          renderItem={({item, index}) => (
             <ProductCard key={index} item={item} />
           )}
         />
@@ -116,13 +126,13 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 20,
     textAlign: 'center',
-    fontfamily : 'Bodoni MT'
+    fontFamily: 'Bodoni MT',
   },
   TitleText: {
     fontSize: 25,
     // padding: 20,
     marginVertical: 20,
-    fontfamily : 'Bodoni MT'
+    fontFamily: 'Bodoni MT',
   },
   scrollContainer: {
     flex: 1,
@@ -133,6 +143,6 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     fontSize: 25,
     marginVertical: 10,
-    fontfamily : 'Bodoni MT'
+    fontFamily: 'Bodoni MT',
   },
 });

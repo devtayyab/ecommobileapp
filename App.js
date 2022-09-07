@@ -27,6 +27,8 @@ Ionicons.loadFont()
 FontAwesome.loadFont()
 Feather.loadFont()
 MaterialCommunityIcons.loadFont()
+
+
 export default function App ()  {
   const {persistor, store} = storePre;
  

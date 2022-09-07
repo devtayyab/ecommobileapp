@@ -27,7 +27,7 @@ export default function CustomInput({
       ]}>
       {label && (
         <View style={{paddingVertical: scale(10)}}>
-          <Label style={{color: appColors.darkGray , fontfamily : 'Bodoni MT'}} text={label} />
+          <Label style={{color: appColors.darkGray , fontFamily : 'Bodoni MT'}} text={label} />
         </View>
       )}
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
