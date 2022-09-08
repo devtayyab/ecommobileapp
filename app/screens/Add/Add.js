@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Image, Platform } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Platform,NativeModules } from 'react-native';
 import {
   Form,
   FormItem,
@@ -8,6 +8,7 @@ import {
 } from 'react-native-form-component';
 import storage from '@react-native-firebase/storage';
 // import storage from '@react-native-firebase/storage';
+// import ImagePicker from 'react-native-image-crop-picker';
 import React, { useState, useEffect } from 'react';
 import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
@@ -15,6 +16,7 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+var ImagePicker = NativeModules.ImageCropPicker;
 
 export default function Add() {
   const [title, setTitle] = useState('');
@@ -26,10 +28,11 @@ export default function Add() {
   const [concentration, setConcentration] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [imageUri, setImageUri] = useState('');
-
+  const [imageUri, setImageUri] = useState([]);
+  const [images, setimages] = useState([])
   const [sellerId, setSellerId] = useState('')
-
+  
+  
   const getData = async () => {
     try {
       const user = await AsyncStorage.getItem('user')
@@ -52,35 +55,52 @@ export default function Add() {
   const uploadImage = () => {
     console.log("hii");
 
-    const options = {
+
+    ImagePicker.openPicker({
+      multiple: true,
       storageOptions: {
-        path: 'images',
-        mediaType: 'photo',
+            path: 'images',
+            mediaType: 'photo',
+    
+          },
+          includeBase64: true,
+    }).then(response => {
+      const source = { uri: response?.uri };
+      setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
+      console.log(response?.assets[0]?.uri);
+    });
 
-      },
-      includeBase64: true,
-    };
+    // const options = {
+    //   storageOptions: {
+    //     path: 'images',
+    //     mediaType: 'photo',
 
-    launchImageLibrary(options, (response) => {
-      if (response.didCancel) {
-        console.log("User cancel image picker");
+    //   },
+    //   includeBase64: true,
+    
+    // };
 
-      }
-      else if (response.error) {
-        console.log("Image Picker Error", response.error);
-      }
-      else if (response.customButton) {
-        console.log("User Tapped custom button", response.customButton);
-      }
-      else {
-        // const source = {uri:'data:image/jpeg,base64'+response.base64}
-        const source = { uri: response?.uri };
-        setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
-        // console.log(response);
-        console.log(response?.assets[0]?.uri);
+    // launchImageLibrary(options, (response) => {
+    //   if (response.didCancel) {
+    //     console.log("User cancel image picker");
 
-      }
-    })
+    //   }
+    //   else if (response.error) {
+    //     console.log("Image Picker Error", response.error);
+    //   }
+    //   else if (response.customButton) {
+    //     console.log("User Tapped custom button", response.customButton);
+    //   }
+     
+    //   else {
+    //     // const source = {uri:'data:image/jpeg,base64'+response.base64}
+    //     const source = { uri: response?.uri };
+    //     setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
+    //     // console.log(response);
+    //     console.log(response?.assets[0]?.uri);
+
+    //   }
+    // })
 
   }
   const Submit = async () => {
@@ -135,7 +155,6 @@ export default function Add() {
       <ScrollView>
         <View style={styles.imageContainer}>
           <Image
-            // resizeMode='contain'
             style={styles.image}
             source={{ uri: imageUri?.uri }}
           />
@@ -145,6 +164,7 @@ export default function Add() {
             color={appColors.primary}
             onPress={uploadImage}
             style={styles.icon}
+          
           />
         </View>
         <Form buttonText="Add Product" buttonStyle={{ backgroundColor: appColors.primary, }} onButtonPress={() => Submit()}>

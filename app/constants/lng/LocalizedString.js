@@ -1,11 +1,9 @@
 import LocalizedStrings from 'react-localization';
 import en from './en'
-import hi from './hi'
-import fr from './fr';
+import it from './it';
 
 let String = new LocalizedStrings({
     en:en,
-    hi:hi,
-    fr:fr
+    it:it
 });
 export default String

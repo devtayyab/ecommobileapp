@@ -154,6 +154,13 @@ function index({ getProductsList$, loginUser$, navigation }) {
           padding: scale(15),
           borderRadius: scale(5),
         }}>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+          }}>
+           <LanguagePopUp />
+        </View>
         <View
           style={{
             flexDirection: 'row',
@@ -177,15 +184,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           </Pressable>
           
         </View>
-        <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-          }}>
-        <MenuProvider>
-           <LanguagePopUp />
-         </MenuProvider>
-        </View>
+        
         <View style={{ paddingVertical: scale(15) }}>
           <Label
             text="Sign in to Continue"
