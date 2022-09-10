@@ -37,7 +37,7 @@ export default function CheckOutItem({ renderBagge, hideSteper, noBg, imageuri, 
             fontSize: scale(18),
             fontWeight: '500',
             color: appColors.primary,
-            fontfamily : 'Bodoni MT'
+            fontFamily : 'Bodoni MT'
           }}
         />
         {/* {!hideSteper && <SimpleStepper

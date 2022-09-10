@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Image, Platform } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Platform,NativeModules,Text,Pressable } from 'react-native';
 import {
   Form,
   FormItem,
@@ -15,8 +15,10 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CheckBox from '../../components/CheckBox';
+var ImagePicker = NativeModules.ImageCropPicker;
 
-export default function Add() {
+export default function Add({ navigation, item }) {
   const [title, setTitle] = useState('');
   const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
@@ -51,36 +53,57 @@ export default function Add() {
 
   const uploadImage = () => {
     console.log("hii");
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+    });
 
-    const options = {
+    ImagePicker.openPicker({
+      multiple: true,
       storageOptions: {
-        path: 'images',
-        mediaType: 'photo',
+            path: 'images',
+            mediaType: 'photo',
+    
+          },
+          includeBase64: true,
+    }).then(response => {
+      const source = { uri: response?.uri };
+      setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
+      console.log(response?.assets[0]?.uri);
+    });
 
-      },
-      includeBase64: true,
-    };
+    // const options = {
+    //   storageOptions: {
+    //     path: 'images',
+    //     mediaType: 'photo',
 
-    launchImageLibrary(options, (response) => {
-      if (response.didCancel) {
-        console.log("User cancel image picker");
+    //   },
+    //   includeBase64: true,
+    // };
 
-      }
-      else if (response.error) {
-        console.log("Image Picker Error", response.error);
-      }
-      else if (response.customButton) {
-        console.log("User Tapped custom button", response.customButton);
-      }
-      else {
-        // const source = {uri:'data:image/jpeg,base64'+response.base64}
-        const source = { uri: response?.uri };
-        setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
-        // console.log(response);
-        console.log(response?.assets[0]?.uri);
+    // launchImageLibrary(options, (response) => {
+    //   if (response.didCancel) {
+    //     console.log("User cancel image picker");
 
-      }
-    })
+    //   }
+    //   else if (response.error) {
+    //     console.log("Image Picker Error", response.error);
+    //   }
+    //   else if (response.customButton) {
+    //     console.log("User Tapped custom button", response.customButton);
+    //   }
+    //   else {
+    //     // const source = {uri:'data:image/jpeg,base64'+response.base64}
+    //     const source = { uri: response?.uri };
+    //     setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
+    //     // console.log(response);
+    //     console.log(response?.assets[0]?.uri);
+
+    //   }
+    // })
 
   }
   const Submit = async () => {
@@ -224,6 +247,12 @@ export default function Add() {
             onChangeText={(e) => setDescription(e)}
             textArea
           />
+          <View style={{display:'flex',flexDirection:'row'}}>
+            
+            <CheckBox />
+           <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms',item)} ><Text style={{color:'blue'}}>Terms And Conditions</Text></Pressable></Text>
+       
+        </View>
         </Form>
       </ScrollView>
     </View>

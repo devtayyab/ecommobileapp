@@ -24,7 +24,7 @@ export default function index({navigation}) {
 
     return (
         <View style={{justifyContent:'center', alignItems:'center', flex:1}}>
-            <Text style={{fontfamily : 'Bodoni MT'}}>Welcome to Amusoftech</Text>
+            <Text style={{fontFamily : 'Bodoni MT'}}>Welcome to Amusoftech</Text>
         </View>
     )
 }

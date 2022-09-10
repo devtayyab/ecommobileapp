@@ -40,23 +40,23 @@ export default function CheckoutPayment({ cardinfo, setcardInfo }) {
 
       </View>
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontfamily : 'Bodoni MT' }} value={cardinfo?.cardname} label="Name on card" onChangeText={(v)=>hanndleChange('cardname' , v)} />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'Bodoni MT' }} value={cardinfo?.cardname} label="Name on card" onChangeText={(v)=>hanndleChange('cardname' , v)} />
       </View>
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontfamily : 'Bodoni MT' }} value={cardinfo?.cardnumber} label="Number on card" onChangeText={(v)=>hanndleChange('cardnumber' , v)} IconRight={() => <Feather name="credit-card" color={appColors.primary} size={scale(20)} />} />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'Bodoni MT' }} value={cardinfo?.cardnumber} label="Number on card" onChangeText={(v)=>hanndleChange('cardnumber' , v)} IconRight={() => <Feather name="credit-card" color={appColors.primary} size={scale(20)} />} />
       </View>
 
       <View style={{ paddingVertical: scale(10) }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontfamily : 'Bodoni MT' }} value={cardinfo?.expirydate} label="Expiry Date" onChangeText={(v)=>hanndleChange('expirydate' ,v)}/>
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontfamily : 'Bodoni MT' }} value={cardinfo?.cvv} onChangeText={(v)=>hanndleChange('cvv' ,v)} label="CVV" />
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'Bodoni MT' }} value={cardinfo?.expirydate} label="Expiry Date" onChangeText={(v)=>hanndleChange('expirydate' ,v)}/>
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'Bodoni MT' }} value={cardinfo?.cvv} onChangeText={(v)=>hanndleChange('cvv' ,v)} label="CVV" />
         </View>
       </View>
 
       <View style={{ paddingVertical: scale(10), flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
         <CheckBox isChecked={true} />
         <View style={{ paddingLeft: scale(10) }}>
-          <Label text="Save this card details" style={{ fontSize: scale(15) , fontfamily : 'Bodoni MT' }} />
+          <Label text="Save this card details" style={{ fontSize: scale(15) , fontFamily : 'Bodoni MT' }} />
         </View>
       </View>
 

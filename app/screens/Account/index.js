@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Pressable, FlatList } from 'react-native';
+import { View, Text, StyleSheet, Pressable, FlatList,Image } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Feather from 'react-native-vector-icons/Feather';
@@ -9,11 +9,13 @@ import { profileKeys } from '../../utils/MockData';
 import AvatarImage from '../../components/AvatarImage'
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 //auth().signOut()
 export default function index({ navigation }) {
 
   const [userdata, setUserData] = useState({})
+  const [imageUri, setImageUri] = useState('');
 
   const getData = async () => {
     try {
@@ -48,6 +50,34 @@ export default function index({ navigation }) {
     removeUser();
 
   }
+  const uploadImage = () => {
+    console.log('hii');
+
+    const options = {
+      storageOptions: {
+        path: 'images',
+        mediaType: 'photo',
+      },
+      includeBase64: true,
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancel image picker');
+      } else if (response.error) {
+        console.log('Image Picker Error', response.error);
+      } else if (response.customButton) {
+        console.log('User Tapped custom button', response.customButton);
+      } else {
+        const source = {uri: response?.uri};
+        setImageUri({
+          uri: response?.assets[0]?.uri,
+          name: response?.assets[0]?.fileName,
+        });
+        console.log(response?.assets[0]?.uri);
+      }
+    });
+  };
   const ItemCard = ({ item }) => {
     const { lebel, icon, isNew, route } = item;
     return (
@@ -59,9 +89,9 @@ export default function index({ navigation }) {
           <Feather name={icon} size={scale(22)} color={appColors.black} />
         </Pressable>
         <View style={styles.itemInnerContainer}>
-          <Label text={lebel}  style={{fontfamily : 'Bodoni MT'}}/>
+          <Label text={lebel}  style={{fontFamily : 'Bodoni MT'}}/>
           {isNew && <View style={{ paddingHorizontal: scale(10), backgroundColor: appColors.red, padding: scale(5), borderRadius: scale(4) }}>
-            <Label text="New" style={{ fontSize: scale(10), color: appColors.white , fontfamily : 'Bodoni MT' }} />
+            <Label text="New" style={{ fontSize: scale(10), color: appColors.white , fontFamily : 'Bodoni MT' }} />
           </View>}
           <Feather name={"chevron-right"} size={scale(18)} />
         </View>
@@ -71,10 +101,15 @@ export default function index({ navigation }) {
   return (
     <Container>
       <View style={{ paddingVertical: scale(20), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-        <AvatarImage size={scale(110)} />
+        {/* <AvatarImage size={scale(110)} /> */}
+        <View style={styles.imageContainer}>
+          <Pressable onPress={uploadImage}>
+            <Image style={styles.image} source={{uri: imageUri?.uri}} />
+          </Pressable>
+        </View>
         <View style={{ marginLeft: scale(20) }}>
-          <Label text={displayName} style={{ fontSize: scale(28) , fontfamily : 'Bodoni MT' }} />
-          <Label text={email} style={{ fontSize: scale(12) , fontfamily : 'Bodoni MT' }} />
+          <Label text={displayName} style={{ fontSize: scale(28) , fontFamily : 'Bodoni MT' }} />
+          <Label text={email} style={{ fontSize: scale(12) , fontFamily : 'Bodoni MT' }} />
         </View>
       </View>
       <FlatList
@@ -99,6 +134,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  imageContainer: {
+    marginVertical: 20,
+    flexDirection: 'row',
+  },
+  image: {
+    height: 100,
+    width: 100,
+    borderColor: appColors.primary,
+    borderRadius: 10,
+    borderWidth: 2,
   },
   iconContainer: {
     borderRadius: scale(5),

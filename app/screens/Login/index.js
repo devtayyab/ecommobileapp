@@ -16,6 +16,8 @@ import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import {LangChange} from '../../components/LangChange'
+
 GoogleSignin.configure({
   webClientId: '814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com',
 })
@@ -152,6 +154,13 @@ function index({ getProductsList$, loginUser$, navigation }) {
           padding: scale(15),
           borderRadius: scale(5),
         }}>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+          }}>
+           <LangChange />
+        </View>
         <View
           style={{
             flexDirection: 'row',
@@ -160,7 +169,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           }}>
           <Label
             text="Welcome,"
-            style={{ fontSize: scale(30), fontWeight: '700' , fontfamily : 'Bodoni MT' }}
+            style={{ fontSize: scale(30), fontWeight: '700' , fontFamily : 'Bodoni MT' }}
           />
           <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Label
@@ -169,7 +178,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
                 fontSize: scale(14),
                 fontWeight: '500',
                 color: appColors.primary,
-                fontfamily : 'Bodoni MT'
+                fontFamily : 'Bodoni MT'
               }}
             />
           </Pressable>
@@ -181,7 +190,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontfamily : 'Bodoni MT'
+              fontFamily : 'Bodoni MT'
             }}
           />
         </View>
@@ -213,7 +222,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text="Forgot password"
             style={{
               fontSize: scale(14),
-              fontfamily : 'Bodoni MT'
+              fontFamily : 'Bodoni MT'
             }}
           />
         </Pressable>
@@ -229,7 +238,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           text="-OR-"
           style={{
             fontSize: scale(18),
-            fontfamily : 'Bodoni MT'
+            fontFamily : 'Bodoni MT'
           }}
         />
       </View>

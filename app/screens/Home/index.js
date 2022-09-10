@@ -72,7 +72,7 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
                   <Icon />
                 </TouchableRipple>
                 <View style={{ marginTop: scale(15) }}>
-                  <Label text={label} style={{ fontSize: scale(14)  , fontfamily : 'Bodoni MT'}} />
+                  <Label text={label} style={{ fontSize: scale(14)  , fontFamily : 'Bodoni MT'}} />
                 </View>
               </View>
             );
@@ -116,13 +116,13 @@ const styles = StyleSheet.create({
     padding: 20,
     margin: 20,
     textAlign: 'center',
-    fontfamily : 'Bodoni MT'
+    fontFamily : 'Bodoni MT'
   },
   TitleText: {
     fontSize: 25,
     // padding: 20,
     marginVertical: 20,
-    fontfamily : 'Bodoni MT'
+    fontFamily : 'Bodoni MT'
   },
   scrollContainer: {
     flex: 1,
@@ -133,6 +133,6 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     fontSize: 25,
     marginVertical: 10,
-    fontfamily : 'Bodoni MT'
+    fontFamily : 'Bodoni MT'
   },
 });
