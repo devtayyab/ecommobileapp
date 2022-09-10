@@ -16,6 +16,8 @@ import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import {LangChange} from '../../components/LangChange'
+
 GoogleSignin.configure({
   webClientId: '814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com',
 })
@@ -152,6 +154,13 @@ function index({ getProductsList$, loginUser$, navigation }) {
           padding: scale(15),
           borderRadius: scale(5),
         }}>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+          }}>
+           <LangChange />
+        </View>
         <View
           style={{
             flexDirection: 'row',
