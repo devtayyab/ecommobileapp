@@ -10,13 +10,13 @@ import auth from '@react-native-firebase/auth';
 import { LoginManager, AccessToken, Settings } from 'react-native-fbsdk-next';
 import { AlertHelper } from '../../utils/AlertHelper';
 import { CommonActions } from '@react-navigation/native';
-
+import String from '../../language/LocalizedString';
 import googleLogin from '../../services/googleLogin';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import {LangChange} from '../../components/LangChange'
+import { LangChange } from '../../components/LangChange'
 
 GoogleSignin.configure({
   webClientId: '814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com',
@@ -24,7 +24,7 @@ GoogleSignin.configure({
 function index({ getProductsList$, loginUser$, navigation }) {
   const [credentials, setCredentials] = useState({});
   const [isloading, setisloading] = useState(false)
-
+  const [lngs, setlng] = useState(false)
   const onGoogleLogin = async () => {
 
 
@@ -154,12 +154,12 @@ function index({ getProductsList$, loginUser$, navigation }) {
           padding: scale(15),
           borderRadius: scale(5),
         }}>
-          <View style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'flex-end',
-          }}>
-           <LangChange />
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+        }}>
+          <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
         </View>
         <View
           style={{
@@ -168,8 +168,8 @@ function index({ getProductsList$, loginUser$, navigation }) {
             alignItems: 'flex-end',
           }}>
           <Label
-            text="Welcome,"
-            style={{ fontSize: scale(30), fontWeight: '700' , fontFamily : 'Bodoni MT' }}
+            text={String.Wellcome}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'Bodoni MT' }}
           />
           <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Label
@@ -178,7 +178,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
                 fontSize: scale(14),
                 fontWeight: '500',
                 color: appColors.primary,
-                fontFamily : 'Bodoni MT'
+                fontFamily: 'Bodoni MT'
               }}
             />
           </Pressable>
@@ -190,7 +190,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontFamily : 'Bodoni MT'
+              fontFamily: 'Bodoni MT'
             }}
           />
         </View>
@@ -222,7 +222,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text="Forgot password"
             style={{
               fontSize: scale(14),
-              fontFamily : 'Bodoni MT'
+              fontFamily: 'Bodoni MT'
             }}
           />
         </Pressable>
@@ -238,7 +238,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           text="-OR-"
           style={{
             fontSize: scale(18),
-            fontFamily : 'Bodoni MT'
+            fontFamily: 'Bodoni MT'
           }}
         />
       </View>

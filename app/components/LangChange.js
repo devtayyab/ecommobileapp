@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet,Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import String from '../language/LocalizedString';
 
 
@@ -7,37 +7,28 @@ import String from '../language/LocalizedString';
 
 
 
-export const LangChange = () => {
+export const LangChange = ({lngs, setlng}) => {
+  const [it, setit] = useState(false)
+  const onChangeLanguage = (lng) => {
+    String.setLanguage(lng)
+    setlng(!lngs)
+  }
 
-const onChangeLanguage=(lng)=>{
+  return (
+    <View>
+      {/* <Text >{String.Login}</Text> */}
 
-    if (lng === 'en') {
-        String.setLanguage(lng)
-        return;
-    }
-    if (lng === 'it') {
-        String.setLanguage(lng)
-        return;
-    }
-}
-
-
-
-return(
-  <View>
-    {/* <Text >{String.Login}</Text> */}
-    
-    <Text>{String.how}</Text>
-    <View style={styles.btns}>
-    <Button  onPress={onChangeLanguage('en')} title="English"  />
-    <Button  onPress={onChangeLanguage('it')} title="Italian" />
+      <Text>{String.how}</Text>
+      <View style={styles.btns}>
+        <Button onPress={() => onChangeLanguage('en')} title="English" />
+        <Button onPress={() => onChangeLanguage('it')} title="Italian" />
+      </View>
     </View>
-  </View>
-)
+  )
 };
 
 const styles = StyleSheet.create({
- 
+
   btns: {
     flexDirection: 'row',
     justifyContent: 'space-around',
