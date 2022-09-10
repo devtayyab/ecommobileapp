@@ -40,8 +40,6 @@ function index({ getProductsList$, loginUser$, navigation }) {
       } else {
         AlertHelper.show("error", "Signup Failed, Please Retry")
       }
-
-
     })
 
   };
@@ -65,11 +63,11 @@ function index({ getProductsList$, loginUser$, navigation }) {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            fontfamily : 'Bodoni MT'
+            fontFamily: 'Bodoni MT'
           }}>
           <Label
             text="Sign Up"
-            style={{ fontSize: scale(30), fontWeight: '700' , fontfamily : 'Bodoni MT'}}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'Bodoni MT' }}
           />
         </View>
         <View style={{ paddingVertical: scale(15) }}>
@@ -80,7 +78,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontFamily: 'BOD_R',
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontfamily : 'Bodoni MT'
+              fontFamily: 'Bodoni MT'
             }}
           />
         </View>

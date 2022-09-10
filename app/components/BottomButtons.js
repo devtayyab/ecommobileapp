@@ -22,7 +22,7 @@ export default function BottomButtons({buttonLabel,priceLabel, price,onPress}) {
               fontSize: scale(14),
               opacity: scale(0.4),
               letterSpacing: scale(2),
-              fontfamily : 'Bodoni MT'
+              fontFamily : 'Bodoni MT'
             }}
           />
           {price && <Label
@@ -32,7 +32,7 @@ export default function BottomButtons({buttonLabel,priceLabel, price,onPress}) {
               fontWeight: '800',
               color: appColors.primary,
               marginTop: scale(7),
-              fontfamily : 'Bodoni MT'
+              fontFamily : 'Bodoni MT'
             }}
           />}
         </View>

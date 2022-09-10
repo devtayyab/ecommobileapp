@@ -5,7 +5,7 @@ import React from 'react';
 import Home from '../screens/Home';
 import Add from '../screens/Add/Add';
 import ProductDetails from '../screens/ProductDetails';
-
+import SplashScreen from '../screens/screens/SplashScreen'
 import WriteReview from '../screens/WriteReview';
 import Cart from '../screens/Cart';
 import Checkout from '../screens/Checkout';
@@ -16,7 +16,8 @@ import CheckOutSteper from '../screens/Checkout/CheckOutSteper';
 import Summary from '../screens/Summary';
 import Account from '../screens/Account';
 import WishList from '../screens/WishList';
-
+import ScreenOne from '../screens/screens/ScreenOne'
+import ScreenThree from '../screens/screens/ScreenThree'
 import Orders from '../screens/Orders';
 import Address from '../screens/Address';
 import Feather from 'react-native-vector-icons/dist/Feather';
@@ -254,4 +255,5 @@ export const RoutesList = [
       tabBarLabel: 'Messages',
     },
   },
+ 
 ];
