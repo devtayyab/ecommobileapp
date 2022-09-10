@@ -21,8 +21,7 @@ export default function index({ navigation }) {
       const Data = JSON.parse(user)
 
       setUserData(Data)
-      console.log("user Data", Data);
-
+      
     } catch (e) {
       console.log(e);
     }
