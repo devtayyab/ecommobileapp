@@ -46,6 +46,7 @@ export default function index({navigation}) {
     auth().signOut();
     removeUser();
   };
+
   const uploadImage = () => {
     console.log('hii');
 

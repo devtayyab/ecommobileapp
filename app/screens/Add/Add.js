@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Image, Platform,NativeModules } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Platform,NativeModules,Text,Pressable } from 'react-native';
 import {
   Form,
   FormItem,
@@ -16,9 +16,11 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CheckBox from '../../components/CheckBox';
+import Terms from './Terms';
 var ImagePicker = NativeModules.ImageCropPicker;
 
-export default function Add() {
+export default function Add({ navigation, item }) {
   const [title, setTitle] = useState('');
   const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
@@ -29,9 +31,7 @@ export default function Add() {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [imageUri, setImageUri] = useState([]);
-  const [images, setimages] = useState([])
   const [sellerId, setSellerId] = useState('')
-  
   
   const getData = async () => {
     try {
@@ -55,6 +55,13 @@ export default function Add() {
   const uploadImage = () => {
     console.log("hii");
 
+    ImagePicker.openCamera({
+      width: 300,
+      height: 400,
+      cropping: true,
+    }).then(image => {
+      console.log(image);
+    });
 
     ImagePicker.openPicker({
       multiple: true,
@@ -69,6 +76,7 @@ export default function Add() {
       setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
       console.log(response?.assets[0]?.uri);
     });
+    
 
     // const options = {
     //   storageOptions: {
@@ -148,7 +156,7 @@ export default function Add() {
     }
 
   }
-
+  
   return (
     <View style={styles.main}>
 
@@ -244,6 +252,12 @@ export default function Add() {
             onChangeText={(e) => setDescription(e)}
             textArea
           />
+          <View style={{display:'flex',flexDirection:'row'}}>
+            
+              <CheckBox />
+             <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms',item)} style={styles.term}><Text>Terms And Conditions</Text></Pressable></Text>
+         {/* <Terms/> */}
+          </View>
         </Form>
       </ScrollView>
     </View>
@@ -256,6 +270,9 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginVertical: 20,
     flexDirection: 'row',
+  },
+  term:{
+     marginTop:30
   },
   image: {
     height: 100,

@@ -6179,6 +6179,15 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
+prop-types@*, prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.7.x, prop-types@^15.8.1:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 prop-types@15.5.10:
   version "15.5.10"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
@@ -6195,15 +6204,6 @@ prop-types@15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
-
-prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.7.x, prop-types@^15.8.1:
-  version "15.8.1"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
-  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
-  dependencies:
-    loose-envify "^1.4.0"
-    object-assign "^4.1.1"
-    react-is "^16.13.1"
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -6393,6 +6393,13 @@ react-native-popup-menu@^0.16.0:
   version "0.16.0"
   resolved "https://registry.yarnpkg.com/react-native-popup-menu/-/react-native-popup-menu-0.16.0.tgz#e670fb0f582fc3e14a60ff53087b88ba7d16c2a3"
   integrity sha512-qrXtl8sR9yT012JAJ3nrCXzaYIX2mwofk8hC5hFsKfcXaPptE221A2psk61MZUuRKtq7U8D9AZa09/wG84dAOQ==
+
+react-native-profile-picture@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-profile-picture/-/react-native-profile-picture-1.0.0.tgz#1f0686589ef5557e79eba555372af254980a5fa0"
+  integrity sha512-T8q41LSr1c9dlWFsV5XVkyc5tFe6zh5U8FVPX1Om6lFHAre18UlvikYz3GHX2UGUvCdUZPjoxcujSQ9RK+QkGA==
+  dependencies:
+    prop-types "*"
 
 react-native-ratings@^8.1.0:
   version "8.1.0"

@@ -38,6 +38,7 @@
     "react-native-image-picker": "^4.8.4",
     "react-native-picker-select": "^8.0.4",
     "react-native-popup-menu": "^0.16.0",
+    "react-native-profile-picture": "^1.0.0",
     "react-native-ratings": "^8.1.0",
     "react-native-razorpay": "^2.2.8",
     "react-native-reanimated": "^1.13.2",
