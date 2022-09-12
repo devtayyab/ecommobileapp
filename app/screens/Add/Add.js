@@ -16,9 +16,16 @@ import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CheckBox from '../../components/CheckBox';
+import { LangChange } from '../../components/LangChange';
+import String from '../../language/LocalizedString';
+
 var ImagePicker = NativeModules.ImageCropPicker;
 
-export default function Add({ navigation, item }) {
+
+export default function Add({ navigation, checked }) {
+  const [lngs, setlng] = useState(false)
+
+  console.log(checked);
   const [title, setTitle] = useState('');
   const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
@@ -29,9 +36,8 @@ export default function Add({ navigation, item }) {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [imageUri, setImageUri] = useState('');
-
   const [sellerId, setSellerId] = useState('')
-
+   
   const getData = async () => {
     try {
       const user = await AsyncStorage.getItem('user')
@@ -108,6 +114,8 @@ export default function Add({ navigation, item }) {
   }
   const Submit = async () => {
     try {
+      // const {checked}=items;
+      console.log(checked);
       const id = uuid.v4();
       const refrence = storage().ref(`images/${imageUri?.name}`)
       refrence.putFile(imageUri?.uri).then(async (res) => {
@@ -156,6 +164,8 @@ export default function Add({ navigation, item }) {
     <View style={styles.main}>
 
       <ScrollView>
+      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+
         <View style={styles.imageContainer}>
           <Image
             // resizeMode='contain'
@@ -170,37 +180,28 @@ export default function Add({ navigation, item }) {
             style={styles.icon}
           />
         </View>
-        <Form buttonText="Add Product" buttonStyle={{ backgroundColor: appColors.primary, }} onButtonPress={() => Submit()}>
+        <Form buttonText={String.addproduct} buttonStyle={{ backgroundColor: appColors.primary, }} onButtonPress={() => Submit()}>
           <FormItem
             isRequired
-            placeholder="Title"
+            placeholder={String.addproduct}
             value={title}
             onChangeText={(e) => setTitle(e)}
           />
-          {/* <Picker
-            items={[
-              { label: 'Male', value: 'Male' },
-              { label: 'Female', value: 'Female' },
-            ]}
-            placeholder="Choose Gender"
-            isRequired
-            selectedValue={gender}
-            onSelection={(item) => setGender(item.value)}
-          /> */}
+          
           <Picker
             items={[
-              { label: 'Men', value: 'men' },
-              { label: 'Women', value: 'women' },
-              { label: 'UniSex', value: 'UniSex' },
+              { label: String.men, value: 'men' },
+              { label: String.women, value: 'women' },
+              { label: "Unisex", value: 'UniSex' },
             ]}
-            placeholder="Choose Category"
+            placeholder={String.choseCat}
             isRequired
             selectedValue={category}
             onSelection={(item) => setCategory(item.value)}
           />
           <FormItem
             isRequired
-            placeholder="Brand"
+            placeholder={String.brand}
             value={brand}
             onChangeText={(e) => setBrand(e)}
           />
@@ -215,9 +216,9 @@ export default function Add({ navigation, item }) {
               { label: '100/150ml', value: '100/150ml' },
               { label: '150/200ml', value: '150/200ml' },
               { label: '200ml', value: '200ml' },
-              { label: 'Other', value: 'Other' },
+              { label: String.other, value: 'Other' },
             ]}
-            placeholder="Quantity"
+            placeholder={String.quantity}
             isRequired
             selectedValue={quantity}
             onSelection={(item) => setQuantity(item.value)}
@@ -227,9 +228,9 @@ export default function Add({ navigation, item }) {
               { label: 'eau de cologne', value: 'eau de cologne' },
               { label: 'eau de toilette', value: 'eau de toilette' },
               { label: 'eau de parfume', value: 'eau de parfume' },
-              { label: 'Other', value: 'Other' },
+              { label: String.other, value: 'Other' },
             ]}
-            placeholder="Concentration"
+            placeholder={String.concentration}
             isRequired
             selectedValue={concentration}
             onSelection={(item) => setConcentration(item.value)}
@@ -237,13 +238,13 @@ export default function Add({ navigation, item }) {
 
           <FormItem
             isRequired
-            placeholder="Price"
+            placeholder={String.price}
             value={price}
             onChangeText={(e) => setPrice(e)}
           />
           <FormItem
             isRequired
-            placeholder="Description"
+            placeholder={String.descript}
             value={description}
             onChangeText={(e) => setDescription(e)}
             textArea
@@ -251,7 +252,9 @@ export default function Add({ navigation, item }) {
           <View style={{ display: 'flex', flexDirection: 'row' }}>
 
             <CheckBox />
-            <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms', item)} ><Text style={{ color: 'blue' }}>Terms And Conditions</Text></Pressable></Text>
+            <Text>{String.accept} <Pressable onPress={() =>{
+               navigation.navigate('Terms')
+               }}><Text style={{ color: 'blue' }}>{String.terms}</Text></Pressable></Text>
 
           </View>
         </Form>

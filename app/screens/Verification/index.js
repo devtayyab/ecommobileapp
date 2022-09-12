@@ -7,6 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import Label from '../../components/Label';
 import {appColors, shadow} from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/Feather';
+import String from "../../language/LocalizedString"
 export default function index({navigation}) {
   return (
     <Container isScrollable>
@@ -28,13 +29,13 @@ export default function index({navigation}) {
             alignItems: 'flex-end',
           }}>
           <Label
-            text="Verification"
+            text={String.verify}
             style={{fontSize: scale(30), fontWeight: '700' , fontFamily : 'BOD_R'}}
           />
         </View>
         <View style={{paddingVertical: scale(15)}}>
           <Label
-            text="A 6 - Digit PIN has been sent to your email  address, enter it below to continue"
+            text={String.pin}
             style={{
               fontSize: scale(16),
               //fontWeight: '500',
@@ -44,7 +45,7 @@ export default function index({navigation}) {
           />
         </View>
        
-        <CustomButton label="Continue" />
+        <CustomButton label={String.continue} />
       </View>
     </Container>
   );

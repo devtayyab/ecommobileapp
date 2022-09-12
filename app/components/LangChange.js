@@ -18,7 +18,7 @@ export const LangChange = ({lngs, setlng}) => {
     <View>
       {/* <Text >{String.Login}</Text> */}
 
-      <Text>{String.how}</Text>
+      {/* <Text>{String.how}</Text> */}
       <View style={styles.btns}>
         <Button onPress={() => onChangeLanguage('en')} title="English" />
         <Button onPress={() => onChangeLanguage('it')} title="Italian" />

@@ -14,9 +14,14 @@ import { connect } from 'react-redux';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import { APP_CURRENY } from '../../utils/appConfig';
 import Empty from '../../components/Empty';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import { LangChange } from '../../components/LangChange';
+import String from '../../language/LocalizedString';
+
 function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$, removeFromCart$, navigation }) {
   const [cartItem, setCartItem] = useState([])
+  const [lngs, setlng] = useState(false)
+
   const { cartItems } = useSelector(state => state?.cart)
 
   useEffect(() => {
@@ -55,9 +60,11 @@ function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$,
   return (
     <>
       <Container >
+      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+
         <View style={{ flex: 1, paddingVertical: scale(30) }}>
           <SwipeListView
-            ListEmptyComponent={() => <Empty label={"Your Cart is empty"} />}
+            ListEmptyComponent={() => <Empty label={String.emptyCart} />}
             showsVerticalScrollIndicator={false}
             keyExtractor={(item) => `${item.id}_${new Date().getTime()}`}
             ItemSeparatorComponent={() => <View style={{ padding: scale(10) }} />}
@@ -111,7 +118,7 @@ function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$,
         </View>
       </Container>
       <View style={{ backgroundColor: 'red', bottom: scale(-15) }}>
-        <BottomButtons onPress={() => navigation.navigate("Checkout")} buttonLabel={'CHECKOUT'} price={getAmount()} />
+        <BottomButtons onPress={() => navigation.navigate("Checkout")} buttonLabel={String.checkout} price={getAmount()} />
       </View>
     </>
   );

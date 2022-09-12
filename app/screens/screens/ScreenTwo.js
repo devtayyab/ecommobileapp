@@ -1,5 +1,5 @@
 import React from 'react';
-// import Boy from "../assets/boy.jpg";
+import Boy from "../assets/boy.jpg";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Animatable from 'react-native-animatable';
 
@@ -7,7 +7,7 @@ const ScreenTwo = ({ navigation }) => {
     return (
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
             <View style={{ flex: 1.5, justifyContent: "flex-end", alignContent: "center" }}>
-                {/* <Image style={{ width: 370, height: 350 }} source={Boy} /> */}
+                <Image style={{ width: 370, height: 350 }} source={Boy} />
             </View>
             <View style={styles.radioView}>
                 <View>

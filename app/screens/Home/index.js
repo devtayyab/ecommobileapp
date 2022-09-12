@@ -18,9 +18,14 @@ import TestComp from '../../components/TestComp';
 import NativeAdView from 'react-native-admob-native-ads';
 import { ANDROID_FULL_PAGE_AD_ID } from '../../utils/appConfig';
 import useListners from '../../hooks/useListners';
+import { LangChange } from '../../components/LangChange'
+import String from '../../language/LocalizedString';
+
 
 function Home({ getProducts$, getProductsList$, addToCart$, navigation, products: { products } }) {
   const nativeAdViewRef = useRef();
+  const [lngs, setlng] = useState(false)
+
   useEffect(() => {
     nativeAdViewRef.current?.loadAd();
     getProductsList$()
@@ -37,11 +42,13 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
   };
   return (
     <Container isScrollable style={styles.container}>
-      <Text style={styles.appName}>WeekEnd</Text>
+          <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+
+      <Text style={styles.appName}>{String.weekend}</Text>
 
       <SearchBox onFoucs={() => navigation.navigate('Search')} />
       <View style={{ paddingVertical: scale(30) }}>
-        <RenderTitle heading="Categories" />
+        <RenderTitle heading={String.category} />
         <FlatList
           style={{ marginTop: scale(40) }}
           showsHorizontalScrollIndicator={false}
@@ -81,7 +88,7 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
       </View>
       <View>
         <View style={{ paddingVertical: scale(25) }}>
-          <RenderTitle heading="Best Selling" rightLabel="See All" />
+          <RenderTitle heading={String.selling} rightLabel={String.seeAll} />
         </View>
 
         <FlatList

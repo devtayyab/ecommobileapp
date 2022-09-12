@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, Button} from 'react-native';
-export default function Terms() {
-  const [checked, setChecked] = useState();
+import String from '../../language/LocalizedString'
+export default function Terms({navigation,items}) {
+  const [checked, setChecked] = useState(Boolean);
   return (
     <View>
-      <View style={{alignItems: 'center'}}>
-        <Text style={{marginBottom:20}}>Terms And Conditions</Text>
+      <View >
+        <Text style={{marginBottom:20}}>{String.terms}</Text>
         <Text>
-          THE SELLER ASSUMES FULL LIABILITY FOR THE SALE OF THE OBJECT,
-          GUARANTEEING ITS AUTHENTICITY ACCORDING TO THE TERMS OF LAW AND
-          DECLINES THE OWNERS OF THE APP FROM ANY LIABILITY.
+          {String.condition}
         </Text>
         </View>
         <View
@@ -17,13 +16,27 @@ export default function Terms() {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-around',
+            bottom:0,
             marginTop: 30,
+            // backgroundColor:"yellow"
           }}>
-          <Button onClick={() => setChecked(true)} title="Accept" />
-          <Button onClick={() => setChecked(false)} title="Denied" />
+            <View></View>
+            <View></View>
+          <Button onPress={() => {
+            setChecked(true)
+            navigation.navigate('Add', checked)
+            
+          }
+        } title={String.acept}
+        
+        />
+          <Button onPress={() => {
+            setChecked(false)
+            navigation.navigate('Add', checked)
+           }
+            } title={String.deny} />
         </View>
       
     </View>
   );
-  module.exports=checked
 }

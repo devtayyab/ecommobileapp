@@ -25,6 +25,7 @@ import Category from '../screens/Category';
 import Chat from '../screens/Chat/Chat';
 import AllChats from '../screens/AllChats/allChats';
 import Messages from '../screens/AllChats/messages';
+import Terms from '../screens/Add/Terms'
 export const RoutesList = [
 
   {
@@ -86,7 +87,17 @@ export const RoutesList = [
       tabBarLabel: 'ProductDetails',
     },
   },
-
+  {
+    name: 'Terms',
+    component: Terms,
+    options: {
+      tabBarButton: (props) => null,
+      // tabBarVisible: false,
+      // tabBarBadge: 3,
+      tabBarLabel: 'Terms',
+    },
+  },
+  
   {
     name: 'WriteReview',
     component: WriteReview,
