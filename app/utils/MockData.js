@@ -156,6 +156,11 @@ export const profileKeys = [
     route: 'Allchats'
   },
   {
+    lebel: 'Announcement',
+    icon: 'list',
+    route: 'Announcement'
+  },
+  {
     lebel: "Sign Out",
     icon: "log-out",
     route: "Login"

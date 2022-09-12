@@ -22,6 +22,7 @@ import Feather from 'react-native-vector-icons/dist/Feather';
 import { appColors } from '../utils/appColors';
 import { scale } from 'react-native-size-matters';
 import Category from '../screens/Category';
+import Announcement from '../screens/Announcement/index';
 import Chat from '../screens/Chat/Chat';
 import AllChats from '../screens/AllChats/allChats';
 import Messages from '../screens/AllChats/messages';
@@ -252,6 +253,16 @@ export const RoutesList = [
       //tabBarVisible: false,
       //tabBarBadge: 3,
       tabBarLabel: 'Allchats',
+    },
+  },
+  {
+    name: 'Announcement',
+    component: Announcement,
+    options: {
+      tabBarButton: (props) => null,
+      //tabBarVisible: false,
+      //tabBarBadge: 3,
+      tabBarLabel: 'Announcement',
     },
   },
   {
