@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: scale(10),
     paddingHorizontal: scale(50),
-    fontFamily : 'Bodoni MT'
+    fontFamily : 'BOD_R'
   },
   label: {
     fontSize: scale(16),
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     fontFamily: 'BOD_R',
     color: appColors.white,
     letterSpacing: scale(2),
-    fontFamily : 'Bodoni MT'
+    fontFamily : 'BOD_R'
   },
   unFilled: {
     backgroundColor: 'transparent',

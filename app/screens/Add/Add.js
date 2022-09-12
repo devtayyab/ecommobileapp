@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Image, Platform,NativeModules,Text,Pressable } from 'react-native';
+import { View, StyleSheet, ScrollView, Image, Platform, NativeModules, Text, Pressable } from 'react-native';
 import {
   Form,
   FormItem,
@@ -64,11 +64,11 @@ export default function Add({ navigation, item }) {
     ImagePicker.openPicker({
       multiple: true,
       storageOptions: {
-            path: 'images',
-            mediaType: 'photo',
-    
-          },
-          includeBase64: true,
+        path: 'images',
+        mediaType: 'photo',
+
+      },
+      includeBase64: true,
     }).then(response => {
       const source = { uri: response?.uri };
       setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
@@ -177,7 +177,7 @@ export default function Add({ navigation, item }) {
             value={title}
             onChangeText={(e) => setTitle(e)}
           />
-          <Picker
+          {/* <Picker
             items={[
               { label: 'Male', value: 'Male' },
               { label: 'Female', value: 'Female' },
@@ -186,11 +186,12 @@ export default function Add({ navigation, item }) {
             isRequired
             selectedValue={gender}
             onSelection={(item) => setGender(item.value)}
-          />
+          /> */}
           <Picker
             items={[
               { label: 'Men', value: 'men' },
               { label: 'Women', value: 'women' },
+              { label: 'UniSex', value: 'UniSex' },
             ]}
             placeholder="Choose Category"
             isRequired
@@ -247,12 +248,12 @@ export default function Add({ navigation, item }) {
             onChangeText={(e) => setDescription(e)}
             textArea
           />
-          <View style={{display:'flex',flexDirection:'row'}}>
-            
+          <View style={{ display: 'flex', flexDirection: 'row' }}>
+
             <CheckBox />
-           <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms',item)} ><Text style={{color:'blue'}}>Terms And Conditions</Text></Pressable></Text>
-       
-        </View>
+            <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms', item)} ><Text style={{ color: 'blue' }}>Terms And Conditions</Text></Pressable></Text>
+
+          </View>
         </Form>
       </ScrollView>
     </View>

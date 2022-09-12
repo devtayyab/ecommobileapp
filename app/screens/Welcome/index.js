@@ -24,7 +24,7 @@ export default function index({ navigation }) {
 
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-      <Text style={{ fontFamily: 'Bodoni MT' }}>Welcome to Weekend</Text>
+      <Text style={{ fontFamily: 'BOD_R' }}>Welcome to Weekend</Text>
     </View>
   )
 }

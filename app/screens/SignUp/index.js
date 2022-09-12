@@ -63,11 +63,11 @@ function index({ getProductsList$, loginUser$, navigation }) {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            fontFamily: 'Bodoni MT'
+            fontFamily: 'BOD_R'
           }}>
           <Label
             text="Sign Up"
-            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'Bodoni MT' }}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'BOD_R' }}
           />
         </View>
         <View style={{ paddingVertical: scale(15) }}>
@@ -78,7 +78,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontFamily: 'BOD_R',
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontFamily: 'Bodoni MT'
+              fontFamily: 'BOD_R'
             }}
           />
         </View>

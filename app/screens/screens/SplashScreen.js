@@ -3,7 +3,6 @@ import { View, StyleSheet, Image, Text } from "react-native";
 import one from "../../assests/one.jpg";
 import * as Animatable from 'react-native-animatable';
 import { appColors } from '../../utils/appColors';
-
 const SplashScreen = ({ navigation }) => {
 
     useEffect(() => {
@@ -13,6 +12,8 @@ const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.splash}>
             <Animatable.Image animation="zoomIn" duration={1000} style={{ width: 250, height: 250 }} source={one} alt='WELLCOME' />
+            <Text> Hello World</Text>
+            <Text style={styles.text}> Hello World</Text>
         </View>
     )
 }
@@ -26,4 +27,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    text: {
+        fontFamily: 'BOD_R'
+    }
 })

@@ -22,12 +22,18 @@ const ScreenOne = ({ navigation }) => {
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Second")}>
                         <Text style={styles.nextBtn} >Next</Text>
+
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                         <Text style={{ fontSize: 18, color: "#999999" }}>Skip</Text>
                     </TouchableOpacity>
+
+
+                    <Text>Next is a process THINGS</Text>
+                    <Text style={styles.tex} >Next is a process THINGS</Text>
+
                 </View>
             </View>
         </Animatable.View>
@@ -74,5 +80,8 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         borderRadius: 50
+    },
+    tex: {
+        fontFamily: 'BOD_R'
     }
 })

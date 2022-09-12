@@ -16,7 +16,7 @@ export default function Badge({label}) {
         alignItems: 'center',
         borderRadius: scale(20),
       }}>
-      <Label text={label ? label : 'Label'} style={{color: appColors.black , fontFamily : 'Bodoni MT'}} />
+      <Label text={label ? label : 'Label'} style={{color: appColors.black , fontFamily : 'BOD_R'}} />
     </View>
   );
 }

@@ -15,7 +15,7 @@ export default function index({navigation}) {
         <View>
           <Label
             text={label}
-            style={{fontSize: scale(18), fontWeight: '500' , fontFamily : 'Bodoni MT'}}
+            style={{fontSize: scale(18), fontWeight: '500' , fontFamily : 'BOD_R'}}
           />
           <Label
             text={amount}
@@ -23,7 +23,7 @@ export default function index({navigation}) {
               fontWeight: '500',
               color: appColors.primary,
               paddingVertical: scale(10),
-              fontFamily : 'Bodoni MT'
+              fontFamily : 'BOD_R'
             }}
           />
           <Pressable
@@ -37,7 +37,7 @@ export default function index({navigation}) {
             }}>
             <Label
               text={status}
-              style={{fontSize: scale(14), color: appColors.white , fontFamily : 'Bodoni MT'}}
+              style={{fontSize: scale(14), color: appColors.white , fontFamily : 'BOD_R'}}
             />
           </Pressable>
         </View>
@@ -72,7 +72,7 @@ export default function index({navigation}) {
       <View style={{paddingVertical: scale(20)}}>
         <Label
           text="Sept 23, 2021"
-          style={{opacity: scale(0.5), fontSize: scale(13), fontFamily : 'Bodoni MT'}}
+          style={{opacity: scale(0.5), fontSize: scale(13), fontFamily : 'BOD_R'}}
         />
       </View>
       <OrderCard
@@ -87,7 +87,7 @@ export default function index({navigation}) {
       <View style={{paddingVertical: scale(20)}}>
         <Label
           text="Sept 23, 2021"
-          style={{opacity: scale(0.5), fontSize: scale(13) , fontFamily : 'Bodoni MT'}}
+          style={{opacity: scale(0.5), fontSize: scale(13) , fontFamily : 'BOD_R'}}
         />
       </View>
 

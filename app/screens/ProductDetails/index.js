@@ -114,7 +114,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <View style={{ paddingVertical: scale(20) }}>
             <Label
               text={title}
-              style={{ fontWeight: '700', fontSize: scale(30)  , fontFamily : 'Bodoni MT'}}
+              style={{ fontWeight: '700', fontSize: scale(30)  , fontFamily : 'BOD_R'}}
             />
           </View>
 
@@ -129,7 +129,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
               {/* <Label text="quantity" style={{ fontSize: scale(15) }} /> */}
               <Label
                 text={quantity}
-                style={{ fontWeight: '700', fontSize: scale(15) , fontFamily : 'Bodoni MT'}}
+                style={{ fontWeight: '700', fontSize: scale(15) , fontFamily : 'BOD_R'}}
               />
             </View>
 
@@ -137,7 +137,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
               {/* <Label text="concentration" style={{ fontSize: scale(15) }} /> */}
               <Label
                 text={concentration}
-                style={{ fontWeight: '700', fontSize: scale(15) , fontFamily : 'Bodoni MT'}}
+                style={{ fontWeight: '700', fontSize: scale(15) , fontFamily : 'BOD_R'}}
               />
 
             </View>
@@ -214,13 +214,13 @@ const styles = StyleSheet.create({
     paddingVertical: scale(10),
     fontSize: scale(14),
     color: appColors.primary,
-    fontFamily : 'Bodoni MT'
+    fontFamily : 'BOD_R'
   },
   chatLabel: {
     color: appColors.primary,
     fontSize: scale(14),
     paddingRight: scale(10),
-    fontFamily : 'Bodoni MT'
+    fontFamily : 'BOD_R'
   },
   chat: {
     flexDirection: "row",

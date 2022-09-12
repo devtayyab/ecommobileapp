@@ -89,9 +89,9 @@ export default function index({ navigation }) {
           <Feather name={icon} size={scale(22)} color={appColors.black} />
         </Pressable>
         <View style={styles.itemInnerContainer}>
-          <Label text={lebel}  style={{fontFamily : 'Bodoni MT'}}/>
+          <Label text={lebel}  style={{fontFamily : 'BOD_R'}}/>
           {isNew && <View style={{ paddingHorizontal: scale(10), backgroundColor: appColors.red, padding: scale(5), borderRadius: scale(4) }}>
-            <Label text="New" style={{ fontSize: scale(10), color: appColors.white , fontFamily : 'Bodoni MT' }} />
+            <Label text="New" style={{ fontSize: scale(10), color: appColors.white , fontFamily : 'BOD_R' }} />
           </View>}
           <Feather name={"chevron-right"} size={scale(18)} />
         </View>
@@ -108,8 +108,8 @@ export default function index({ navigation }) {
           </Pressable>
         </View>
         <View style={{ marginLeft: scale(20) }}>
-          <Label text={displayName} style={{ fontSize: scale(28) , fontFamily : 'Bodoni MT' }} />
-          <Label text={email} style={{ fontSize: scale(12) , fontFamily : 'Bodoni MT' }} />
+          <Label text={displayName} style={{ fontSize: scale(28) , fontFamily : 'BOD_R' }} />
+          <Label text={email} style={{ fontSize: scale(12) , fontFamily : 'BOD_R' }} />
         </View>
       </View>
       <FlatList
