@@ -151,7 +151,7 @@ export const profileKeys = [
   //   icon: "bell"
   // },
   {
-    lebel: 'All Chat',
+    lebel: String.allChat,
     icon: 'bell',
     route: 'Allchats'
   },
@@ -161,7 +161,7 @@ export const profileKeys = [
     route: 'Announcement'
   },
   {
-    lebel: "Sign Out",
+    lebel: String.signout,
     icon: "log-out",
     route: "Login"
   }

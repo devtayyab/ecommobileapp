@@ -1,13 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, Button} from 'react-native';
 import String from '../../language/LocalizedString'
+import CustomButton from '../../components/CustomButton/index'
+import { appColors } from '../../utils/appColors'
+
 export default function Terms({navigation,items}) {
-  const [checked, setChecked] = useState(Boolean);
+  const [flag, setflag] = useState(false);
   return (
     <View>
       <View >
-        <Text style={{marginBottom:20}}>{String.terms}</Text>
-        <Text>
+        <Text style={{marginBottom:20,fontSize:30,color:appColors.primary}}>{String.terms}</Text>
+        <Text style={{}}>
           {String.condition}
         </Text>
         </View>
@@ -15,28 +18,24 @@ export default function Terms({navigation,items}) {
           style={{
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'center',
             bottom:0,
             marginTop: 30,
-            // backgroundColor:"yellow"
           }}>
-            <View></View>
-            <View></View>
-          <Button onPress={() => {
-            setChecked(true)
-            navigation.navigate('Add', checked)
+            
+          <CustomButton
+          label={String.goBack}
+           onPress={() => {
+            setflag(true)
+            navigation.navigate('Add', {flag})
             
           }
-        } title={String.acept}
+        }
         
         />
-          <Button onPress={() => {
-            setChecked(false)
-            navigation.navigate('Add', checked)
-           }
-            } title={String.deny} />
+        
         </View>
-      
+      {console.log(flag)}
     </View>
   );
 }

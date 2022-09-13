@@ -5,6 +5,7 @@ import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
 import CustomInput from '../../components/CustomInput';
 import { add } from 'react-native-reanimated';
+import String from '../../language/LocalizedString';
 export default function CheckoutAddress({ address, setAddress }) {
 
   const hanndleChange = (name, value) => {
@@ -18,24 +19,24 @@ export default function CheckoutAddress({ address, setAddress }) {
       <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
         <CheckBox isChecked={true} />
         <View style={{ paddingLeft: scale(10) }}>
-          <Label text="Billing address is the same as delivery address" style={{ fontSize: scale(15) , fontFamily : 'BOD_R' }} />
+          <Label text={String.biladdress} style={{ fontSize: scale(15) , fontFamily : 'BOD_R' }} />
         </View>
       </View>
 
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent'  , fontFamily : 'BOD_R'}} name='street1' value={address?.street1} onChangeText={(v) => hanndleChange('street1', v)} label="Street 1" />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent'  , fontFamily : 'BOD_R'}} name='street1' value={address?.street1} onChangeText={(v) => hanndleChange('street1', v)} label={String.street1} />
       </View>
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='street2' value={address?.street2} onChangeText={(v) => hanndleChange('street2', v)} label="Street 2" />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='street2' value={address?.street2} onChangeText={(v) => hanndleChange('street2', v)} label={String.street2} />
       </View>
 
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='city' value={address?.city} onChangeText={(v) => hanndleChange('city', v)} label="City" />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='city' value={address?.city} onChangeText={(v) => hanndleChange('city', v)} label={String.city} />
       </View>
       <View style={{ paddingVertical: scale(10) }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', fontFamily : 'BOD_R' }}>
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='state' value={address?.state} onChangeText={(v) => hanndleChange('state', v)} label="State" />
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='country' value={address?.country} onChangeText={(v) => hanndleChange('country', v)} label="Country" />
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='state' value={address?.state} onChangeText={(v) => hanndleChange('state', v)} label={String.state} />
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} name='country' value={address?.country} onChangeText={(v) => hanndleChange('country', v)} label={String.country} />
         </View>
       </View>
     </View>
