@@ -6,7 +6,7 @@ import Container from '../../components/Container';
 import SearchBox from '../../components/SearchBox';
 import TitleComp from '../../components/TitleComp';
 import { recentSearches } from '../../utils/MockData';
-
+import String from '../../language/LocalizedString';
 export default function index({navigation}) {
   console.log({navigation});
   return (
@@ -14,7 +14,7 @@ export default function index({navigation}) {
       <SearchBox  rightIcon={"x"} autoFocus onRightIconPress={()=>{ 
         navigation.navigate("Home") }}  />
       <View style={{paddingVertical: scale(20)}}>
-        <TitleComp subLabel="Recent Searches" /> 
+        <TitleComp subLabel={String.recentSearches} /> 
         <FlatList style={{paddingVertical:scale(10)}} numColumns={3} ItemSeparatorComponent={()=> <View style={{padding:scale(5) }} /> }    data={recentSearches}  renderItem={({item,index})=> <Badge key={index} label={item} />} />
       </View>
 

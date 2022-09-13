@@ -1,29 +1,41 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, Button} from 'react-native';
-export default function Terms() {
-  const [checked, setChecked] = useState();
+import String from '../../language/LocalizedString'
+import CustomButton from '../../components/CustomButton/index'
+import { appColors } from '../../utils/appColors'
+
+export default function Terms({navigation,items}) {
+  const [flag, setflag] = useState(false);
   return (
     <View>
-      <View style={{alignItems: 'center'}}>
-        <Text style={{marginBottom:20}}>Terms And Conditions</Text>
-        <Text>
-          THE SELLER ASSUMES FULL LIABILITY FOR THE SALE OF THE OBJECT,
-          GUARANTEEING ITS AUTHENTICITY ACCORDING TO THE TERMS OF LAW AND
-          DECLINES THE OWNERS OF THE APP FROM ANY LIABILITY.
+      <View >
+        <Text style={{marginBottom:20,fontSize:30,color:appColors.primary}}>{String.terms}</Text>
+        <Text style={{}}>
+          {String.condition}
         </Text>
         </View>
         <View
           style={{
             display: 'flex',
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'center',
+            bottom:0,
             marginTop: 30,
           }}>
-          <Button onClick={() => setChecked(true)} title="Accept" />
-          <Button onClick={() => setChecked(false)} title="Denied" />
+            
+          <CustomButton
+          label={String.goBack}
+           onPress={() => {
+            setflag(true)
+            navigation.navigate('Add', {flag})
+            
+          }
+        }
+        
+        />
+        
         </View>
-      
+      {console.log(flag)}
     </View>
   );
-  module.exports=checked
 }

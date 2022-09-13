@@ -12,10 +12,13 @@
     "lint": "eslint ."
   },
   "rnpm": {
-    "assets": ["./assets/fonts"]
-},
+    "assets": [
+      "./assets/fonts"
+    ]
+  },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.7",
+    "@react-native-community/checkbox": "^0.5.12",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-firebase/app": "^12.9.3",
     "@react-native-firebase/auth": "^12.9.3",
@@ -39,6 +42,7 @@
     "react-native-gifted-chat": "^1.0.4",
     "react-native-image-crop-picker": "^0.38.0",
     "react-native-image-picker": "^4.8.4",
+    "react-native-paper": "^4.12.4",
     "react-native-picker-select": "^8.0.4",
     "react-native-ratings": "^8.1.0",
     "react-native-razorpay": "^2.2.8",

@@ -12,8 +12,8 @@ const SplashScreen = ({ navigation }) => {
     return (
         <View style={styles.splash}>
             <Animatable.Image animation="zoomIn" duration={1000} style={{ width: 250, height: 250 }} source={one} alt='WELLCOME' />
-            <Text> Hello World</Text>
-            <Text style={styles.text}> Hello World</Text>
+            {/* <Text> Hello World</Text>
+            <Text style={styles.text}> Hello World</Text> */}
         </View>
     )
 }

@@ -7,17 +7,18 @@ import ScreenHeader from '../../components/ScreenHeader'
 import Label from '../../components/Label'
 import { appColors } from '../../utils/appColors'
 import { bestSellersList } from '../../utils/MockData'
+import String from '../../language/LocalizedString'
 
 export default function index() {
     const renderBagge= ()=>{
         return <View style={{  backgroundColor:appColors.primary, padding:scale(10), justifyContent:'center', alignItems:'center', borderRadius:scale(3)}}>
              
-            <Label text="In Stock"  style={{fontSize:scale(10), color:appColors.white ,fontFamily : 'BOD_R'}}/>
+            <Label text={String.stock}  style={{fontSize:scale(10), color:appColors.white ,fontFamily : 'BOD_R'}}/>
         </View>
     }
     return (
         <Container>
-            <ScreenHeader label="WishList" /> 
+            <ScreenHeader label={String.whishlist} /> 
             <FlatList ItemSeparatorComponent={()=> <View style={{padding:scale(10) , fontFamily : 'BOD_R'}} />}  data={bestSellersList} renderItem={({item,index})=> <CheckOutItem noBg hideSteper renderBagge={renderBagge}  {...item}/>} />
         </Container>
     )

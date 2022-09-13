@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AlertHelper } from '../../utils/AlertHelper';
+import String from '../../language/LocalizedString';
 const { height } = Dimensions.get('window');
 
 
@@ -68,7 +69,7 @@ export default function CheckOutSteper({ navigation }) {
   };
   return (
     <Container>
-      <ScreenHeader label="Checkout" navigation={navigation} />
+      <ScreenHeader label={String.checkout} navigation={navigation} />
       {
         dileveryMethod == 'Cash On Delivery' ?
 

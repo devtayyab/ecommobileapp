@@ -44,6 +44,7 @@ export default function index({ navigation }) {
 
   const email = userdata?.email;
   const displayName = userdata?.displayName;
+  const imgUri = userdata?.photoURL
 
   const onLogout = () => {
     auth().signOut()
@@ -104,7 +105,7 @@ export default function index({ navigation }) {
         {/* <AvatarImage size={scale(110)} /> */}
         <View style={styles.imageContainer}>
           <Pressable onPress={uploadImage}>
-            <Image style={styles.image} source={{uri: imageUri?.uri}} />
+            <Image style={styles.image} source={{uri: imageUri?.uri||imgUri}} />
           </Pressable>
         </View>
         <View style={{ marginLeft: scale(20) }}>

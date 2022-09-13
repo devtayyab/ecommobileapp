@@ -1,7 +1,4 @@
-/**
- * @author Amusoftech <er.amudeep@gmail.com>
- * @description Minimal example of Tab Navigations
- */
+
 import * as React from 'react';
 import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';

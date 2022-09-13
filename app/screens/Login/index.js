@@ -173,7 +173,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           />
           <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Label
-              text="Sign Up"
+              text={String.signup}
               style={{
                 fontSize: scale(14),
                 fontWeight: '500',
@@ -185,7 +185,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
         </View>
         <View style={{ paddingVertical: scale(15) }}>
           <Label
-            text="Sign in to Continue"
+            text={String.toContinue}
             style={{
               fontSize: scale(16),
               //fontWeight: '500',
@@ -198,7 +198,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           <CustomInput
             onChangeText={(text) => onChangeText('email', text)}
             keyboardType="email-address"
-            label="Email"
+            label={String.email}
             placeholder="john@doe.com"
           />
         </View>
@@ -206,8 +206,8 @@ function index({ getProductsList$, loginUser$, navigation }) {
           <CustomInput
             onChangeText={(text) => onChangeText('password', text)}
             secureTextEntry
-            label="Password"
-            placeholder="Password"
+            label={String.password}
+            placeholder={String.password}
           // value="*******"
           />
         </View>
@@ -219,14 +219,14 @@ function index({ getProductsList$, loginUser$, navigation }) {
             paddingVertical: scale(10),
           }}>
           <Label
-            text="Forgot password"
+            text={String.fpassword}
             style={{
               fontSize: scale(14),
               fontFamily: 'BOD_R'
             }}
           />
         </Pressable>
-        <CustomButton isLoading={isloading} onPress={onLogin} label="Sign in" />
+        <CustomButton isLoading={isloading} onPress={onLogin} label={String.signin} />
       </View>
       <View
         style={{
@@ -235,7 +235,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           paddingVertical: scale(20),
         }}>
         <Label
-          text="-OR-"
+          text={String.or}
           style={{
             fontSize: scale(18),
             fontFamily: 'BOD_R'
@@ -245,10 +245,10 @@ function index({ getProductsList$, loginUser$, navigation }) {
       <CustomButton
         onPress={onGoogleLogin}
         icon="google"
-        label="Sign in"
+        label={String.signin}
         unFilled
       />
-      <CustomButton onPress={onFacebookLogin} icon="facebook" label="Sign in" unFilled />
+      <CustomButton onPress={onFacebookLogin} icon="facebook" label={String.signin} unFilled />
     </Container>
   );
 }

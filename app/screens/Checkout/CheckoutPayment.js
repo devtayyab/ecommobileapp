@@ -9,6 +9,7 @@ import CheckBox from '../../components/CheckBox';
 import Label from '../../components/Label';
 import { color } from 'react-native-reanimated';
 import functions from '@react-native-firebase/functions';
+import String from '../../language/LocalizedString';
 export default function CheckoutPayment({ cardinfo, setcardInfo }) {
   const [selectedMethod, setSelectedMethod] = useState("credit-card")
   const hanndleChange = (name, value) => {
@@ -40,23 +41,23 @@ export default function CheckoutPayment({ cardinfo, setcardInfo }) {
 
       </View>
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cardname} label="Name on card" onChangeText={(v)=>hanndleChange('cardname' , v)} />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cardname} label={String.cardName} onChangeText={(v)=>hanndleChange('cardname' , v)} />
       </View>
       <View style={{ paddingVertical: scale(10) }}>
-        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cardnumber} label="Number on card" onChangeText={(v)=>hanndleChange('cardnumber' , v)} IconRight={() => <Feather name="credit-card" color={appColors.primary} size={scale(20)} />} />
+        <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cardnumber} label={String.cardNo} onChangeText={(v)=>hanndleChange('cardnumber' , v)} IconRight={() => <Feather name="credit-card" color={appColors.primary} size={scale(20)} />} />
       </View>
 
       <View style={{ paddingVertical: scale(10) }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.expirydate} label="Expiry Date" onChangeText={(v)=>hanndleChange('expirydate' ,v)}/>
-          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cvv} onChangeText={(v)=>hanndleChange('cvv' ,v)} label="CVV" />
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.expirydate} label={String.expiry} onChangeText={(v)=>hanndleChange('expirydate' ,v)}/>
+          <CustomInput containerStyle={{ backgroundColor: 'transparent' , fontFamily : 'BOD_R' }} value={cardinfo?.cvv} onChangeText={(v)=>hanndleChange('cvv' ,v)} label={String.cvv} />
         </View>
       </View>
 
       <View style={{ paddingVertical: scale(10), flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
         <CheckBox isChecked={true} />
         <View style={{ paddingLeft: scale(10) }}>
-          <Label text="Save this card details" style={{ fontSize: scale(15) , fontFamily : 'BOD_R' }} />
+          <Label text={String.savCard} style={{ fontSize: scale(15) , fontFamily : 'BOD_R' }} />
         </View>
       </View>
 

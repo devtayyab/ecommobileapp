@@ -1,4 +1,13 @@
-import { View, StyleSheet, ScrollView, Image, Platform, NativeModules, Text, Pressable } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  Platform,
+  NativeModules,
+  Text,
+  Pressable,
+} from 'react-native';
 import {
   Form,
   FormItem,
@@ -7,20 +16,27 @@ import {
   Modal,
 } from 'react-native-form-component';
 import storage from '@react-native-firebase/storage';
+
 // import storage from '@react-native-firebase/storage';
-import React, { useState, useEffect } from 'react';
-import { appColors } from '../../utils/appColors';
+import React, {useState, useEffect} from 'react';
+import {appColors} from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
-import { launchImageLibrary } from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import CheckBox from '../../components/CheckBox';
+import {Checkbox} from 'react-native-paper';
+// import CheckBox from '../../components/CheckBox';
+import {LangChange} from '../../components/LangChange';
+import String from '../../language/LocalizedString';
+
 var ImagePicker = NativeModules.ImageCropPicker;
 
-export default function Add({ navigation, item }) {
+export default function Add({navigation,route: { params }}) {
+  const [lngs, setlng] = useState(false);
+
   const [title, setTitle] = useState('');
-  const [gender, setGender] = useState('');
+  // const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
 
   const [brand, setBrand] = useState('');
@@ -29,9 +45,9 @@ export default function Add({ navigation, item }) {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   const [imageUri, setImageUri] = useState('');
-
-  const [sellerId, setSellerId] = useState('')
-
+  const [sellerId, setSellerId] = useState('');
+  const [checked, setChecked] = React.useState(false);
+  // const { flag } = params;
   const getData = async () => {
     try {
       const user = await AsyncStorage.getItem('user')
@@ -43,7 +59,7 @@ export default function Add({ navigation, item }) {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   useEffect(() => {
     getData();
@@ -80,14 +96,13 @@ export default function Add({ navigation, item }) {
       width: 300,
       height: 400,
       cropping: true,
-    }).then(image => {
+    }).then((image) => {
       console.log(image);
     });
     const options = {
       storageOptions: {
         path: 'images',
         mediaType: 'photo',
-
       },
       includeBase64: true,
       selectionLimit: 6
@@ -213,13 +228,14 @@ export default function Add({ navigation, item }) {
     } catch (error) {
       console.log(error)
     }
-
-  }
+    
+  };
 
   return (
     <View style={styles.main}>
-
       <ScrollView>
+        <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+
         <View style={styles.imageContainer}>
           <Image
             // resizeMode='contain'
@@ -234,56 +250,59 @@ export default function Add({ navigation, item }) {
             style={styles.icon}
           />
         </View>
-        <Form buttonText="Add Product" buttonStyle={{ backgroundColor: appColors.primary, }} onButtonPress={() => Submit()}>
+        <Form
+          buttonText={String.addproduct}
+          buttonStyle={{backgroundColor: appColors.primary}}
+          onButtonPress={() => Submit()}>
           <FormItem
             isRequired
-            placeholder="Title"
+            placeholder={String.title}
             value={title}
             onChangeText={(e) => setTitle(e)}
           />
           <Picker
             items={[
-              { label: 'Men', value: 'men' },
-              { label: 'Women', value: 'women' },
-              { label: 'UniSex', value: 'UniSex' },
+              {label: String.men, value: 'men'},
+              {label: String.women, value: 'women'},
+              {label: 'Unisex', value: 'UniSex'},
             ]}
-            placeholder="Choose Category"
+            placeholder={String.choseCat}
             isRequired
             selectedValue={category}
             onSelection={(item) => setCategory(item.value)}
           />
           <FormItem
             isRequired
-            placeholder="Brand"
+            placeholder={String.brand}
             value={brand}
             onChangeText={(e) => setBrand(e)}
           />
 
           <Picker
             items={[
-              { label: '0/15ml', value: '0/15ml' },
-              { label: '15/30ml', value: '15/30ml' },
-              { label: '30/50ml', value: '30/50ml' },
-              { label: '50/70ml', value: '50/70ml' },
-              { label: '70/100ml', value: '70/100ml' },
-              { label: '100/150ml', value: '100/150ml' },
-              { label: '150/200ml', value: '150/200ml' },
-              { label: '200ml', value: '200ml' },
-              { label: 'Other', value: 'Other' },
+              {label: '0/15ml', value: '0/15ml'},
+              {label: '15/30ml', value: '15/30ml'},
+              {label: '30/50ml', value: '30/50ml'},
+              {label: '50/70ml', value: '50/70ml'},
+              {label: '70/100ml', value: '70/100ml'},
+              {label: '100/150ml', value: '100/150ml'},
+              {label: '150/200ml', value: '150/200ml'},
+              {label: '200ml', value: '200ml'},
+              {label: String.other, value: 'Other'},
             ]}
-            placeholder="Quantity"
+            placeholder={String.quantity}
             isRequired
             selectedValue={quantity}
             onSelection={(item) => setQuantity(item.value)}
           />
           <Picker
             items={[
-              { label: 'eau de cologne', value: 'eau de cologne' },
-              { label: 'eau de toilette', value: 'eau de toilette' },
-              { label: 'eau de parfume', value: 'eau de parfume' },
-              { label: 'Other', value: 'Other' },
+              {label: 'eau de cologne', value: 'eau de cologne'},
+              {label: 'eau de toilette', value: 'eau de toilette'},
+              {label: 'eau de parfume', value: 'eau de parfume'},
+              {label: String.other, value: 'Other'},
             ]}
-            placeholder="Concentration"
+            placeholder={String.concentration}
             isRequired
             selectedValue={concentration}
             onSelection={(item) => setConcentration(item.value)}
@@ -291,22 +310,35 @@ export default function Add({ navigation, item }) {
 
           <FormItem
             isRequired
-            placeholder="Price"
+            placeholder={String.price}
             value={price}
             onChangeText={(e) => setPrice(e)}
           />
           <FormItem
             isRequired
-            placeholder="Description"
+            placeholder={String.descript}
             value={description}
             onChangeText={(e) => setDescription(e)}
             textArea
           />
-          <View style={{ display: 'flex', flexDirection: 'row' }}>
-
-            <CheckBox />
-            <Text>I Accept with <Pressable onPress={() => navigation.navigate('Terms', item)} ><Text style={{ color: 'blue' }}>Terms And Conditions</Text></Pressable></Text>
-
+          <View style={{display: 'flex', flexDirection: 'row'}}>
+            <Checkbox
+            color='blue'
+              status={checked ? 'checked' : 'unchecked'}
+              onPress={() => {
+                setChecked(!checked);
+              }}
+            />
+            <Text>
+              {String.accept}
+              <Pressable
+              style={{paddingTop:5}}
+                onPress={() => {
+                  navigation.navigate('Terms');
+                }}>
+                <Text style={{color: appColors.primary,marginTop:5}}>{String.terms}</Text>
+              </Pressable>
+            </Text>
           </View>
         </Form>
       </ScrollView>
@@ -326,11 +358,10 @@ const styles = StyleSheet.create({
     width: 100,
     borderColor: appColors.primary,
     borderRadius: 10,
-    borderWidth: 2
+    borderWidth: 2,
   },
   icon: {
     paddingLeft: 10,
     paddingTop: 60,
   },
-
 });

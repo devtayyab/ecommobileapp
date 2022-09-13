@@ -6,6 +6,7 @@ import IconGadget from '../Icons/IconGadget';
 import IconGaming from '../Icons/IconGaming';
 import { appColors } from './appColors';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import String from '../language/LocalizedString';
 export const features = [
   'Always up-to-date React Native scaffolding',
   'Modular and well-documented structure for application code',
@@ -150,12 +151,17 @@ export const profileKeys = [
   //   icon: "bell"
   // },
   {
-    lebel: 'All Chat',
+    lebel: String.allChat,
     icon: 'bell',
     route: 'Allchats'
   },
   {
-    lebel: "Sign Out",
+    lebel: 'Announcement',
+    icon: 'list',
+    route: 'Announcement'
+  },
+  {
+    lebel: String.signout,
     icon: "log-out",
     route: "Login"
   }

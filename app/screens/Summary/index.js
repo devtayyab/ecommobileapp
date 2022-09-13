@@ -19,6 +19,7 @@ import writeData from '../../utils/writeData';
 import { useSelector } from 'react-redux';
 import functions from '@react-native-firebase/functions';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import String from '../../language/LocalizedString';
 function index(props) {
   const { navigation } = props
 
@@ -68,7 +69,7 @@ function index(props) {
   return (
     <>
       <Container isScrollable>
-        <ScreenHeader label="Summary" navigation={navigation} />
+        <ScreenHeader label={String.summery} navigation={navigation} />
 
         <View style={{}}>
           <FlatList
@@ -83,15 +84,15 @@ function index(props) {
         </View>
         <SelectAble
           item={{
-            label: 'Shipping Address',
+            label: String.shipaddress,
             subLabel:
-              '21, Alex Davidson Avenue, Opposite Omegatron, Vicent Smith Quarters, Victoria Island, Lagos, Nigeria',
+              String.subshipadd,
           }}
           selected
         />
         <Divider isDark />
         <View style={{ paddingVertical: scale(20) }}>
-          <TitleComp heading="Payment" />
+          <TitleComp heading={String.payment} />
           <View
             style={{
               paddingVertical: scale(20),
@@ -99,10 +100,10 @@ function index(props) {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Feather name="credit-card" size={scale(25)} />
+            <Feather name={String.credit} size={scale(25)} />
             <View style={{}}>
               <Label
-                text="Master Card"
+                text={String.master}
                 style={{ fontSize: scale(13), opacity: scale(0.5) , fontFamily : 'BOD_R' }}
               />
               <Label text="**** **** **** 1234" style={{ fontSize: scale(17)  , fontFamily : 'BOD_R'}} />
@@ -130,10 +131,10 @@ function index(props) {
         }}>
         <CustomButton
           onPress={() => navigation.goBack()}
-          label="back"
+          label={String.back}
           unFilled
         />
-        <CustomButton onPress={onPay} label="Pay" />
+        <CustomButton onPress={onPay} label={String.pay} />
       </View>
     </>
   );

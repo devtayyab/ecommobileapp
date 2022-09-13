@@ -3,7 +3,7 @@ import boy from '../../assests/boy.jpg'
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import { appColors } from '../../utils/appColors';
-
+import String from '../../language/LocalizedString'
 const ScreenThree = ({ navigation }) => {
     return (
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
@@ -12,7 +12,7 @@ const ScreenThree = ({ navigation }) => {
             </View>
             <View style={styles.radioView}>
                 <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>So You Can Enjoy</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>{String.enjoy}</Text>
                 </View>
                 <View style={styles.radioButtonsMain}>
                     <View style={styles.radioBox}></View>
@@ -21,12 +21,12 @@ const ScreenThree = ({ navigation }) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                        <Text style={styles.nextBtn}>Next</Text>
+                        <Text style={styles.nextBtn}>{String.next}</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                        <Text style={{ fontSize: 18, color: "#999999" }}>Skip</Text>
+                        <Text style={{ fontSize: 18, color: "#999999" }}>{String.skip}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

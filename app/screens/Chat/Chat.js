@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect, useLayoutEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat';
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import String from '../../language/LocalizedString';
 function Chat({ navigation, route: { params } }) {
   const [messages, setMessages] = useState([]);
 
@@ -63,7 +63,7 @@ function Chat({ navigation, route: { params } }) {
       messages={messages.filter((v) => (v.reciever == userdata?.uid && v.user?._id == productSellerId) || (v.reciever == productSellerId && v.user?._id == userdata?.uid)) ?? []}
       onSend={(messages) => onSend(messages)}
       isTyping={true}
-      placeholder="Enter Message"
+      placeholder={String.message}
       scrollToBottom
       quickReplyTextStyle={{
         fontWeight: '200',
