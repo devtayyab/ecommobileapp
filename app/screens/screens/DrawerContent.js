@@ -6,6 +6,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome5Pro"
 import AsyncStorage from '@react-native-community/async-storage'
 import UserAvatar from "../assets/logo.jpeg";
 import { GlobalContext } from '../context/Context';
+import String from '../../language/LocalizedString'
 const DrawerContent = (props) => {
     
     const Logout =()=>{
@@ -21,31 +22,31 @@ const DrawerContent = (props) => {
                 <TouchableOpacity style={styles.touchDesign} onPress={() => props.navigation.navigate("Setting")}>
                     <View style={styles.subView}>
                         <Icon name='home' size={25} color="white" />
-                        <Text style={styles.text}>Settings</Text>
+                        <Text style={styles.text}>{String.setting}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchDesign}>
                     <View style={styles.subView}>
                         <FontAwesome name='shopware' size={25} color="white" />
-                        <Text style={styles.text}>Orders</Text>
+                        <Text style={styles.text}>{String.order}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchDesign} onPress={() => props.navigation.navigate("Home")}>
                     <View style={styles.subView}>
                         <Icon name="bars" size={25} color="white" />
-                        <Text style={styles.text}>About Us</Text>
+                        <Text style={styles.text}>{String.aboutus}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchDesign} onPress={() => props.navigation.navigate("Home")}>
                     <View style={styles.subView}>
                         <Icon name='infocirlceo' size={25} color="white" />
-                        <Text style={styles.text}>Terms & Conditions</Text>
+                        <Text style={styles.text}>{String.terms}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchDesign}>
                     <View style={styles.subView}>
                         <Icon name='login' size={25} color="white" />
-                        <Text style={styles.text} onPress={()=>Logout()}>Logout</Text>
+                        <Text style={styles.text} onPress={()=>Logout()}>{String.signout}</Text>
                     </View>
                 </TouchableOpacity>
             </DrawerContentScrollView>

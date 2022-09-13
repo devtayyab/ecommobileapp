@@ -3,7 +3,7 @@ import Perfume from '../../assests/perfume.jpg';
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import { appColors } from '../../utils/appColors';
-
+import String from  '../../language/LocalizedString'
 const ScreenOne = ({ navigation }) => {
     return (
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
@@ -12,7 +12,7 @@ const ScreenOne = ({ navigation }) => {
             </View>
             <View style={styles.radioView}>
                 <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>Food You Love</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>{String.foodlove}</Text>
                 </View>
                 <View style={styles.radioButtonsMain}>
                     <View style={[styles.radioBox, styles.active]}></View>
@@ -21,18 +21,18 @@ const ScreenOne = ({ navigation }) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Second")}>
-                        <Text style={styles.nextBtn} >Next</Text>
+                        <Text style={styles.nextBtn} >{String.next}</Text>
 
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                        <Text style={{ fontSize: 18, color: "#999999" }}>Skip</Text>
+                        <Text style={{ fontSize: 18, color: "#999999" }}>{String.skip}</Text>
                     </TouchableOpacity>
 
 
-                    <Text>Next is a process THINGS</Text>
-                    <Text style={styles.tex} >Next is a process THINGS</Text>
+                    {/* <Text>Next is a process THINGS</Text>
+                    <Text style={styles.tex} >Next is a process THINGS</Text> */}
 
                 </View>
             </View>

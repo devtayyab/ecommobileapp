@@ -12,6 +12,7 @@ import { AlertHelper } from '../../utils/AlertHelper'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
+import String from '../../language/LocalizedString';
 function index({ getProductsList$, loginUser$, navigation }) {
   const [userInfo, setUserInfo] = useState({});
   const onChnage = (name, text) => {
@@ -66,13 +67,13 @@ function index({ getProductsList$, loginUser$, navigation }) {
             fontFamily: 'BOD_R'
           }}>
           <Label
-            text="Sign Up"
+            text={String.signup}
             style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'BOD_R' }}
           />
         </View>
         <View style={{ paddingVertical: scale(15) }}>
           <Label
-            text="Sign in to Continue"
+            text={String.toContinue}
             style={{
               fontSize: scale(16),
               fontFamily: 'BOD_R',
@@ -85,7 +86,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
         <View style={{ paddingVertical: scale(10) }}>
           <CustomInput
             onChangeText={(text) => onChnage('displayName', text)}
-            label="Name"
+            label={String.name}
             placeholder="John"
           />
         </View>
@@ -93,7 +94,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           <CustomInput
             onChangeText={(text) => onChnage('email', text)}
             keyboardType="email-address"
-            label="Email"
+            label={String.email}
             placeholder="john@doe.com"
           />
         </View>
@@ -101,11 +102,11 @@ function index({ getProductsList$, loginUser$, navigation }) {
           <CustomInput
             onChangeText={(text) => onChnage('password', text)}
             secureTextEntry
-            label="Password"
-            placeholder="Password"
+            label={String.password}
+            placeholder={String.password}
           />
         </View>
-        <CustomButton style={{ fontFamily: 'BOD_R' }} onPress={onSignUp} label="Sign up" />
+        <CustomButton style={{ fontFamily: 'BOD_R' }} onPress={onSignUp} label={String.signup} />
       </View>
     </Container>
   );

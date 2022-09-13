@@ -36,7 +36,7 @@ export default function Add({navigation,route: { params }}) {
   const [lngs, setlng] = useState(false);
 
   const [title, setTitle] = useState('');
-  const [gender, setGender] = useState('');
+  // const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
 
   const [brand, setBrand] = useState('');
@@ -138,7 +138,7 @@ export default function Add({navigation,route: { params }}) {
                 id: id,
                 productSellerId: sellerId,
                 title,
-                gender,
+                // gender,
                 category,
                 brand,
                 quantity,
@@ -154,7 +154,7 @@ export default function Add({navigation,route: { params }}) {
                 setCategory('');
                 setConcentration('');
                 setDescription('');
-                setGender('');
+                // setGender('');
                 setImageUri('');
                 setPrice('');
                 setQuantity('');
@@ -199,7 +199,7 @@ export default function Add({navigation,route: { params }}) {
           onButtonPress={() => Submit()}>
           <FormItem
             isRequired
-            placeholder={String.addproduct}
+            placeholder={String.title}
             value={title}
             onChangeText={(e) => setTitle(e)}
           />

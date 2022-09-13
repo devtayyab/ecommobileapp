@@ -2,7 +2,7 @@ import React from 'react';
 import Boy from "../assets/boy.jpg";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Animatable from 'react-native-animatable';
-
+import String from '../../language/LocalizedString'
 const ScreenTwo = ({ navigation }) => {
     return (
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
@@ -11,7 +11,7 @@ const ScreenTwo = ({ navigation }) => {
             </View>
             <View style={styles.radioView}>
                 <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>Delivered To You</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>{String.diliver}</Text>
                 </View>
                 <View style={styles.radioButtonsMain}>
                     <View style={styles.radioBox}></View>
@@ -20,12 +20,12 @@ const ScreenTwo = ({ navigation }) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Three")}>
-                        <Text style={styles.nextBtn}>Next</Text>
+                        <Text style={styles.nextBtn}>{String.next}</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-                        <Text style={{ fontSize: 18, color: "#999999" }}>Skip</Text>
+                        <Text style={{ fontSize: 18, color: "#999999" }}>{String.skip}</Text>
                     </TouchableOpacity>
                 </View>
             </View>

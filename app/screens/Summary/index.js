@@ -86,7 +86,7 @@ function index(props) {
           item={{
             label: String.shipaddress,
             subLabel:
-              '21, Alex Davidson Avenue, Opposite Omegatron, Vicent Smith Quarters, Victoria Island, Lagos, Nigeria',
+              String.subshipadd,
           }}
           selected
         />

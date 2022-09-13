@@ -6,7 +6,7 @@ import Label from '../../components/Label';
 import ScreenHeader from '../../components/ScreenHeader';
 import {appColors, shadow} from '../../utils/appColors';
 import {orderList} from '../../utils/MockData';
-
+import String from '../../language/LocalizedString';
 export default function index({navigation}) {
   const OrderCard = ({item}) => {
     const {label, amount, status, color} = item;
@@ -68,7 +68,7 @@ export default function index({navigation}) {
   };
   return (
     <Container  >
-      <ScreenHeader navigation={navigation} label="Track Order" />
+      <ScreenHeader navigation={navigation} label={String.trackorder} />
       <View style={{paddingVertical: scale(20)}}>
         <Label
           text="Sept 23, 2021"

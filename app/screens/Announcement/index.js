@@ -6,7 +6,7 @@ import {appColors} from '../../utils/appColors';
 import {scale} from 'react-native-size-matters';
 import Label from '../../components/Label';
 import {ScrollView} from 'react-native-gesture-handler';
-import String from '../../components/LangChange';
+import String from '../../language/LocalizedString';
 // import Container from '../../components/Container';
 
 export default function Announcement({navigation}) {
@@ -60,7 +60,7 @@ export default function Announcement({navigation}) {
             fontFamily: 'BOD_R',
             marginBottom:20
           }}>
-          My Announcement
+          {String.announcement}
         </Text>
         {product.map((item, index) => {
           return (
