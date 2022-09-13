@@ -10,13 +10,12 @@ import AvatarImage from '../../components/AvatarImage'
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {launchImageLibrary} from 'react-native-image-picker';
-import { LangChange } from '../../components/LangChange';
+
 //auth().signOut()
 export default function index({ navigation }) {
 
   const [userdata, setUserData] = useState({})
   const [imageUri, setImageUri] = useState('');
-  const [lngs, setlng] = useState(false)
 
   const getData = async () => {
     try {
@@ -45,6 +44,7 @@ export default function index({ navigation }) {
 
   const email = userdata?.email;
   const displayName = userdata?.displayName;
+  const imgUri = userdata?.photoURL
 
   const onLogout = () => {
     auth().signOut()
@@ -86,7 +86,6 @@ export default function index({ navigation }) {
         route == "Login" && onLogout()
         route && navigation.navigate(route)
       }} style={styles.itemContainer}>
-        
         <Pressable style={styles.iconContainer}>
           <Feather name={icon} size={scale(22)} color={appColors.black} />
         </Pressable>
@@ -102,13 +101,11 @@ export default function index({ navigation }) {
   };
   return (
     <Container>
-      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
-
       <View style={{ paddingVertical: scale(20), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
         {/* <AvatarImage size={scale(110)} /> */}
         <View style={styles.imageContainer}>
           <Pressable onPress={uploadImage}>
-            <Image style={styles.image} source={{uri: imageUri?.uri}} />
+            <Image style={styles.image} source={{uri: imageUri?.uri||imgUri}} />
           </Pressable>
         </View>
         <View style={{ marginLeft: scale(20) }}>
