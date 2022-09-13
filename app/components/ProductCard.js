@@ -7,7 +7,6 @@ import Label from './Label';
 export default function ProductCard({ navigation, item }) {
   const { title, name, description, price, isNew, rating, imageuri } = item;
 
-  console.log(imageuri);
   return (
     <Pressable onPress={() => navigation.navigate('ProductDetails', { item })} style={{}}>
       <View

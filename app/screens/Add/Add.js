@@ -37,7 +37,7 @@ export default function Add({ navigation, item }) {
       const user = await AsyncStorage.getItem('user')
       const Data = JSON.parse(user)
 
-      console.log("user Data", Data.uid);
+
       setSellerId(Data.uid)
 
     } catch (e) {
@@ -50,8 +50,31 @@ export default function Add({ navigation, item }) {
 
   }, [])
 
-
+  const requestCameraPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: "Weekend App Camera Permission",
+          message:
+            "Weekend App needs access to your camera " +
+            "so you can take awesome pictures.",
+          buttonNeutral: "Ask Me Later",
+          buttonNegative: "Cancel",
+          buttonPositive: "OK"
+        }
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can use the camera");
+      } else {
+        console.log("Camera permission denied");
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
   const uploadImage = () => {
+
     console.log("hii");
     ImagePicker.openCamera({
       width: 300,
@@ -60,59 +83,61 @@ export default function Add({ navigation, item }) {
     }).then(image => {
       console.log(image);
     });
-
-    ImagePicker.openPicker({
-      multiple: true,
+    const options = {
       storageOptions: {
         path: 'images',
         mediaType: 'photo',
 
       },
       includeBase64: true,
-    }).then(response => {
-      const source = { uri: response?.uri };
-      setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
-      console.log(response?.assets[0]?.uri);
-    });
+      selectionLimit: 6
+    };
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log("User cancel image picker");
 
-    // const options = {
-    //   storageOptions: {
-    //     path: 'images',
-    //     mediaType: 'photo',
+      }
+      else if (response.error) {
+        console.log("Image Picker Error", response.error);
+      }
+      else if (response.customButton) {
+        console.log("User Tapped custom button", response.customButton);
+      }
+      else {
+        console.log(response)
 
-    //   },
-    //   includeBase64: true,
-    // };
-
-    // launchImageLibrary(options, (response) => {
-    //   if (response.didCancel) {
-    //     console.log("User cancel image picker");
-
-    //   }
-    //   else if (response.error) {
-    //     console.log("Image Picker Error", response.error);
-    //   }
-    //   else if (response.customButton) {
-    //     console.log("User Tapped custom button", response.customButton);
-    //   }
-    //   else {
-    //     // const source = {uri:'data:image/jpeg,base64'+response.base64}
-    //     const source = { uri: response?.uri };
-    //     setImageUri({ uri: response?.assets[0]?.uri, name: response?.assets[0]?.fileName })
-    //     // console.log(response);
-    //     console.log(response?.assets[0]?.uri);
-
-    //   }
-    // })
-
+        const FinalData = response.assets.map((res) => {
+          return { uri: res?.uri, name: res?.fileName }
+        })
+        setImageUri(FinalData)
+        console.log(response?.assets[0]?.uri);
+      }
+    })
   }
   const Submit = async () => {
+    
+
     try {
       const id = uuid.v4();
-      const refrence = storage().ref(`images/${imageUri?.name}`)
-      refrence.putFile(imageUri?.uri).then(async (res) => {
-        console.log("Image Uploaded", res.metadata.fullPath);
-        const url = await refrence.getDownloadURL()
+      let myprom = new Promise((myResolve, myReject) => {
+        const allurl = []
+      const img =   imageUri.map(async (imag) => {
+          const refrence = storage().ref(`images/${imag?.name}`)
+          await refrence.putFile(imag?.uri).then(async (res) => {
+            console.log("Image Uploaded", res.metadata.fullPath);
+            const url = await refrence.getDownloadURL()
+            allurl.push(url)
+            return url
+          })
+        })
+        if (img?.length > 0){
+          myResolve(allurl)
+        }
+
+      })
+      myprom.then((res) => {
+        console.log(res)
+        console.log('ruunning')
         firestore()
           .collection('Products')
           .add({
@@ -126,7 +151,7 @@ export default function Add({ navigation, item }) {
             concentration,
             price,
             description,
-            imageuri: url,
+            imageuri: allurl,
           })
           .then((res) => {
             console.log("Product Added", res);
@@ -141,11 +166,50 @@ export default function Add({ navigation, item }) {
             setQuantity('');
             setTitle('');
 
-          });
-      }
-      ).catch((error) => {
-        console.log(error);
+
+          }
+          ).catch((error) => {
+            console.log(error);
+          })
       })
+
+      // const refrence = storage().ref(`images/${imageUri?.name}`)
+      // refrence.putFile(imageUri?.uri).then(async (res) => {
+      //   console.log("Image Uploaded", res.metadata.fullPath);
+
+      //     firestore()
+      //       .collection('Products')
+      //       .add({
+      //         id: id,
+      //         productSellerId: sellerId,
+      //         title,
+      //         gender,
+      //         category,
+      //         brand,
+      //         quantity,
+      //         concentration,
+      //         price,
+      //         description,
+      //         imageuri: allurl,
+      //       })
+      //       .then((res) => {
+      //         console.log("Product Added", res);
+      //         console.log('Products added!');
+      //         setBrand('');
+      //         setCategory('');
+      //         setConcentration('');
+      //         setDescription('');
+      //         setGender('');
+      //         setImageUri('');
+      //         setPrice('');
+      //         setQuantity('');
+      //         setTitle('');
+
+      //       });
+      //   }
+      //     ).catch ((error) => {
+      //   console.log(error);
+      // })
     } catch (error) {
       console.log(error)
     }
@@ -160,7 +224,7 @@ export default function Add({ navigation, item }) {
           <Image
             // resizeMode='contain'
             style={styles.image}
-            source={{ uri: imageUri?.uri }}
+            source={{ uri: imageUri[0]?.uri }}
           />
           <Feather
             name={'camera'}
@@ -177,16 +241,6 @@ export default function Add({ navigation, item }) {
             value={title}
             onChangeText={(e) => setTitle(e)}
           />
-          {/* <Picker
-            items={[
-              { label: 'Male', value: 'Male' },
-              { label: 'Female', value: 'Female' },
-            ]}
-            placeholder="Choose Gender"
-            isRequired
-            selectedValue={gender}
-            onSelection={(item) => setGender(item.value)}
-          /> */}
           <Picker
             items={[
               { label: 'Men', value: 'men' },
