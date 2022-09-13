@@ -4,11 +4,13 @@ import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import { appColors } from '../../utils/appColors';
 import String from  '../../language/LocalizedString'
+import Lottie from 'lottie-react-native';
 const ScreenOne = ({ navigation }) => {
     return (
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
             <View style={{ flex: 1.5, justifyContent: "flex-end", alignContent: "center" }}>
-                <Image style={{ width: 365, height: 350 }} source={Perfume} />
+                {/* <Image style={{ width: 365, height: 350 }} source={Perfume} /> */}
+                <Lottie source={require('./two.json')} autoPlay loop  />
             </View>
             <View style={styles.radioView}>
                 <View>
