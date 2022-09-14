@@ -7,13 +7,13 @@ import Lottie from 'lottie-react-native';
 const SplashScreen = ({ navigation }) => {
 
     useEffect(() => {
-        setTimeout(() => navigation.navigate("First"), 7000);
+        setTimeout(() => navigation.navigate("First"), 6000);
     }, [])
 
     return (
         <View style={styles.splash}>
             {/* <Animatable.Image animation="zoomIn" duration={1000} style={{ width: 250, height: 250 }} source={one} alt='WELLCOME' /> */}
-            <Lottie source={require('./splash.json')} autoPlay loop = {false} />
+            <Lottie source={require('./three.json')} autoPlay loop = {false} />
             {/* <Text> Hello World</Text>
             <Text style={styles.text}> Hello World</Text> */}
         </View>

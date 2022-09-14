@@ -80,7 +80,7 @@ export default {
     order:"Orders",
     skip:"Skip",
     next:'Next',
-    foodlove:'Food You Love',
+    foodlove:'Find your signature fragrance',
     enjoy:'So You Can Enjoy',
     diliver:'Delivered To You',
     trackorder:'Track Order',

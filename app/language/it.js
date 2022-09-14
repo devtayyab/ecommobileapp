@@ -81,4 +81,5 @@ export default {
     diliver:'Consegnato a te',
     trackorder:'Ordine dei brani',
     message:'Inserisci messaggio',
+    foodlove:'Trova la tua fragranza caratteristica',
 }

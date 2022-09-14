@@ -4,6 +4,7 @@ import Verification from '../screens/Verification';
 import Welcome from '../screens/Welcome';
 import SplashScreen from '../screens/screens/SplashScreen';
 import ScreenOne from '../screens/screens/ScreenOne';
+import ScreenTwo from '../screens/screens/ScreenTwo';
 import ScreenThree from '../screens/screens/ScreenThree';
 export const publicRoutes = [
   {
@@ -70,12 +71,22 @@ export const publicRoutes = [
   },
   {
     name: 'Second',
-    component: ScreenThree,
+    component: ScreenTwo,
     options: {
       tabBarButton: (props) => null,
       tabBarVisible: false,
       tabBarBadge: 3,
       tabBarLabel: 'Second',
+    },
+  },
+  {
+    name: 'Three',
+    component: ScreenThree,
+    options: {
+      tabBarButton: (props) => null,
+      tabBarVisible: false,
+      tabBarBadge: 3,
+      tabBarLabel: 'Three',
     },
   },
 
