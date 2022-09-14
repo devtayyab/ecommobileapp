@@ -27,6 +27,7 @@ import Chat from '../screens/Chat/Chat';
 import AllChats from '../screens/AllChats/allChats';
 import Messages from '../screens/AllChats/messages';
 import Terms from '../screens/Add/Terms'
+import LanguageSetting from '../screens/LanguageSetting/LanguageSetting'
 export const RoutesList = [
 
   {
@@ -263,6 +264,16 @@ export const RoutesList = [
       //tabBarVisible: false,
       //tabBarBadge: 3,
       tabBarLabel: 'Announcement',
+    },
+  },
+  {
+    name: 'LanguageSetting',
+    component:LanguageSetting ,
+    options: {
+      tabBarButton: (props) => null,
+      //tabBarVisible: false,
+      //tabBarBadge: 3,
+      tabBarLabel: 'LanguageSetting',
     },
   },
   {

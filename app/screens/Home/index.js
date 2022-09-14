@@ -18,7 +18,6 @@ import TestComp from '../../components/TestComp';
 import NativeAdView from 'react-native-admob-native-ads';
 import { ANDROID_FULL_PAGE_AD_ID } from '../../utils/appConfig';
 import useListners from '../../hooks/useListners';
-import { LangChange } from '../../components/LangChange'
 import String from '../../language/LocalizedString';
 
 
@@ -42,7 +41,6 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
   };
   return (
     <Container isScrollable style={styles.container}>
-          <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
 
       <Text style={styles.appName}>{String.weekend}</Text>
 

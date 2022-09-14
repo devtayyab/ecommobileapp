@@ -32,7 +32,7 @@ export default {
     checkout:'GUARDARE',
     allChat:'Tutte le chat',
     signout:'Disconnessione',
-    Summery:'Estiva',
+    summery:'Estiva',
     shipaddress:'Indirizzo di spedizione',
     payment:'Pagamento',
     credit:'Carta di credito',
@@ -81,4 +81,5 @@ export default {
     diliver:'Consegnato a te',
     trackorder:'Ordine dei brani',
     message:'Inserisci messaggio',
+    language:'Lingua',
 }
