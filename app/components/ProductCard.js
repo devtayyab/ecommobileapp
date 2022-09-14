@@ -50,7 +50,7 @@ export default function ProductCard({ navigation, item }) {
         <Label
           text={price}
           style={{
-            fontSize: scale(18),
+            fontSize: scale(20),
             color: appColors.primary,
             fontWeight: '500',
             fontFamily : 'BOD_R'

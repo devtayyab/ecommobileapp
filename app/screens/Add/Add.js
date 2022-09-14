@@ -159,7 +159,7 @@ export default function Add({navigation,route: { params }}) {
             id: id,
             productSellerId: sellerId,
             title,
-            gender,
+            // gender,
             category,
             brand,
             quantity,
@@ -175,7 +175,7 @@ export default function Add({navigation,route: { params }}) {
             setCategory('');
             setConcentration('');
             setDescription('');
-            setGender('');
+            // setGender('');
             setImageUri('');
             setPrice('');
             setQuantity('');

@@ -10,7 +10,7 @@ const ScreenThree = ({ navigation }) => {
         <Animatable.View animation="fadeInRight" duration={500} style={styles.mainView}>
             <View style={{ flex: 1.5, justifyContent: "flex-end", alignContent: "center" }}>
                 {/* <Image style={{ width: 360, height: 300 }} source={boy} /> */}
-                <Lottie source={require('./three.json')} autoPlay loop  />
+                <Lottie source={require('./one.json')} autoPlay loop  />
             </View>
             <View style={styles.radioView}>
                 <View>

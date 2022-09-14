@@ -44,8 +44,8 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
 
       <Text style={styles.appName}>{String.weekend}</Text>
 
-      <SearchBox onFoucs={() => navigation.navigate('Search')} />
-      <View style={{ paddingVertical: scale(30) }}>
+      {/* <SearchBox onFoucs={() => navigation.navigate('Search')} /> */}
+      <View style={{ paddingVertical: scale(0) }}>
         <RenderTitle heading={String.category} />
         <FlatList
           style={{ marginTop: scale(40) }}
@@ -115,14 +115,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 12,
     borderBottomColor: '#ddd',
   },
-  headerText: {
-    color: 'white',
-    fontSize: 25,
-    padding: 20,
-    margin: 20,
-    textAlign: 'center',
-    fontFamily : 'BOD_R'
-  },
+  // headerText: {
+  //   color: 'white',
+  //   fontSize: 25,
+  //   padding: 20,
+  //   margin: 20,
+  //   textAlign: 'center',
+  //   fontFamily : 'BOD_R'
+  // },
   TitleText: {
     fontSize: 25,
     // padding: 20,
@@ -136,8 +136,9 @@ const styles = StyleSheet.create({
   appName: {
     textAlign: 'center',
     color: appColors.primary,
-    fontSize: 25,
+    fontSize: 30,
     marginVertical: 10,
-    fontFamily : 'BOD_R'
+    fontFamily : 'BOD_R',
+    fontWeight: 'bold'
   },
 });
