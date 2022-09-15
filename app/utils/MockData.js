@@ -60,7 +60,7 @@ export const productDetail = {
 
 export const reviews = [
   {
-    name: 'Weekend',
+    name: String.weekend,
     detail: 'Wonderful jean, perfect gift for my girl for our anniversary!',
     count: 4,
     image: require('../static/images/rate/1.png'),
@@ -75,11 +75,11 @@ export const reviews = [
 
 export const categoriesList = [
   {
-    label: 'Men',
+    label: String.men,
     Icon: () => <Icon name='male' size={30} color='#81b8e6'></Icon>,
   },
   {
-    label: 'Women',
+    label: String.women,
     Icon: () => <Icon name='female' size={30} color='#81b8e6'></Icon>,
   },
 ];
@@ -156,15 +156,21 @@ export const profileKeys = [
     route: 'Allchats'
   },
   {
-    lebel: 'Announcement',
+    lebel: String.announcement,
     icon: 'list',
     route: 'Announcement'
+  },
+  {
+    lebel: String.language,
+    icon: 'list',
+    route: "LanguageSetting"
   },
   {
     lebel: String.signout,
     icon: "log-out",
     route: "Login"
-  }
+  },
+ 
 ]
 
 export const orderList = [

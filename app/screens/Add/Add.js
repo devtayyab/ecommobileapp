@@ -234,7 +234,6 @@ export default function Add({navigation,route: { params }}) {
   return (
     <View style={styles.main}>
       <ScrollView>
-        <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
 
         <View style={styles.imageContainer}>
           <Image

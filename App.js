@@ -5,10 +5,10 @@
  * @format
  * @flow strict-local
  */
-
 import React ,{useEffect,useState}from 'react';
 import MainStack from './app/routing/MainStack';
 import {Provider} from 'react-redux';
+import CustomButton from './app/components/CustomButton'
 import {StatusBar} from 'react-native';
 import storePre from './app/redux/store';
 import DropdownAlert from 'react-native-dropdownalert';
@@ -21,15 +21,29 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'; 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'; 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'; 
-
+import { setlng,getlang } from './app/screens/LanguageSetting/ChangeLangSave';
+ import String from './app/language/LocalizedString'
 MaterialIcons.loadFont()
 Ionicons.loadFont()
-FontAwesome.loadFont()
+FontAwesome.loadFont() 
 Feather.loadFont()
 MaterialCommunityIcons.loadFont()
+
 export default function App ()  {
   const {persistor, store} = storePre;
- 
+ useEffect(() => {
+  return () => { 
+    SelectedLang()
+  }; 
+ }, [])
+  
+ const SelectedLang=async()=>{
+    const langdata=await getlang()
+    if (!!langdata) {
+      String.setLanguage(langdata)
+    }
+    console.log("selected language",langdata);
+ } 
 
   return (
     <Provider store={store}>
@@ -40,10 +54,11 @@ export default function App ()  {
             padding: 8,
             paddingTop: StatusBar.currentHeight,
             flexDirection: 'row',
-          }}
+          }} 
           ref={(ref) => AlertHelper.setDropDown(ref)}
           onClose={() => AlertHelper.invokeOnClose()}
         />
+       
       </PersistGate>
     </Provider>
   );

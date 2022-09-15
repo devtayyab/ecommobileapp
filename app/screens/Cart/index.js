@@ -15,7 +15,6 @@ import ReduxWrapper from '../../utils/ReduxWrapper';
 import { APP_CURRENY } from '../../utils/appConfig';
 import Empty from '../../components/Empty';
 import { useSelector } from 'react-redux';
-import { LangChange } from '../../components/LangChange';
 import String from '../../language/LocalizedString';
 
 function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$, removeFromCart$, navigation }) {
@@ -60,7 +59,6 @@ function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$,
   return (
     <>
       <Container >
-      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
 
         <View style={{ flex: 1, paddingVertical: scale(30) }}>
           <SwipeListView

@@ -1,36 +1,62 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import {Button} from 'react-native-paper';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import CustomButton from '../components/CustomButton';
 import String from '../language/LocalizedString';
-
-
-
-
-
+import {useNavigation} from '@react-navigation/native';   
+import { setslng } from '../screens/LanguageSetting/ChangeLangSave';
+import RNRestart from 'react-native-restart'
 
 export const LangChange = ({lngs, setlng}) => {
-  const [it, setit] = useState(false)
+  const navigation = useNavigation();
+
+  const [it, setit] = useState(false);
   const onChangeLanguage = (lng) => {
-    String.setLanguage(lng)
-    setlng(!lngs)
-  }
+    if (lng ==='en') {
+      setslng('en')
+      String.setLanguage(lng);
+      setlng(!lngs);
+      // RNRestart.Restart()
+      return 
+    }
+    if (lng ==='it') {
+      setslng('it')
+      String.setLanguage(lng);
+      setlng(!lngs);
+      // RNRestart.Restart()
+      return
+    }
 
+
+
+  };
+   
   return (
-    <View>
-      {/* <Text >{String.Login}</Text> */}
-
-      {/* <Text>{String.how}</Text> */}
+    <SafeAreaView style={{margin: 10}}>
+      <Text style={{fontSize: 20, textAlign: 'center',marginTop:10}}>App Language</Text>
       <View style={styles.btns}>
-        <Button onPress={() => onChangeLanguage('en')} title="English" />
-        <Button onPress={() => onChangeLanguage('it')} title="Italian" />
+        <CustomButton
+          onPress={() => {
+            onChangeLanguage('en');
+            navigation.goBack();
+          }}
+          label="English"
+        />
+        <CustomButton
+          onPress={() => {
+            onChangeLanguage('it');
+            navigation.goBack();
+          }}
+          label="Italian" 
+        />  
       </View>
-    </View>
-  )
+    </SafeAreaView> 
+  );
 };
 
 const styles = StyleSheet.create({
-
   btns: {
-    flexDirection: 'row',
     justifyContent: 'space-around',
-  }
+  },
 });
