@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00161C363911308DC60C5CA6 /* libPods-Amusoftech-AmusoftechTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DA666EB7745526FE3DBFC /* libPods-Amusoftech-AmusoftechTests.a */; };
+		00161C363911308DC60C5CA6 /* libPods-Weekend-AmusoftechTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 798DA666EB7745526FE3DBFC /* libPods-Weekend-AmusoftechTests.a */; };
 		00E356F31AD99517003FC87E /* AmusoftechTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AmusoftechTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		16DF76F5D99A03FE017C977C /* libPods-Amusoftech-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9A444BEDE77A98C6F01D35 /* libPods-Amusoftech-tvOSTests.a */; };
+		16DF76F5D99A03FE017C977C /* libPods-Weekend-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC9A444BEDE77A98C6F01D35 /* libPods-Weekend-tvOSTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* AmusoftechTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AmusoftechTests.m */; };
 		34055C0926E3BADA001B6A88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34055C0826E3BADA001B6A88 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9C57445EF2F705B9829B18F2 /* libPods-Amusoftech.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416BDC75A773531B80873674 /* libPods-Amusoftech.a */; };
-		D8C13670DC93C8C644E4C2FD /* libPods-Amusoftech-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD12629B1B3195144E766520 /* libPods-Amusoftech-tvOS.a */; };
+		9C57445EF2F705B9829B18F2 /* libPods-Weekend.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 416BDC75A773531B80873674 /* libPods-Weekend.a */; };
+		D8C13670DC93C8C644E4C2FD /* libPods-Weekend-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD12629B1B3195144E766520 /* libPods-Weekend-tvOS.a */; };
 		9D92BA0FC25A47C791E568EB /* BOD_B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B02A6905F2AC4C93A950F9B6 /* BOD_B.TTF */; };
 		7FA2A88D891742769FCB4BC2 /* BOD_BI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 4E8EEBBC23224FA8832E06F7 /* BOD_BI.TTF */; };
 		A6EE85F08448415686CC3C86 /* BOD_I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 71EFB7819F9F4D72B2C7F85C /* BOD_I.TTF */; };
@@ -50,14 +50,14 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Amusoftech;
+			remoteInfo = Weekend;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "Amusoftech-tvOS";
+			remoteInfo = "Weekend-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,28 +66,28 @@
 		00E356EE1AD99517003FC87E /* AmusoftechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmusoftechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AmusoftechTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmusoftechTests.m; sourceTree = "<group>"; };
-		0F3D9FE11198A8A1B20CD5DA /* Pods-Amusoftech-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Amusoftech-tvOSTests/Pods-Amusoftech-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Amusoftech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amusoftech.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Amusoftech/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Amusoftech/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Amusoftech/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Amusoftech/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Amusoftech/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* Amusoftech-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amusoftech-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* Amusoftech-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Amusoftech-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F3D9FE11198A8A1B20CD5DA /* Pods-Weekend-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Weekend-tvOSTests/Pods-Weekend-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Weekend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weekend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Weekend/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Weekend/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Weekend/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Weekend/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Weekend/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* Weekend-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weekend-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Weekend-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weekend-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34055C0826E3BADA001B6A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		416BDC75A773531B80873674 /* libPods-Amusoftech.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Amusoftech.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50FD608A2800E48EDBB476A6 /* Pods-Amusoftech-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Amusoftech-tvOS/Pods-Amusoftech-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		586D8638B90C41E07FC50BF8 /* Pods-Amusoftech-AmusoftechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-AmusoftechTests.debug.xcconfig"; path = "Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6835A536F5723BE782A079FF /* Pods-Amusoftech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech.debug.xcconfig"; path = "Target Support Files/Pods-Amusoftech/Pods-Amusoftech.debug.xcconfig"; sourceTree = "<group>"; };
-		73F5549D59B484F0652BEEF0 /* Pods-Amusoftech-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Amusoftech-tvOS/Pods-Amusoftech-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		798DA666EB7745526FE3DBFC /* libPods-Amusoftech-AmusoftechTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Amusoftech-AmusoftechTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D2598DDA0298C894F76CFF5 /* Pods-Amusoftech-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Amusoftech-tvOSTests/Pods-Amusoftech-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Amusoftech/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8DE4DC57646607077082B95E /* Pods-Amusoftech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech.release.xcconfig"; path = "Target Support Files/Pods-Amusoftech/Pods-Amusoftech.release.xcconfig"; sourceTree = "<group>"; };
-		A35804C17F83F93DD8110337 /* Pods-Amusoftech-AmusoftechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amusoftech-AmusoftechTests.release.xcconfig"; path = "Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests.release.xcconfig"; sourceTree = "<group>"; };
-		CD12629B1B3195144E766520 /* libPods-Amusoftech-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Amusoftech-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC9A444BEDE77A98C6F01D35 /* libPods-Amusoftech-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Amusoftech-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		416BDC75A773531B80873674 /* libPods-Weekend.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weekend.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50FD608A2800E48EDBB476A6 /* Pods-Weekend-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Weekend-tvOS/Pods-Weekend-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		586D8638B90C41E07FC50BF8 /* Pods-Weekend-AmusoftechTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-AmusoftechTests.debug.xcconfig"; path = "Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6835A536F5723BE782A079FF /* Pods-Weekend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend.debug.xcconfig"; path = "Target Support Files/Pods-Weekend/Pods-Weekend.debug.xcconfig"; sourceTree = "<group>"; };
+		73F5549D59B484F0652BEEF0 /* Pods-Weekend-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Weekend-tvOS/Pods-Weekend-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		798DA666EB7745526FE3DBFC /* libPods-Weekend-AmusoftechTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weekend-AmusoftechTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D2598DDA0298C894F76CFF5 /* Pods-Weekend-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Weekend-tvOSTests/Pods-Weekend-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Weekend/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DE4DC57646607077082B95E /* Pods-Weekend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend.release.xcconfig"; path = "Target Support Files/Pods-Weekend/Pods-Weekend.release.xcconfig"; sourceTree = "<group>"; };
+		A35804C17F83F93DD8110337 /* Pods-Weekend-AmusoftechTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weekend-AmusoftechTests.release.xcconfig"; path = "Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests.release.xcconfig"; sourceTree = "<group>"; };
+		CD12629B1B3195144E766520 /* libPods-Weekend-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weekend-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9A444BEDE77A98C6F01D35 /* libPods-Weekend-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weekend-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		B02A6905F2AC4C93A950F9B6 /* BOD_B.TTF */ = {isa = PBXFileReference; name = "BOD_B.TTF"; path = "../assets/fonts/BOD_B.TTF"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00161C363911308DC60C5CA6 /* libPods-Amusoftech-AmusoftechTests.a in Frameworks */,
+				00161C363911308DC60C5CA6 /* libPods-Weekend-AmusoftechTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C57445EF2F705B9829B18F2 /* libPods-Amusoftech.a in Frameworks */,
+				9C57445EF2F705B9829B18F2 /* libPods-Weekend.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8C13670DC93C8C644E4C2FD /* libPods-Amusoftech-tvOS.a in Frameworks */,
+				D8C13670DC93C8C644E4C2FD /* libPods-Weekend-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16DF76F5D99A03FE017C977C /* libPods-Amusoftech-tvOSTests.a in Frameworks */,
+				16DF76F5D99A03FE017C977C /* libPods-Weekend-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +166,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Amusoftech */ = {
+		13B07FAE1A68108700A75B9A /* Weekend */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -177,20 +177,20 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = Amusoftech;
+			name = Weekend;
 			sourceTree = "<group>";
 		};
 		16FA5AD817C8033E77EAEA9E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6835A536F5723BE782A079FF /* Pods-Amusoftech.debug.xcconfig */,
-				8DE4DC57646607077082B95E /* Pods-Amusoftech.release.xcconfig */,
-				586D8638B90C41E07FC50BF8 /* Pods-Amusoftech-AmusoftechTests.debug.xcconfig */,
-				A35804C17F83F93DD8110337 /* Pods-Amusoftech-AmusoftechTests.release.xcconfig */,
-				50FD608A2800E48EDBB476A6 /* Pods-Amusoftech-tvOS.debug.xcconfig */,
-				73F5549D59B484F0652BEEF0 /* Pods-Amusoftech-tvOS.release.xcconfig */,
-				0F3D9FE11198A8A1B20CD5DA /* Pods-Amusoftech-tvOSTests.debug.xcconfig */,
-				7D2598DDA0298C894F76CFF5 /* Pods-Amusoftech-tvOSTests.release.xcconfig */,
+				6835A536F5723BE782A079FF /* Pods-Weekend.debug.xcconfig */,
+				8DE4DC57646607077082B95E /* Pods-Weekend.release.xcconfig */,
+				586D8638B90C41E07FC50BF8 /* Pods-Weekend-AmusoftechTests.debug.xcconfig */,
+				A35804C17F83F93DD8110337 /* Pods-Weekend-AmusoftechTests.release.xcconfig */,
+				50FD608A2800E48EDBB476A6 /* Pods-Weekend-tvOS.debug.xcconfig */,
+				73F5549D59B484F0652BEEF0 /* Pods-Weekend-tvOS.release.xcconfig */,
+				0F3D9FE11198A8A1B20CD5DA /* Pods-Weekend-tvOSTests.debug.xcconfig */,
+				7D2598DDA0298C894F76CFF5 /* Pods-Weekend-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -200,10 +200,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				416BDC75A773531B80873674 /* libPods-Amusoftech.a */,
-				798DA666EB7745526FE3DBFC /* libPods-Amusoftech-AmusoftechTests.a */,
-				CD12629B1B3195144E766520 /* libPods-Amusoftech-tvOS.a */,
-				EC9A444BEDE77A98C6F01D35 /* libPods-Amusoftech-tvOSTests.a */,
+				416BDC75A773531B80873674 /* libPods-Weekend.a */,
+				798DA666EB7745526FE3DBFC /* libPods-Weekend-AmusoftechTests.a */,
+				CD12629B1B3195144E766520 /* libPods-Weekend-tvOS.a */,
+				EC9A444BEDE77A98C6F01D35 /* libPods-Weekend-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				34055C0826E3BADA001B6A88 /* GoogleService-Info.plist */,
-				13B07FAE1A68108700A75B9A /* Amusoftech */,
+				13B07FAE1A68108700A75B9A /* Weekend */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* AmusoftechTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -235,10 +235,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Amusoftech.app */,
+				13B07F961A680F5B00A75B9A /* Weekend.app */,
 				00E356EE1AD99517003FC87E /* AmusoftechTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* Amusoftech-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* Amusoftech-tvOSTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Weekend-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Weekend-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -296,9 +296,9 @@
 			productReference = 00E356EE1AD99517003FC87E /* AmusoftechTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* Amusoftech */ = {
+		13B07F861A680F5B00A75B9A /* Weekend */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Amusoftech" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Weekend" */;
 			buildPhases = (
 				50C8C6213BE23173AAF6560A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -314,14 +314,14 @@
 			);
 			dependencies = (
 			);
-			name = Amusoftech;
-			productName = Amusoftech;
-			productReference = 13B07F961A680F5B00A75B9A /* Amusoftech.app */;
+			name = Weekend;
+			productName = Weekend;
+			productReference = 13B07F961A680F5B00A75B9A /* Weekend.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* Amusoftech-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Weekend-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Amusoftech-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Weekend-tvOS" */;
 			buildPhases = (
 				E873659E56BC75E3AB3196CF /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -334,14 +334,14 @@
 			);
 			dependencies = (
 			);
-			name = "Amusoftech-tvOS";
-			productName = "Amusoftech-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* Amusoftech-tvOS.app */;
+			name = "Weekend-tvOS";
+			productName = "Weekend-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Weekend-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* Amusoftech-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Weekend-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Amusoftech-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Weekend-tvOSTests" */;
 			buildPhases = (
 				3330C58887084A97306E24E8 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -353,9 +353,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "Amusoftech-tvOSTests";
-			productName = "Amusoftech-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* Amusoftech-tvOSTests.xctest */;
+			name = "Weekend-tvOSTests";
+			productName = "Weekend-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Weekend-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -384,7 +384,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Amusoftech" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Weekend" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -397,10 +397,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Amusoftech */,
+				13B07F861A680F5B00A75B9A /* Weekend */,
 				00E356ED1AD99517003FC87E /* AmusoftechTests */,
-				2D02E47A1E0B4A5D006451C7 /* Amusoftech-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* Amusoftech-tvOSTests */,
+				2D02E47A1E0B4A5D006451C7 /* Weekend-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Weekend-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -482,7 +482,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleSignIn/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -527,7 +527,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
@@ -559,7 +559,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amusoftech-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Weekend-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -581,7 +581,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amusoftech-AmusoftechTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Weekend-AmusoftechTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -603,7 +603,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amusoftech-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Weekend-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -616,7 +616,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests-frameworks.sh",
 				"${PODS_ROOT}/razorpay-pod/Pod/Razorpay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -625,7 +625,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amusoftech-AmusoftechTests/Pods-Amusoftech-AmusoftechTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weekend-AmusoftechTests/Pods-Weekend-AmusoftechTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AFDE2D4EC04780E119043A83 /* [CP] Embed Pods Frameworks */ = {
@@ -634,7 +634,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amusoftech/Pods-Amusoftech-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Weekend/Pods-Weekend-frameworks.sh",
 				"${PODS_ROOT}/razorpay-pod/Pod/Razorpay.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -643,7 +643,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amusoftech/Pods-Amusoftech-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weekend/Pods-Weekend-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BCB7811369911222144D84A6 /* [CP] Copy Pods Resources */ = {
@@ -652,7 +652,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Amusoftech/Pods-Amusoftech-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Weekend/Pods-Weekend-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleSignIn/GoogleSignIn.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -697,7 +697,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Amusoftech/Pods-Amusoftech-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weekend/Pods-Weekend-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E873659E56BC75E3AB3196CF /* [CP] Check Pods Manifest.lock */ = {
@@ -715,7 +715,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Amusoftech-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Weekend-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -815,12 +815,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Amusoftech */;
+			target = 13B07F861A680F5B00A75B9A /* Weekend */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* Amusoftech-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Weekend-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -828,7 +828,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 586D8638B90C41E07FC50BF8 /* Pods-Amusoftech-AmusoftechTests.debug.xcconfig */;
+			baseConfigurationReference = 586D8638B90C41E07FC50BF8 /* Pods-Weekend-AmusoftechTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -845,13 +845,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amusoftech.app/Amusoftech";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weekend.app/Weekend";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A35804C17F83F93DD8110337 /* Pods-Amusoftech-AmusoftechTests.release.xcconfig */;
+			baseConfigurationReference = A35804C17F83F93DD8110337 /* Pods-Weekend-AmusoftechTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -865,19 +865,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amusoftech.app/Amusoftech";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weekend.app/Weekend";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6835A536F5723BE782A079FF /* Pods-Amusoftech.debug.xcconfig */;
+			baseConfigurationReference = 6835A536F5723BE782A079FF /* Pods-Weekend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Amusoftech/Info.plist;
+				INFOPLIST_FILE = Weekend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -885,7 +885,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.shop;
-				PRODUCT_NAME = Amusoftech;
+				PRODUCT_NAME = Weekend;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -894,12 +894,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DE4DC57646607077082B95E /* Pods-Amusoftech.release.xcconfig */;
+			baseConfigurationReference = 8DE4DC57646607077082B95E /* Pods-Weekend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Amusoftech/Info.plist;
+				INFOPLIST_FILE = Weekend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -907,7 +907,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weekend.shop;
-				PRODUCT_NAME = Amusoftech;
+				PRODUCT_NAME = Weekend;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -915,7 +915,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50FD608A2800E48EDBB476A6 /* Pods-Amusoftech-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 50FD608A2800E48EDBB476A6 /* Pods-Weekend-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -926,14 +926,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Amusoftech-tvOS/Info.plist";
+				INFOPLIST_FILE = "Weekend-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Amusoftech-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Weekend-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -943,7 +943,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73F5549D59B484F0652BEEF0 /* Pods-Amusoftech-tvOS.release.xcconfig */;
+			baseConfigurationReference = 73F5549D59B484F0652BEEF0 /* Pods-Weekend-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -954,14 +954,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Amusoftech-tvOS/Info.plist";
+				INFOPLIST_FILE = "Weekend-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Amusoftech-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Weekend-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -971,7 +971,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F3D9FE11198A8A1B20CD5DA /* Pods-Amusoftech-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 0F3D9FE11198A8A1B20CD5DA /* Pods-Weekend-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -981,24 +981,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Amusoftech-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Weekend-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Amusoftech-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Weekend-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amusoftech-tvOS.app/Amusoftech-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weekend-tvOS.app/Weekend-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D2598DDA0298C894F76CFF5 /* Pods-Amusoftech-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 7D2598DDA0298C894F76CFF5 /* Pods-Weekend-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1008,17 +1008,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Amusoftech-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Weekend-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Amusoftech-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Weekend-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amusoftech-tvOS.app/Amusoftech-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weekend-tvOS.app/Weekend-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1148,7 +1148,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Amusoftech" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Weekend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1157,7 +1157,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Amusoftech-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Weekend-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1166,7 +1166,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Amusoftech-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Weekend-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1175,7 +1175,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Amusoftech" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Weekend" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

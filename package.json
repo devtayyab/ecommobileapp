@@ -1,8 +1,8 @@
 {
-  "name": "amusoftech",
+  "name": "weekend",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://amusoftech.com/",
+  "homepage": "https://github.com/devtayyab",
   "author": "Tayyab",
   "scripts": {
     "android": "react-native run-android",

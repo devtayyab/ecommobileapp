@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'Amusoftech' do
+target 'Weekend' do
   config = use_native_modules!
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
   pod 'Google-Mobile-Ads-SDK'
@@ -25,10 +25,10 @@ target 'Amusoftech' do
   #end
 end
 
-target 'Amusoftech-tvOS' do
-  # Pods for Amusoftech-tvOS
+target 'Weekend-tvOS' do
+  # Pods for Weekend-tvOS
 
-  target 'Amusoftech-tvOSTests' do
+  target 'Weekend-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
