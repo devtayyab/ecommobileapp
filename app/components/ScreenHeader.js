@@ -19,7 +19,7 @@ export default function ScreenHeader({backIcon, rightIcon, label, showSearch}) {
         <Feather name={backIcon ? backIcon : 'chevron-left'} size={scale(25)} />
       </Pressable>
 
-      <Label text={label} style={{fontWeight: '500', fontSize: scale(21) , fontFamily : 'BOD_R'}} />
+      <Label text={label} style={{fontWeight: '500', fontSize: scale(21) , fontFamily : 'serif'}} />
 
       {showSearch && (
         <View

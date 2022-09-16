@@ -14,7 +14,7 @@ const ScreenOne = ({ navigation }) => {
             </View>
             <View style={styles.radioView}>
                 <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>{String.foodlove}</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold",fontFamily: 'serif' }}>{String.foodlove}</Text>
                 </View>
                 <View style={styles.radioButtonsMain}>
                     <View style={[styles.radioBox, styles.active]}></View>
@@ -29,7 +29,7 @@ const ScreenOne = ({ navigation }) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                        <Text style={{ fontSize: 18, color: "#999999" }}>{String.skip}</Text>
+                        <Text style={{ fontSize: 18, color: "#999999", fontFamily: 'serif' }}>{String.skip}</Text>
                     </TouchableOpacity>
 
 
@@ -81,9 +81,7 @@ const styles = StyleSheet.create({
         paddingRight: 130,
         paddingTop: 10,
         paddingBottom: 10,
-        borderRadius: 50
+        borderRadius: 50,
+        fontFamily: 'serif'
     },
-    tex: {
-        fontFamily: 'BOD_R'
-    }
 })

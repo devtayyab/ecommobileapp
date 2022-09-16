@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     text: {
-        fontFamily: 'BOD_R'
+        fontFamily: 'serif'
     }
 })

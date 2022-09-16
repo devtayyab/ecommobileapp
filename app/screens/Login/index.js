@@ -167,7 +167,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           }}>
           <Label
             text={String.Wellcome}
-            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'BOD_R' }}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'serif' }}
           />
           <Pressable onPress={() => navigation.navigate('SignUp')}>
             <Label
@@ -176,7 +176,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
                 fontSize: scale(14),
                 fontWeight: '500',
                 color: appColors.primary,
-                fontFamily: 'BOD_R'
+                fontFamily: 'serif'
               }}
             />
           </Pressable>
@@ -188,7 +188,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontFamily: 'BOD_R'
+              fontFamily: 'serif'
             }}
           />
         </View>
@@ -220,7 +220,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text={String.fpassword}
             style={{
               fontSize: scale(14),
-              fontFamily: 'BOD_R'
+              fontFamily: 'serif'
             }}
           />
         </Pressable>
@@ -236,7 +236,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
           text={String.or}
           style={{
             fontSize: scale(18),
-            fontFamily: 'BOD_R'
+            fontFamily: 'serif'
           }}
         />
       </View>

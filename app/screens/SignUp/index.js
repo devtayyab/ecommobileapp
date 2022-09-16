@@ -64,11 +64,11 @@ function index({ getProductsList$, loginUser$, navigation }) {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            fontFamily: 'BOD_R'
+            fontFamily: 'serif'
           }}>
           <Label
             text={String.signup}
-            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'BOD_R' }}
+            style={{ fontSize: scale(30), fontWeight: '700', fontFamily: 'serif' }}
           />
         </View>
         <View style={{ paddingVertical: scale(15) }}>
@@ -76,10 +76,10 @@ function index({ getProductsList$, loginUser$, navigation }) {
             text={String.toContinue}
             style={{
               fontSize: scale(16),
-              fontFamily: 'BOD_R',
+              fontFamily: 'serif',
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontFamily: 'BOD_R'
+              fontFamily: 'serif'
             }}
           />
         </View>
@@ -106,7 +106,7 @@ function index({ getProductsList$, loginUser$, navigation }) {
             placeholder={String.password}
           />
         </View>
-        <CustomButton style={{ fontFamily: 'BOD_R' }} onPress={onSignUp} label={String.signup} />
+        <CustomButton style={{ fontFamily: 'serif' }} onPress={onSignUp} label={String.signup} />
       </View>
     </Container>
   );

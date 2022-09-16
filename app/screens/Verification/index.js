@@ -30,7 +30,7 @@ export default function index({navigation}) {
           }}>
           <Label
             text={String.verify}
-            style={{fontSize: scale(30), fontWeight: '700' , fontFamily : 'BOD_R'}}
+            style={{fontSize: scale(30), fontWeight: '700' , fontFamily : 'serif'}}
           />
         </View>
         <View style={{paddingVertical: scale(15)}}>
@@ -40,7 +40,7 @@ export default function index({navigation}) {
               fontSize: scale(16),
               //fontWeight: '500',
               color: appColors.darkGray,
-              fontFamily : 'BOD_R'
+              fontFamily : 'serif'
             }}
           />
         </View>

@@ -30,14 +30,14 @@ export default function index({navigation,route:{params}}) {
         </Pressable>
         <Label
           text={String.review}
-          style={{fontWeight: '500', fontSize: scale(18) ,fontFamily : 'BOD_R'}}
+          style={{fontWeight: '500', fontSize: scale(18) ,fontFamily : 'serif'}}
         />
       </View>
 
       <View style={{paddingVertical: scale(20)}}>
         <Label
           text={title}
-          style={{fontWeight: '800', fontSize: scale(28) ,fontFamily : 'BOD_R'}}
+          style={{fontWeight: '800', fontSize: scale(28) ,fontFamily : 'serif'}}
         />
       </View>
 

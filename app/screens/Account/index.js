@@ -125,7 +125,7 @@ export default function index({navigation}) {
           <Feather name={icon} size={scale(22)} color={appColors.black} />
         </Pressable>
         <View style={styles.itemInnerContainer}>
-          <Label text={lebel} style={{fontFamily: 'BOD_R'}} />
+          <Label text={lebel} style={{fontFamily: 'serif'}} />
           {isNew && (
             <View
               style={{
@@ -139,7 +139,7 @@ export default function index({navigation}) {
                 style={{
                   fontSize: scale(10),
                   color: appColors.white,
-                  fontFamily: 'BOD_R',
+                  fontFamily: 'serif',
                 }}
               />
             </View>
@@ -168,11 +168,11 @@ export default function index({navigation}) {
         <View style={{marginLeft: scale(20)}}>
           <Label
             text={displayName}
-            style={{fontSize: scale(28), fontFamily: 'BOD_R'}}
+            style={{fontSize: scale(24), fontFamily: 'serif'}}
           />
           <Label
             text={email}
-            style={{fontSize: scale(12), fontFamily: 'BOD_R'}}
+            style={{fontSize: scale(11), fontFamily: 'serif'}}
           />
         </View>
       </View>
