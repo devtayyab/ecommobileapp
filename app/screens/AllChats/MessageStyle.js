@@ -48,17 +48,17 @@ export const UserInfoText = styled.View`
 export const UserName = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  fontFamily : 'BOD_R'
+  fontFamily : 'serif'
 `;
 
 export const PostTime = styled.Text`
   font-size: 12px;
   color: #666;
-  fontFamily : 'BOD_R'
+  fontFamily : 'serif'
 `;
 
 export const MessageText = styled.Text`
   font-size: 14px;
   color: #333333;
-  fontFamily : 'BOD_R'
+  fontFamily : 'serif'
 `;

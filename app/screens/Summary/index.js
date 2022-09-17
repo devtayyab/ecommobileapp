@@ -104,9 +104,9 @@ function index(props) {
             <View style={{}}>
               <Label
                 text={String.master}
-                style={{ fontSize: scale(13), opacity: scale(0.5) , fontFamily : 'BOD_R' }}
+                style={{ fontSize: scale(13), opacity: scale(0.5) , fontFamily : 'serif' }}
               />
-              <Label text="**** **** **** 1234" style={{ fontSize: scale(17)  , fontFamily : 'BOD_R'}} />
+              <Label text="**** **** **** 1234" style={{ fontSize: scale(17)  , fontFamily : 'serif'}} />
             </View>
             <CheckBox isChecked />
           </View>

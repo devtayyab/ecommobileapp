@@ -77,7 +77,7 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
                   <Icon />
                 </TouchableRipple>
                 <View style={{ marginTop: scale(15) }}>
-                  <Label text={label} style={{ fontSize: scale(14)  , fontFamily : 'BOD_R'}} />
+                  <Label text={label} style={{ fontSize: scale(14)  , fontFamily : 'serif'}} />
                 </View>
               </View>
             );
@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
   //   padding: 20,
   //   margin: 20,
   //   textAlign: 'center',
-  //   fontFamily : 'BOD_R'
+  //   fontFamily : 'serif'
   // },
   TitleText: {
     fontSize: 25,
     // padding: 20,
     marginVertical: 20,
-    fontFamily : 'BOD_R'
+    fontFamily : 'serif'
   },
   scrollContainer: {
     flex: 1,
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     fontSize: 30,
     marginVertical: 10,
-    fontFamily : 'BOD_R',
+    fontFamily : 'serif',
     fontWeight: 'bold'
   },
 });

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Amusoftech</string>
+	<string>Weekend</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -222,7 +222,7 @@
 		<string>BOD_B.TTF</string>
 		<string>BOD_BI.TTF</string>
 		<string>BOD_I.TTF</string>
-		<string>BOD_R.TTF</string>
+		<string>serif.TTF</string>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
 		<string>EvilIcons.ttf</string>

@@ -11,7 +11,7 @@ export default function index() {
         <>
         <Container isScrollable>
             <ScreenHeader label={String.shipaddress}  /> 
-            <SelectAble  item={{label:'Amusoftech Home',subLabel:"A-127, Mittal Paradise, Shivalik City, Sahibzada Ajit Singh Nagar, Punjab 140301"}}  />
+            <SelectAble  item={{label:'Weekend Home',subLabel:"A-127, Mittal Paradise, Shivalik City, Sahibzada Ajit Singh Nagar, Punjab 140301"}}  />
             <SelectAble  item={{label:String.waddress,subLabel:"A-127, Mittal Paradise, Shivalik City, Sahibzada Ajit Singh Nagar, Punjab 140301"}}  />
 
             

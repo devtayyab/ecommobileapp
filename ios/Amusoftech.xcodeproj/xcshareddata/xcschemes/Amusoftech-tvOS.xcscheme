@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "Amusoftech-tvOS.app"
-               BlueprintName = "Amusoftech-tvOS"
-               ReferencedContainer = "container:Amusoftech.xcodeproj">
+               BuildableName = "Weekend-tvOS.app"
+               BlueprintName = "Weekend-tvOS"
+               ReferencedContainer = "container:Weekend.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "Amusoftech-tvOSTests.xctest"
-               BlueprintName = "Amusoftech-tvOSTests"
-               ReferencedContainer = "container:Amusoftech.xcodeproj">
+               BuildableName = "Weekend-tvOSTests.xctest"
+               BlueprintName = "Weekend-tvOSTests"
+               ReferencedContainer = "container:Weekend.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Amusoftech-tvOS.app"
-            BlueprintName = "Amusoftech-tvOS"
-            ReferencedContainer = "container:Amusoftech.xcodeproj">
+            BuildableName = "Weekend-tvOS.app"
+            BlueprintName = "Weekend-tvOS"
+            ReferencedContainer = "container:Weekend.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "Amusoftech-tvOS.app"
-            BlueprintName = "Amusoftech-tvOS"
-            ReferencedContainer = "container:Amusoftech.xcodeproj">
+            BuildableName = "Weekend-tvOS.app"
+            BlueprintName = "Weekend-tvOS"
+            ReferencedContainer = "container:Weekend.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

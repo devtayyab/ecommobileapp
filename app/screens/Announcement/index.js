@@ -54,10 +54,10 @@ export default function Announcement({navigation}) {
           style={{
             alignItems: 'center',
             textAlign: 'center',
-            fontSize: 28,
+            fontSize: 24,
             fontWeight: 'bold',
             color: appColors.primary,
-            fontFamily: 'BOD_R',
+            fontFamily: 'serif',
             marginBottom:20
           }}>
           {String.announcement}
@@ -69,16 +69,16 @@ export default function Announcement({navigation}) {
               <View>
                 <Label
                   text={item.title}
-                  style={{fontSize: scale(28), fontFamily: 'BOD_R'}}
+                  style={{fontSize: scale(24), fontFamily: 'serif'}}
                 />
                 <View>
                   <Label
                     text={item.price}
-                    style={{fontSize: scale(16), fontFamily: 'BOD_R'}}
+                    style={{fontSize: scale(14), fontFamily: 'serif'}}
                   />
                   <Label
                     text={item.brand}
-                    style={{fontSize: scale(16), fontFamily: 'BOD_R'}}
+                    style={{fontSize: scale(12), fontFamily: 'serif'}}
                   />
                 </View>
               </View>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: appColors.primary,
-    fontFamily: 'BOD_R',
+    fontFamily: 'serif',
     // fontSize: scale(20)
   },
   design: {
