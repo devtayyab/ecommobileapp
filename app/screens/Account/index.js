@@ -1,25 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, Pressable, FlatList, Image} from 'react-native';
-import {scale} from 'react-native-size-matters';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Pressable, FlatList, Image, ToastAndroid } from 'react-native';
+import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Feather from 'react-native-vector-icons/Feather';
-import {appColors} from '../../utils/appColors';
+import { appColors } from '../../utils/appColors';
 import Label from '../../components/Label';
-import {profileKeys} from '../../utils/MockData';
+import { profileKeys } from '../../utils/MockData';
 import AvatarImage from '../../components/AvatarImage';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
-
 //auth().signOut()
-export default function index({navigation}) {
+
+export default function index({ navigation }) {
   const [userdata, setUserData] = useState({});
   const [users, setusers] = useState([]);
-  const [imageUri, setImageUri] = useState({
-      name : '' ,
-  });
+  const [imageUri, setImageUri] = useState();
 
   const getData = async () => {
     try {
@@ -34,8 +32,6 @@ export default function index({navigation}) {
 
   const getuser = async () => {
     const user = await firestore().collection('users').get();
-    // console.log(product.docs);
-    // console.log(product.size);
     const value = user.docs.map((doc) => {
       return {
         rid: doc.id,
@@ -43,9 +39,14 @@ export default function index({navigation}) {
       };
     });
 
-    let specUsers = value.filter((item) => item.uid == userdata.uid);
+    const useras = await AsyncStorage.getItem('user');
+    const Data = JSON.parse(useras);
+    let specUsers = value.filter((item) => item.uid == Data.uid);
 
     setusers(specUsers);
+    setImageUri({
+      uri: specUsers[0]?.photoURL
+    })
 
     return specUsers;
   };
@@ -57,18 +58,20 @@ export default function index({navigation}) {
       console.log(e);
     }
   };
-
-  useEffect(async () => {
-    getData();
-    const res = await getuser();
-    AsyncStorage.setItem('user', res[0]);
-    setusers(res);
-  }, []);
-
   const email = userdata?.email;
   const displayName = userdata?.displayName;
   const imgUri = userdata?.photoURL;
+  useEffect(async () => {
+    getData();
+    const res = await getuser();
+    // setImageUri({
+    //   name: displayName,
+    //   uri: imgUri
+    // })
+  }, []);
 
+
+  console.log('iidnsm', imgUri)
   const onLogout = () => {
     auth().signOut();
     removeUser();
@@ -92,28 +95,38 @@ export default function index({navigation}) {
       } else if (response.customButton) {
         console.log('User Tapped custom button', response.customButton);
       } else {
-        const source = {uri: response?.uri};
+        const source = { uri: response?.uri };
+        console.log(response)
         setImageUri({
           uri: response?.assets[0]?.uri,
           name: response?.assets[0]?.fileName,
         });
-
-        const refrence = storage().ref(`images/${imageUri?.name}`);
-        refrence.putFile(imageUri.uri).then(async (res) => {
-          await refrence.getDownloadURL().then((res) => {
-            console.log('Image Url', res);
-            firestore()
-              .collection('users')
-              .doc(users?.rid)
-              .update({photoURL: res});
-          });
-        });
+        Putimage({
+          uri: response?.assets[0]?.uri,
+          name: response?.assets[0]?.fileName,
+        })
       }
     });
+
+
   };
+
+  const Putimage = async (imageUri) => {
+    console.log('imageuri ', imageUri)
+    const refrence = storage().ref(`images/${imageUri?.name}`);
+    await refrence.putFile(imageUri?.uri)
+    await refrence.getDownloadURL().then((res) => {
+      console.log('Image Url', res);
+      console.log('rid', users[0]?.rid)
+      firestore()
+        .collection('users')
+        .doc(users[0]?.rid)
+        .update({ photoURL: res }).then((res) => console.log('Image Changed'))
+    })
+  }
   // users.length > 0 && console.log(users[0]);
-   const ItemCard = ({item}) => {
-    const {lebel, icon, isNew, route} = item;
+  const ItemCard = ({ item }) => {
+    const { lebel, icon, isNew, route } = item;
     return (
       <Pressable
         onPress={() => {
@@ -125,7 +138,7 @@ export default function index({navigation}) {
           <Feather name={icon} size={scale(22)} color={appColors.black} />
         </Pressable>
         <View style={styles.itemInnerContainer}>
-          <Label text={lebel} style={{fontFamily: 'serif'}} />
+          <Label text={lebel} style={{ fontFamily: 'serif' }} />
           {isNew && (
             <View
               style={{
@@ -149,7 +162,7 @@ export default function index({navigation}) {
       </Pressable>
     );
   };
-  console.log(imageUri);
+
   return (
     <Container>
       <View
@@ -162,24 +175,24 @@ export default function index({navigation}) {
         {/* <AvatarImage size={scale(110)} /> */}
         <View style={styles.imageContainer}>
           <Pressable onPress={uploadImage}>
-            <Image style={styles.image} source={{uri: imageUri?.uri}} />
+            <Image style={styles.image} source={{ uri: imageUri?.uri }} />
           </Pressable>
         </View>
-        <View style={{marginLeft: scale(20)}}>
+        <View style={{ marginLeft: scale(20) }}>
           <Label
             text={displayName}
-            style={{fontSize: scale(24), fontFamily: 'serif'}}
+            style={{ fontSize: scale(24), fontFamily: 'serif' }}
           />
           <Label
             text={email}
-            style={{fontSize: scale(11), fontFamily: 'serif'}}
+            style={{ fontSize: scale(11), fontFamily: 'serif' }}
           />
         </View>
       </View>
       <FlatList
         data={profileKeys}
         showsVerticalScrollIndicator={false}
-        renderItem={({item, index}) => <ItemCard key={index} item={item} />}
+        renderItem={({ item, index }) => <ItemCard key={index} item={item} />}
       />
     </Container>
   );
