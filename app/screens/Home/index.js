@@ -45,13 +45,12 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
   };
   return (
     <Container isScrollable style={styles.container}> 
-
+      <View style={{display:'flex',flexDirection:'row',justifyContent:'flex-end'}}>
+        <View></View>
       <Text style={styles.appName}>{String.weekend}</Text>
-      
-      
       <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+      </View>
 
-      {/* <SearchBox onFoucs={() => navigation.navigate('Search')} /> */}
       <View style={{ paddingVertical: scale(0) }}>
         <RenderTitle heading={String.category} />
         <FlatList
@@ -144,8 +143,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: appColors.primary,
     fontSize: 30,
-    marginVertical: 10,
+    // marginVertical: 10,
     fontFamily : 'serif',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    paddingTop:10,
+    paddingRight:30
   },
 });
