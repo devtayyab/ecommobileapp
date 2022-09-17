@@ -60,7 +60,7 @@ export default function Announcement({navigation}) {
             fontFamily: 'serif',
             marginBottom:20
           }}>
-          {String.announcement}
+          {String.weekend}
         </Text>
         {product.map((item, index) => {
           return (

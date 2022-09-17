@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {launchImageLibrary} from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
+import String from '../../language/LocalizedString';
 
 //auth().signOut()
 export default function index({navigation}) {
@@ -152,6 +153,7 @@ export default function index({navigation}) {
   console.log(imageUri);
   return (
     <Container>
+      <Text style={styles.appName}>{String.weekend}</Text>
       <View
         style={{
           paddingVertical: scale(20),
@@ -215,5 +217,13 @@ const styles = StyleSheet.create({
     padding: scale(10),
     marginRight: scale(20),
     backgroundColor: appColors.lightGreen,
+  },
+  appName: {
+    textAlign: 'center',
+    color: appColors.primary,
+    fontSize: 30,
+    marginVertical: 10,
+    fontFamily : 'serif',
+    fontWeight: 'bold'
   },
 });

@@ -234,6 +234,7 @@ export default function Add({navigation,route: { params }}) {
   return (
     <View style={styles.main}>
       <ScrollView>
+      <Text style={styles.appName}>{String.weekend}</Text>
 
         <View style={styles.imageContainer}>
           <Image
@@ -362,5 +363,13 @@ const styles = StyleSheet.create({
   icon: {
     paddingLeft: 10,
     paddingTop: 60,
+  },
+  appName: {
+    textAlign: 'center',
+    color: appColors.primary,
+    fontSize: 30,
+    marginVertical: 10,
+    fontFamily : 'serif',
+    fontWeight: 'bold'
   },
 });

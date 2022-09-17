@@ -1,6 +1,8 @@
-import { View, Text, } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React, { useState, useLayoutEffect } from 'react'
 import firestore from '@react-native-firebase/firestore';
+import {appColors} from '../../utils/appColors';
+import String from '../../language/LocalizedString';
 import {
     Container,
     Card,
@@ -31,6 +33,7 @@ export default function AllChats({navigation}) {
     console.log('users', users)
     return (
         <Container>
+          <Text style={styles.appName}>{String.weekend}</Text>
             {/* <Text>Hello</Text> */}
             {users.map((user) =>
                 // <View>
@@ -55,3 +58,13 @@ export default function AllChats({navigation}) {
         </Container>
     )
 }
+const styles = StyleSheet.create({
+  appName: {
+    textAlign: 'center',
+    color: appColors.primary,
+    fontSize: 30,
+    marginVertical: 10,
+    fontFamily : 'serif',
+    fontWeight: 'bold'
+  },
+});
