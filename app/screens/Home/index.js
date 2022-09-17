@@ -19,36 +19,43 @@ import NativeAdView from 'react-native-admob-native-ads';
 import { ANDROID_FULL_PAGE_AD_ID } from '../../utils/appConfig';
 import useListners from '../../hooks/useListners';
 import String from '../../language/LocalizedString';
+import { LangChange } from '../../components/LangChange';
+
 
 
 function Home({ getProducts$, getProductsList$, addToCart$, navigation, products: { products } }) {
   const nativeAdViewRef = useRef();
-  const [lngs, setlng] = useState(false)
+  const [lngs, setlng] = useState('')
 
   useEffect(() => {
     nativeAdViewRef.current?.loadAd();
-    getProductsList$()
-  }, [nativeAdViewRef]);
+    getProductsList$();
+
+  }, [nativeAdViewRef]);  
+  
 
   const RenderTitle = ({ heading, rightLabel }) => {
     return <TitleComp heading={heading} rightLabel={rightLabel} />;
   };
   const ProductCard = ({ item }) => {
-    return <Product navigation={navigation} item={item} />;
+    return <Product navigation={navigation} item={item} />; 
   };
   const onPress = () => {
     console.warn('i am clicked');
   };
   return (
-    <Container isScrollable style={styles.container}>
+    <Container isScrollable style={styles.container}> 
 
       <Text style={styles.appName}>{String.weekend}</Text>
+      
+      
+      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
 
       {/* <SearchBox onFoucs={() => navigation.navigate('Search')} /> */}
       <View style={{ paddingVertical: scale(0) }}>
         <RenderTitle heading={String.category} />
         <FlatList
-          style={{ marginTop: scale(40) }}
+          style={{ marginTop: scale(40) }} 
           showsHorizontalScrollIndicator={false}
           horizontal
           data={categoriesList}

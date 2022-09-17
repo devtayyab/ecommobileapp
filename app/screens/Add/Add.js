@@ -266,7 +266,7 @@ export default function Add({navigation,route: { params }}) {
               {label: 'Unisex', value: 'UniSex'},
             ]}
             placeholder={String.choseCat}
-            isRequired
+            isRequired 
             selectedValue={category}
             onSelection={(item) => setCategory(item.value)}
           />
