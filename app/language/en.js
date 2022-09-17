@@ -76,10 +76,6 @@ export default {
     order:"Orders",
     skip:"Skip",
     next:'Next',
-<<<<<<< HEAD
-=======
-    foodlove:'Find your signature fragrance',
->>>>>>> 495a78addc90c5099c77e43d7c717ef0fb9f387e
     enjoy:'So You Can Enjoy',
     diliver:'Delivered To You',
     trackorder:'Track Order',
