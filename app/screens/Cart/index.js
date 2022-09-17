@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Image, Pressable , StyleSheet} from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import Label from '../../components/Label';
@@ -60,7 +60,9 @@ function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$,
     <>
       <Container >
 
+        <Text style={styles.appName}>{String.weekend}</Text>
         <View style={{ flex: 1, paddingVertical: scale(30) }}>
+
           <SwipeListView
             ListEmptyComponent={() => <Empty label={String.emptyCart} />}
             showsVerticalScrollIndicator={false}
@@ -130,3 +132,14 @@ const mapDispatchToProps = {
 
 export default connect(mapStateToProps, mapDispatchToProps)(index); */
 export default ReduxWrapper(index)
+
+const styles = StyleSheet.create({
+  appName: {
+    textAlign: 'center',
+    color: appColors.primary,
+    fontSize: 30,
+    marginVertical: 10,
+    fontFamily : 'serif',
+    fontWeight: 'bold'
+  },
+});
