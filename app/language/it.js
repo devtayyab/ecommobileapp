@@ -9,7 +9,7 @@ export default {
     fpassword :  "Dimenticare la password",
     signin :  "REGISTRAZIONE",
     or :  "O",
-    weekend :  "Fine settimana",
+    weekend :  "WeekEnd",
     category :  "Categorie",
     men :  "Uomini",
     women :  "Donne",
