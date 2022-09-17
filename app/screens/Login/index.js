@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, Platform } from 'react-native';
+import { View, Text, Pressable, Platform , StyleSheet,} from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Container from '../../components/Container';
 import CustomInput from '../../components/CustomInput';
@@ -145,9 +145,10 @@ function index({ getProductsList$, loginUser$, navigation }) {
 
   return (
     <Container isScrollable>
+      <Text style={styles.appName}>{String.weekend}</Text>
       <View
         style={{
-          marginTop: scale(50),
+          marginTop: scale(10),
           backgroundColor: appColors.white,
           ...shadow,
           padding: scale(15),
@@ -252,3 +253,16 @@ function index({ getProductsList$, loginUser$, navigation }) {
 }
 
 export default ReduxWrapper(index);
+
+
+const styles = StyleSheet.create({
+
+  appName: {
+    textAlign: 'center',
+    color: appColors.primary,
+    fontSize: 30,
+    marginVertical: 10,
+    fontFamily : 'serif',
+    fontWeight: 'bold'
+  },
+});
