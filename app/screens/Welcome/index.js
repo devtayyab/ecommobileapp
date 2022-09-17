@@ -26,7 +26,7 @@ export default function index({ navigation }) {
 
   return (
     <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
-      <Text style={{ fontFamily: 'BOD_R' }}>{String.welcomeTo}</Text>
+      <Text style={{ fontFamily: 'serif' }}>{String.welcomeTo}</Text>
 
 
     </View>

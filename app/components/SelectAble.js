@@ -17,7 +17,7 @@ export default function SelectAble({selected,onSelect,item}) {
             alignItems: 'center',
           }}>
           <View style={{flex: 1, paddingVertical:scale(10)}}>
-            <Label text={subLabel}  style={{fontSize:scale(13) , fontFamily : 'BOD_R'}} />
+            <Label text={subLabel}  style={{fontSize:scale(13) , fontFamily : 'serif'}} />
           </View>
           <View style={{flex: 1, alignItems: 'flex-end'}}>
             <CheckBox onPress={()=>onSelect && onSelect(item)}  isChecked={selected}  />

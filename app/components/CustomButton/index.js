@@ -52,15 +52,15 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: scale(10),
     paddingHorizontal: scale(50),
-    fontFamily : 'BOD_R'
+    fontFamily : 'serif'
   },
   label: {
     fontSize: scale(16),
     fontWeight: '300',
-    fontFamily: 'BOD_R',
+    fontFamily: 'serif',
     color: appColors.white,
     letterSpacing: scale(2),
-    fontFamily : 'BOD_R'
+    fontFamily : 'serif'
   },
   unFilled: {
     backgroundColor: 'transparent',

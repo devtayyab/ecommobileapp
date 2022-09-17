@@ -39,7 +39,7 @@ function index({products:{products}, productList,navigation, route: {params}}) {
 
         <Label
           text={params.item.label}
-          style={{fontWeight: '500', fontSize: scale(22) , fontFamily : 'BOD_R'}}
+          style={{fontWeight: '500', fontSize: scale(22) , fontFamily : 'serif'}}
         />
 
         <View
@@ -64,8 +64,8 @@ function index({products:{products}, productList,navigation, route: {params}}) {
             <Ionicons name={icon} size={scale(25)} color={appColors.white} />
         </View>
         <View>
-          <Label text={label}  style={{fontSize:scale(18), fontWeight:"600" , fontFamily : 'BOD_R' }}/> 
-          <Label text={products} style={{fontSize:scale(14), opacity:scale(.4),marginTop:scale(5) , fontFamily : 'BOD_R'}}/>
+          <Label text={label}  style={{fontSize:scale(18), fontWeight:"600" , fontFamily : 'serif' }}/> 
+          <Label text={products} style={{fontSize:scale(14), opacity:scale(.4),marginTop:scale(5) , fontFamily : 'serif'}}/>
         </View>
       </View>
     );

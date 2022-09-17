@@ -13,7 +13,7 @@ const ScreenTwo = ({ navigation }) => {
             </View>
             <View style={styles.radioView}>
                 <View>
-                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>{String.diliver}</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold", fontFamily: 'serif' }}>{String.diliver}</Text>
                 </View>
                 <View style={styles.radioButtonsMain}>
                     <View style={styles.radioBox}></View>
@@ -27,7 +27,7 @@ const ScreenTwo = ({ navigation }) => {
                 </View>
                 <View>
                     <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-                        <Text style={{ fontSize: 18, color: "#999999" }}>{String.skip}</Text>
+                        <Text style={{ fontSize: 18, color: "#999999", fontFamily: 'serif' }}>{String.skip}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
         paddingRight: 130,
         paddingTop: 10,
         paddingBottom: 10,
-        borderRadius: 50
+        borderRadius: 50, 
+        fontFamily: 'serif',
     }
 })
