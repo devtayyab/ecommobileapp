@@ -40,7 +40,7 @@ export const LangChange = ({lngs, setlng}) => {
    
   return (
     <SafeAreaView style={{margin: 10}}>
-      <Picker
+      <Picker styles={{bac}}
             items={[
               {label: 'English', value: 'en'},
               {label: 'Italian', value: 'it'},
@@ -50,23 +50,6 @@ export const LangChange = ({lngs, setlng}) => {
             selectedValue={lngs}
             onSelection={(item) => {onChangeLanguage(item.value);}}
             />
-      {/* <Text style={{fontSize: 20, textAlign: 'center',marginTop:10}}>App Language</Text>
-      <View style={styles.btns}>
-        <CustomButton
-          onPress={() => {
-            onChangeLanguage('en');
-            navigation.goBack();
-          }}
-          label="English"
-        />
-        <CustomButton
-          onPress={() => {
-            onChangeLanguage('it');
-            navigation.goBack();
-          }}
-          label="Italian" 
-        />  
-      </View> */}
     </SafeAreaView> 
   );
 };

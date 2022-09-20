@@ -16,7 +16,7 @@ import writeData from '../../utils/writeData';
 import ReduxWrapper from '../../utils/ReduxWrapper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
-
+import {LangChange} from '../../components/LangChange'
 GoogleSignin.configure({
   webClientId: '814196118506-ru27brd2ej6r0m9dd0d6isoir2s7mqr7.apps.googleusercontent.com',
 })
@@ -145,7 +145,11 @@ function index({ getProductsList$, loginUser$, navigation }) {
 
   return (
     <Container isScrollable>
+      <View style={{display:'flex',flexDirection:'row',justifyContent:'flex-end'}}>
+      <View></View>
       <Text style={styles.appName}>{String.weekend}</Text>
+      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+      </View>
       <View
         style={{
           marginTop: scale(10),

@@ -48,7 +48,7 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
       <View style={{display:'flex',flexDirection:'row',justifyContent:'flex-end'}}>
         <View></View>
       <Text style={styles.appName}>{String.weekend}</Text>
-      <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} />
+      {/* <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} /> */}
       </View>
 
       <View style={{ paddingVertical: scale(0) }}>

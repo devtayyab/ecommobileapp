@@ -78,7 +78,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <ImageBackground
             style={{ height: scale(400), width: '100%' }}
             resizeMode="cover"
-            source={{ uri: imageuri }}>
+            source={{ uri: imageuri[0]}}>
             <View
               style={{
                 marginTop: scale(40),
