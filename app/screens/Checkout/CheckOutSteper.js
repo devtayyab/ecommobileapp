@@ -42,25 +42,35 @@ export default function CheckOutSteper({ navigation }) {
   const [dileveryMethod, setDileveryMethod] = useState('Cash On Delivery')
 
   const onFinish = () => {
-    dispatch(AddOrderDetail({
-      address: address,
-      cardinfo: cardinfo,
-      product: products,
-      dileveryMethod: dileveryMethod
-    }))
-    writeData('Orders', {
-      address: address,
-      cardinfo: cardinfo,
-      products: products,
-      dileveryMethod: dileveryMethod,
-      buyer: user
-    })
-    if (dileveryMethod == 'Cash On Delivery') {
-      AlertHelper.show('success', 'Your Order Placed Successfully');
-      navigation.navigate('Home');
-
-    } else {
-      navigation.navigate("Summary")
+    if ((!address.street1.trim())||(!address.street2.trim())||(!address.city.trim())||(!address.state.trim())||(!address.country.trim())) {
+      alert("All fields are required")
+    }
+    else{
+      dispatch(AddOrderDetail({
+        address: address,
+        cardinfo: cardinfo,
+        product: products,
+        dileveryMethod: dileveryMethod
+      }))
+      writeData('Orders', {
+        address: address,
+        cardinfo: cardinfo,
+        products: products,
+        dileveryMethod: dileveryMethod,
+        buyer: user
+      })
+      if (dileveryMethod == 'Cash On Delivery') {
+        AlertHelper.show('success', 'Your Order Placed Successfully');
+        setAddress({street1: '',
+        street2: '',
+        city: '',
+        state: '',
+        country: ''})
+        navigation.navigate('Home');
+  
+      } else {
+        navigation.navigate("Summary")
+      }
     }
 
 

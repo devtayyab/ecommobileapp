@@ -39,7 +39,7 @@ export default function index({ navigation }) {
               <CheckOutItem
                 noBg
                 name={item.name}
-                imageuri={item.imageuri}
+                imageuri={item.imageuri[0]}
                 price={item.price}
                 itemQuantity={item.itemQuantity}
               />
@@ -75,7 +75,7 @@ export default function index({ navigation }) {
             <Label text={getAmount()} style={{ fontWeight: '800' , fontFamily : 'serif' }} />
           </View>
 
-          <View
+          {/* <View
             style={{
               paddingVertical: scale(20),
               paddingHorizontal: scale(20),
@@ -96,10 +96,10 @@ export default function index({ navigation }) {
               }}
             />
             <Label text="$40" style={{ fontWeight: '800' , fontFamily : 'serif' }} />
-          </View>
+          </View> */}
         </View>
 
-        <View style={{ flex: 1, paddingHorizontal: scale(20) }}>
+        {/* <View style={{ flex: 1, paddingHorizontal: scale(20) }}>
           <View
             style={{
               borderRadius: scale(5),
@@ -115,7 +115,7 @@ export default function index({ navigation }) {
             <TextInput placeholder="Enter Voucher Code" style={{ flex: 1, fontSize: scale(16) }} />
             <Label text="APPLY" />
           </View>
-        </View>
+        </View> */}
 
         <View
           style={{

@@ -54,7 +54,7 @@ function index({ wishList: { wishItemNames }, removeToWishList$, addToWishList$,
   const ItemCard = ({ item }) => {
     // console.log(item.imageuri);
     const { title, description, price, imageuri, itemQuantity } = item;
-    return (<CheckOutItem name={title} imageuri={imageuri} price={price} itemQuantity={itemQuantity} />);
+    return (<CheckOutItem name={title} imageuri={imageuri[0]} price={price} itemQuantity={itemQuantity} />);
   };
   return (
     <>

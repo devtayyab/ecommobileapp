@@ -78,8 +78,8 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
           <ImageBackground
             style={{ height: scale(400), width: '100%' }}
             resizeMode="cover"
-            source={{ uri: imageuri[0]}}>
-            <View
+            source={{ uri: imageuri[5] }}>
+            {/* <View
               style={{
                 marginTop: scale(40),
                 paddingHorizontal: scale(20),
@@ -107,7 +107,7 @@ function index({ wishList: { wishItemNames }, cart: { cartItems }, addToWishList
                 }}>
                 <Feather name="star" size={scale(20)} color={wishItemNames?.includes(name) ? appColors.primary : appColors.black} />
               </Pressable>
-            </View>
+            </View> */}
           </ImageBackground>
         </View>
         <View style={{ paddingHorizontal: scale(20), marginBottom: scale(100) }}>
