@@ -7,6 +7,7 @@ import {
   NativeModules,
   Text,
   Pressable,
+  ActivityIndicator
 } from 'react-native';
 import {
   Form,
@@ -18,27 +19,27 @@ import {
 import storage from '@react-native-firebase/storage';
 
 // import storage from '@react-native-firebase/storage';
-import React, {useState, useEffect} from 'react';
-import {appColors} from '../../utils/appColors';
+import React, { useState, useEffect } from 'react';
+import { appColors } from '../../utils/appColors';
 import Feather from 'react-native-vector-icons/dist/Feather';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import firestore from '@react-native-firebase/firestore';
 import uuid from 'react-native-uuid';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Checkbox} from 'react-native-paper';
+import { Checkbox } from 'react-native-paper';
 // import CheckBox from '../../components/CheckBox';
-import {LangChange} from '../../components/LangChange';
+import { LangChange } from '../../components/LangChange';
 import String from '../../language/LocalizedString';
 
 var ImagePicker = NativeModules.ImageCropPicker;
 
-export default function Add({navigation,route: { params }}) {
+export default function Add({ navigation, route: { params } }) {
   const [lngs, setlng] = useState(false);
 
   const [title, setTitle] = useState('');
   // const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
-
+  const [loading, setLoadig] = useState(false)
   const [brand, setBrand] = useState('');
   const [quantity, setQuantity] = useState('');
   const [concentration, setConcentration] = useState('');
@@ -129,30 +130,27 @@ export default function Add({navigation,route: { params }}) {
       }
     })
   }
-  const Submit = async () => {
-    
+  const allurls = []
+  const uploadFunc = async (imag) => {
+    const refrence = storage().ref(`images/${imag?.name}`)
+    await refrence.putFile(imag?.uri).then(async (res) => {
+      console.log("Image Uploaded", res.metadata.fullPath);
+      const url = await refrence.getDownloadURL()
+      allurls.push(url)
+      return url
+    })
+  }
+  const Submit = () => {
+    setLoadig(true)
 
     try {
       const id = uuid.v4();
-      let myprom = new Promise((myResolve, myReject) => {
-        const allurl = []
-      const img =   imageUri.map(async (imag) => {
-          const refrence = storage().ref(`images/${imag?.name}`)
-          await refrence.putFile(imag?.uri).then(async (res) => {
-            console.log("Image Uploaded", res.metadata.fullPath);
-            const url = await refrence.getDownloadURL()
-            allurl.push(url)
-            return url
-          })
-        })
-        if (img?.length > 0){
-          myResolve(allurl)
-        }
 
-      })
-      myprom.then((res) => {
-        console.log(res)
-        console.log('ruunning')
+
+      Promise.all(
+        imageUri.map((img) => uploadFunc(img))
+
+      ).then(() =>
         firestore()
           .collection('Products')
           .add({
@@ -166,9 +164,11 @@ export default function Add({navigation,route: { params }}) {
             concentration,
             price,
             description,
-            imageuri: allurl,
+            imageuri: allurls,
           })
           .then((res) => {
+
+            console.log('allurls ', allurls)
             console.log("Product Added", res);
             console.log('Products added!');
             setBrand('');
@@ -181,60 +181,34 @@ export default function Add({navigation,route: { params }}) {
             setQuantity('');
             setTitle('');
 
-
+            setLoadig(false)
           }
           ).catch((error) => {
             console.log(error);
+            setLoadig(false)
           })
+
+
+
+
+      ).catch((error) => {
+        console.log(error)
       })
-
-      // const refrence = storage().ref(`images/${imageUri?.name}`)
-      // refrence.putFile(imageUri?.uri).then(async (res) => {
-      //   console.log("Image Uploaded", res.metadata.fullPath);
-
-      //     firestore()
-      //       .collection('Products')
-      //       .add({
-      //         id: id,
-      //         productSellerId: sellerId,
-      //         title,
-      //         gender,
-      //         category,
-      //         brand,
-      //         quantity,
-      //         concentration,
-      //         price,
-      //         description,
-      //         imageuri: allurl,
-      //       })
-      //       .then((res) => {
-      //         console.log("Product Added", res);
-      //         console.log('Products added!');
-      //         setBrand('');
-      //         setCategory('');
-      //         setConcentration('');
-      //         setDescription('');
-      //         setGender('');
-      //         setImageUri('');
-      //         setPrice('');
-      //         setQuantity('');
-      //         setTitle('');
-
-      //       });
-      //   }
-      //     ).catch ((error) => {
-      //   console.log(error);
-      // })
     } catch (error) {
       console.log(error)
     }
-    
+
   };
 
   return (
     <View style={styles.main}>
+      {loading && <View style={[styles.container, styles.horizontal]}>
+
+        <ActivityIndicator size="large" />
+
+      </View>}
       <ScrollView>
-      <Text style={styles.appName}>{String.weekend}</Text>
+        <Text style={styles.appName}>{String.weekend}</Text>
 
         <View style={styles.imageContainer}>
           <Image
@@ -252,7 +226,7 @@ export default function Add({navigation,route: { params }}) {
         </View>
         <Form
           buttonText={String.addproduct}
-          buttonStyle={{backgroundColor: appColors.primary}}
+          buttonStyle={{ backgroundColor: appColors.primary }}
           onButtonPress={() => Submit()}>
           <FormItem
             isRequired
@@ -262,12 +236,12 @@ export default function Add({navigation,route: { params }}) {
           />
           <Picker
             items={[
-              {label: String.men, value: 'men'},
-              {label: String.women, value: 'women'},
-              {label: 'Unisex', value: 'UniSex'},
+              { label: String.men, value: 'men' },
+              { label: String.women, value: 'women' },
+              { label: 'Unisex', value: 'UniSex' },
             ]}
             placeholder={String.choseCat}
-            isRequired 
+            isRequired
             selectedValue={category}
             onSelection={(item) => setCategory(item.value)}
           />
@@ -280,15 +254,15 @@ export default function Add({navigation,route: { params }}) {
 
           <Picker
             items={[
-              {label: '0/15ml', value: '0/15ml'},
-              {label: '15/30ml', value: '15/30ml'},
-              {label: '30/50ml', value: '30/50ml'},
-              {label: '50/70ml', value: '50/70ml'},
-              {label: '70/100ml', value: '70/100ml'},
-              {label: '100/150ml', value: '100/150ml'},
-              {label: '150/200ml', value: '150/200ml'},
-              {label: '200ml', value: '200ml'},
-              {label: String.other, value: 'Other'},
+              { label: '0/15ml', value: '0/15ml' },
+              { label: '15/30ml', value: '15/30ml' },
+              { label: '30/50ml', value: '30/50ml' },
+              { label: '50/70ml', value: '50/70ml' },
+              { label: '70/100ml', value: '70/100ml' },
+              { label: '100/150ml', value: '100/150ml' },
+              { label: '150/200ml', value: '150/200ml' },
+              { label: '200ml', value: '200ml' },
+              { label: String.other, value: 'Other' },
             ]}
             placeholder={String.quantity}
             isRequired
@@ -297,10 +271,10 @@ export default function Add({navigation,route: { params }}) {
           />
           <Picker
             items={[
-              {label: 'eau de cologne', value: 'eau de cologne'},
-              {label: 'eau de toilette', value: 'eau de toilette'},
-              {label: 'eau de parfume', value: 'eau de parfume'},
-              {label: String.other, value: 'Other'},
+              { label: 'eau de cologne', value: 'eau de cologne' },
+              { label: 'eau de toilette', value: 'eau de toilette' },
+              { label: 'eau de parfume', value: 'eau de parfume' },
+              { label: String.other, value: 'Other' },
             ]}
             placeholder={String.concentration}
             isRequired
@@ -321,9 +295,9 @@ export default function Add({navigation,route: { params }}) {
             onChangeText={(e) => setDescription(e)}
             textArea
           />
-          <View style={{display: 'flex', flexDirection: 'row'}}>
+          <View style={{ display: 'flex', flexDirection: 'row' }}>
             <Checkbox
-            color='blue'
+              color='blue'
               status={checked ? 'checked' : 'unchecked'}
               onPress={() => {
                 setChecked(!checked);
@@ -332,11 +306,11 @@ export default function Add({navigation,route: { params }}) {
             <Text>
               {String.accept}
               <Pressable
-              style={{paddingTop:5}}
+                style={{ paddingTop: 5 }}
                 onPress={() => {
                   navigation.navigate('Terms');
                 }}>
-                <Text style={{color: appColors.primary,marginTop:5}}>{String.terms}</Text>
+                <Text style={{ color: appColors.primary, marginTop: 5 }}>{String.terms}</Text>
               </Pressable>
             </Text>
           </View>
@@ -369,7 +343,16 @@ const styles = StyleSheet.create({
     color: appColors.primary,
     fontSize: 30,
     marginVertical: 10,
-    fontFamily : 'serif',
+    fontFamily: 'serif',
     fontWeight: 'bold'
   },
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
+  }
 });

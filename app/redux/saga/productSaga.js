@@ -26,12 +26,13 @@ export function* workerGetProducts(action) {
     // console.log({URL});
     // getProducts().then(res => console.log(res))
     const data = yield getProducts();
+    const finalvalue = data.filter((item) => item?.category != (action.payload).toLowerCase())
 
 
 
 
     // const result = yield RequestMake(URL)    
-    yield put({ type: SET_PRODUCTS, payload: data })
+    yield put({ type: SET_PRODUCTS, payload: finalvalue })
   }
 }
 export function* watcherGetProducts() {
