@@ -6362,6 +6362,11 @@ react-native-fbsdk-next@^10.1.0:
     "@expo/config-plugins" "^4.1.5"
     xml2js "^0.4.23"
 
+react-native-flatlist-slider@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-flatlist-slider/-/react-native-flatlist-slider-1.0.6.tgz#46b26e6d1b357f1934b3e4157cf3da2ad8a57596"
+  integrity sha512-F1C87eGIte9nfBU/MyNI6OOVKR/uCwFMrjVGv2j5u0LZjBm2WoEso96kPF2j0PIG8+XerD7Y2pmtGdCMCWxtcA==
+
 react-native-form-component@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/react-native-form-component/-/react-native-form-component-2.4.0.tgz#e7dffed85c26f888c34c23dbcb044ae2a7012262"
