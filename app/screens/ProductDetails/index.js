@@ -43,14 +43,6 @@ function index({
   } = params.item;
 
 
-  // const images = [
-  //   {
-  //    image:'https://images.unsplash.com/photo-1567226475328-9d6baaf565cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
-  //   },
-  //  {
-  //    image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
-  //  },
-  //  ]
 
    var images = imageuri.map(x => ({ 
     image: x, 
