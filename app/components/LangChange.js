@@ -15,12 +15,7 @@ export const LangChange = ({lngs, setlng}) => {
     // language() 
  }, [])
   const [it, setit] = useState(false);
-  // const language =(lng)=>{
-  //     // setslng(lng)
-  //     RNRestart.Restart()
-  //   String.setLanguage(lng);
-  //   setlng(!lngs);
-  // }
+  
   const onChangeLanguage = (lng) => {
     if (lng ==='en') {
       // RNRestart.Restart()
@@ -40,7 +35,7 @@ export const LangChange = ({lngs, setlng}) => {
    
   return (
     <SafeAreaView style={{margin: 10}}>
-      <Picker styles={{bac}}
+      <Picker style={styles.picker}
             items={[
               {label: 'English', value: 'en'},
               {label: 'Italian', value: 'it'},
@@ -57,5 +52,8 @@ export const LangChange = ({lngs, setlng}) => {
 const styles = StyleSheet.create({
   btns: {
     justifyContent: 'space-around',
+  },
+  picker:{
+  backgroundColor:'blue'
   },
 });

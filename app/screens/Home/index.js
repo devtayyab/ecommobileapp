@@ -45,12 +45,7 @@ function Home({ getProducts$, getProductsList$, addToCart$, navigation, products
   };
   return (
     <Container isScrollable style={styles.container}> 
-      <View style={{display:'flex',flexDirection:'row',justifyContent:'flex-end'}}>
-        <View></View>
       <Text style={styles.appName}>{String.weekend}</Text>
-      {/* <LangChange lngs={lngs} setlng={(lng) => setlng(lng)} /> */}
-      </View>
-
       <View style={{ paddingVertical: scale(0) }}>
         <RenderTitle heading={String.category} />
         <FlatList

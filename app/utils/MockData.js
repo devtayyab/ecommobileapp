@@ -160,11 +160,11 @@ export const profileKeys = [
     icon: 'list',
     route: 'Announcement'
   },
-  {
-    lebel: String.language,
-    icon: 'list',
-    route: "LanguageSetting"
-  },
+  // {
+  //   lebel: String.language,
+  //   icon: 'list',
+  //   route: "LanguageSetting"
+  // },
   {
     lebel: String.signout,
     icon: "log-out",
